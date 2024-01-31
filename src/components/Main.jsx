@@ -41,9 +41,6 @@ const Main = () => {
         <div className="swiper">
           <div className="container">
             <Storis token={token} />
-            <h1>ihsan</h1>
-            <h1>ihsan</h1>
-            <h1>ihsan</h1>
           </div>
           <div className="container">
             {token ? (
