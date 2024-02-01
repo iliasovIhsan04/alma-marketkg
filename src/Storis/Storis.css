@@ -31,11 +31,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 86px;
-  height: 86px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid linear-gradient(162deg, rgba(238,18,123,1) 0%, rgba(69,41,236,1) 100%);;
+  border: 3px solid
+    linear-gradient(162deg, rgba(238, 18, 123, 1) 0%, rgba(69, 41, 236, 1) 100%);
   background: rgb(238, 18, 123);
   background: linear-gradient(
     162deg,

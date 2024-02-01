@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import more_left from "../img/more-left.svg";
 import { url } from "../Api";
 
 const NewPromotions = () => {
@@ -28,7 +29,8 @@ const NewPromotions = () => {
               className="title_add t-custom"
               onClick={() => navigate("/promotion")}
             >
-              Смотреть все
+              Все
+              <img src={more_left} alt="" />
             </h4>
           </div>
           <div className="new_block_all">

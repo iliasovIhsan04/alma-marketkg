@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../style/css/App.css";
 import { useNavigate } from "react-router-dom";
 import logoalma from "../img/logo-alma.svg";
-import { HiArrowLongLeft } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
 import { ProducRedux } from "../Redux/reduser/ProducRedux";
+import more from "../img/more.svg";
 
 const Shop = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Shop = () => {
     <>
       <div className="nav">
         <div className="container nav_content">
-          <HiArrowLongLeft className="fi" onClick={() => navigate("/")} />
+          <img className="more_img" onClick={() => navigate("/")} src={more} alt="" />
           <img src={logoalma} alt="" />
           <div />
         </div>

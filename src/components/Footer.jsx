@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { LuBadgePercent } from "react-icons/lu";
 import { NavLink, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import home from "../img/home.svg";
 import home_red from "../img/home-red.svg";
-import catalog from "../img/catalog.svg";
+import catalog from "../img/Property1.svg";
 import catalog_red from "../img/catalog-red.svg";
 import card from "../img/card.svg";
 import profil_img from "../img/profile.svg";
@@ -14,7 +12,6 @@ import map_red_img from "../img/map-red.svg";
 import "../style/css/main.css";
 
 const Footer = () => {
-  const data = useSelector((state) => state.users);
   const [homes, setHomes] = useState(true);
   const [catalogs, setCatalogs] = useState(false);
   const [profile, setProfile] = useState(false);

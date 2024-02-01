@@ -62,14 +62,13 @@ a {
 
 .title_ha {
   color: #fff;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   line-height: normal;
-  margin: 15px 0 0 0;
 }
 .title_ha span {
   color: #fff;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   line-height: normal;
 }
@@ -375,6 +374,7 @@ label span {
 .scroll {
   width: 100%;
   overflow-x: scroll;
+  padding: 10px;
 }
 
 .scroll::-webkit-scrollbar-track {
@@ -398,6 +398,9 @@ label span {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 60px;
+  border-top: none !important;
 }
 
 button {
@@ -762,6 +765,10 @@ button {
 .navs_one {
   font-weight: 400;
   margin: 4px 0 0 0;
+}
+.more_img {
+  width: 24px !important;
+  height: 24px !important;
 }
 .qar {
   width: 100%;
@@ -1248,8 +1255,8 @@ select {
   cursor: pointer;
 }
 .title_one {
-  font-size: 14px;
-  color: #000;
+  font-size: 18px;
+  color: #191919;
   font-weight: 400;
 }
 

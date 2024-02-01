@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { HiArrowLongLeft, HiOutlineArrowsUpDown } from "react-icons/hi2";
+import { HiArrowLongLeft } from "react-icons/hi2";
 import { BsSearch } from "react-icons/bs";
-import { FiFilter } from "react-icons/fi";
+import more from "../img/more.svg";
+import filter_img from "../img/filter.svg";
+import transfer from "../img/transfer-data.svg";
 import "../style/css/modal.css";
 import { url } from "../Api";
 import Loading from "../UI/Loading/Loading";
@@ -19,7 +21,6 @@ const ShopDetail = ({ data, setData }) => {
   const [lastClicked, setLastClicked] = useState("dataClicks");
   const navigate = useNavigate();
   const [sub_cat, setSubCat] = useState(0);
-  const [title, setTitle] = useState("");
   const [filter, setFilter] = useState(false);
   const [filters, setFilters] = useState(false);
   const [search, setSearch] = useState(false);
@@ -181,15 +182,20 @@ const ShopDetail = ({ data, setData }) => {
       <div id="modal">
         <div className="nav_line">
           <div className="container d-flex justify-content-between align-items-center ner">
-            <HiArrowLongLeft
+            <img
               className="fi"
+              src={more}
+              alt=""
               onClick={() => navigate("/shop-all/shop")}
             />
             <h4 className="title_h5 all_title_one">Каталог, товары</h4>
-            <BsSearch className="fi" onClick={() => setSearch(true)} />
+            <BsSearch
+              size={22}
+              style={{ color: "#191919" }}
+              onClick={() => setSearch(true)}
+            />
           </div>
           <div
-            style={{ padding: "18px", borderBottom: "0.5px solid #f4f4f4" }}
             className="container d-flex align-items-center scroll"
           >
             <div className="from_btn">
@@ -228,15 +234,17 @@ const ShopDetail = ({ data, setData }) => {
                 className="dnow d-flex align-items-center justify-content-center"
                 onClick={() => setFilters(true)}
               >
-                <FiFilter className="icons" />
+                <img className="icons" src={filter_img} alt="" />
                 <h6 className="title_one mt_one">Фильтр</h6>
               </div>
-              <div
-                className="dnow d-flex align-items-center justify-content-center"
-                onClick={() => setFilter(true)}
-              >
-                <HiOutlineArrowsUpDown className="icons" />
-                <h6 className="title_one mt_one">Сортировка</h6>
+              <div className="dnow d-flex align-items-center justify-content-center">
+                <img src={transfer} alt="" />
+                <h6
+                  className="title_one mt_one"
+                  onClick={() => setFilter(true)}
+                >
+                  Сортировка
+                </h6>
               </div>
             </div>
           </div>
@@ -336,7 +344,7 @@ const ShopDetail = ({ data, setData }) => {
                   <div className="all">
                     <h3 className="title_one mt">{el.title}</h3>
                     <div className="product-info">
-                      <div className="product-column column-top" >
+                      <div className="product-column column-top">
                         <span>1 {el.price_for}</span>
                         <h2 className="price old">
                           {el.old_price ? el.old_price : el.price} сом
@@ -356,7 +364,6 @@ const ShopDetail = ({ data, setData }) => {
           </div>
         </div>
       </div>
-
       {data.map((el) => (
         <div>
           {filter === true && (
