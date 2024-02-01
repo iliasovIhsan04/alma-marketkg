@@ -3,6 +3,7 @@ import "./Storis.css";
 import Stories from "react-insta-stories";
 import border from "../img/storis_border.svg";
 import bordering from "../img/bordering.svg";
+import { IoClose } from "react-icons/io5";
 
 const StorisContent = ({ data }) => {
   const [status, setStatus] = useState(false);
@@ -36,6 +37,7 @@ const StorisContent = ({ data }) => {
         {status ? (
           data ? (
             <div className="status">
+              <IoClose onClick={() => setStatus(false)} className="close" />
               <Stories
                 stories={data.stories}
                 width={"100%"}

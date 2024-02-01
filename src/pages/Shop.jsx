@@ -32,7 +32,7 @@ const Shop = () => {
               key={el.id}
               onClick={() => navigate(`/shop-all/shop/${el.id}`)}
             >
-              <h5 className="title_one">{el.name}</h5>
+              <h5 className="shop_name">{el.name}</h5>
               <div className="img_container">
                 <img src={el.img} alt="" />
               </div>

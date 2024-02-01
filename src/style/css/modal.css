@@ -6,6 +6,17 @@
   bottom: 0;
   background-color: #ffffff;
   width: 100%;
+  z-index: 99999;
+  animation: name 0.5s;
+}
+.modal_shop_all_block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F9F9F9;
+  width: 100%;
   z-index: 9999;
   animation: name 0.5s;
 }

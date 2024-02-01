@@ -8,7 +8,7 @@ import GetShot from "./GetShot";
 import NewPromotions from "../pages/NewPromotions";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
-import ReactPullToRefresh from "react-  -pull-to-refresh";
+import ReactPullToRefresh from "react-simple-pull-to-refresh";
 const Main = () => {
   const [user, setUser] = useState([]);
   const dispatch = useDispatch();

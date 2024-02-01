@@ -217,21 +217,22 @@ h6 {
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: #f9f9f9;
   z-index: 998;
   margin: 0 auto;
   border: 0.5px solid #f4f4f4;
 }
+.shop_details_modal {
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #f9f9f9;
+  z-index: 999999;
+}
 .dnow {
   width: 50%;
 }
-
-.dnow_one {
-  height: 47px;
-  width: 0.5px;
-  background: #f4f4f4;
-}
-
 .sapn {
   font-size: 16px;
   font-weight: 400;
@@ -269,20 +270,17 @@ label span {
   cursor: pointer;
   color: var(--orange);
 }
-
 .navs_one {
   font-weight: 400;
 }
-
 .qar {
   width: 100%;
 }
-
 .all_shop {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
   grid-auto-flow: dense;
   margin-top: 80px;
   padding-bottom: 90px;
@@ -290,19 +288,44 @@ label span {
 
 .all_shop .shops {
   width: 100%;
-  min-height: 140px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
+  min-height: 120px;
+  border-radius: 14px;
+  background: rgba(239, 210, 54, 0.2);
   padding: 10px;
   cursor: pointer;
   position: relative;
 }
-
-.row_one {
-  padding: 168px 0 30px 0;
-  height: 110%;
+.shops_block_all {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.shops_box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 258px;
   background: #ffffff;
+  padding: 10px;
+  border-radius: 15px;
+}
+.shop_name {
+  color: #191919;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.row_one {
+  padding: 190px 0 30px 0;
+  height: 100%;
+  width: 100%;
 }
 
 .row_two {
@@ -314,16 +337,14 @@ label span {
 .image-container {
   position: relative;
 }
-
 .all_shop .shops img {
   width: 80px;
   border-radius: 10px;
   display: flex;
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 0;
+  right: 0;
 }
-
 #modal_one {
   position: fixed;
   top: 0;
@@ -336,7 +357,6 @@ label span {
   z-index: 9999;
   animation: name 0.5s;
 }
-
 .parent_container {
   position: relative;
 }
@@ -344,8 +364,8 @@ label span {
 .btn_tabs {
   border: none;
   background: #f4f2f2;
-  color: #000;
-  font-size: 14px !important;
+  color: #191919;
+  font-size: 16px !important;
   font-weight: 400;
   border-radius: 15px !important;
   padding: 5px 10px;
@@ -461,25 +481,21 @@ button {
   justify-content: center;
 }
 .blocks {
-  width: 98%;
-  min-height: 40px;
+  width: 100%;
+  height: 168px;
   border: none;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
-  padding: 5px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
 }
 
 .blocks img {
-  /* width: 100%; */
-  height: 140px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 14px;
 }
 
 .date_img {
@@ -506,7 +522,6 @@ button {
 }
 .all h3 {
   color: #000;
-  height: 30px;
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
@@ -514,7 +529,7 @@ button {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   line-height: 1;
 }
 .mt {
@@ -526,7 +541,7 @@ button {
 .all h2 {
   text-align: right;
   font-size: 14px;
-  color: var(--orange);
+  color: #fe211f;
   font-weight: 600;
   margin: 0;
   line-height: 1;
@@ -873,16 +888,6 @@ button {
   border-bottom: 1px solid #cccccc;
   padding-bottom: 500px !important;
 }
-
-.row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0 * var(--bs-gutter-x));
-}
 .cart_price {
   position: fixed;
   bottom: 0px;
@@ -908,13 +913,11 @@ button {
   font-weight: 500;
   margin: 0 0 20px 0;
 }
-
 .line {
   width: 100%;
   height: 1px;
   background: #c9cacc;
 }
-
 .margin_top_all {
   border-radius: 50%;
   width: 45px;
@@ -927,7 +930,6 @@ button {
   position: absolute;
   margin: -20px 0 0 18px;
 }
-
 .margin_top_log {
   width: 35px;
   height: 35px;
@@ -938,27 +940,23 @@ button {
   justify-content: center;
   padding: 5px;
 }
-
 .dio {
   width: 85%;
   color: #ffffff;
 }
-
 .btn_tabs_active {
   border: none;
-  background: var(--orange);
+  background: var(--red);
   color: #ffffff;
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-weight: 400;
   border-radius: 15px !important;
   padding: 5px 10px;
   white-space: nowrap;
 }
-
 .block_shop {
   margin: 80px 0 0 0;
 }
-
 .search-button {
   height: 45px;
   margin: 30px auto;
@@ -975,31 +973,26 @@ button {
   justify-content: space-between;
   margin: 0 0 10px 0;
 }
-
 .project_product {
   font-size: 16px;
   font-weight: 400;
   color: #646363;
 }
-
 .main_left {
   margin: 0 20px 0 0;
 }
-
 .product_title {
   font-size: 20px;
   font-weight: 500;
   margin: 30px 0 5px 0;
   line-height: 1;
 }
-
 .price_data {
   color: var(--orange);
   font-weight: 600;
   font-size: 18px;
   line-height: 1;
 }
-
 .activation {
   display: flex;
   align-items: center;
@@ -1007,11 +1000,9 @@ button {
   flex-direction: column;
   margin-top: 102px;
 }
-
 .activation form {
   width: 100%;
 }
-
 .activation input {
   background: #e9ecef;
   border: none !important;
@@ -1262,10 +1253,6 @@ select {
   font-weight: 400;
 }
 
-.shops .title_one {
-  line-height: 1;
-}
-
 .sort-wrap .title_one {
   margin-bottom: 0;
 }
@@ -1313,7 +1300,9 @@ select {
   display: flex;
   flex-direction: column;
 }
-
+.column-top {
+  margin: 10px 0 5px 0 !important;
+}
 .product-column {
   display: flex;
   flex-direction: row;
@@ -1323,7 +1312,7 @@ select {
 }
 
 .product-column span {
-  color: #232323;
+  color: rgb(107, 107, 107);
   font-size: 12px;
   font-weight: 400;
   white-space: nowrap;
@@ -1335,7 +1324,7 @@ select {
 }
 
 .product-info .price.old {
-  color: #515151 !important;
+  color: #1e1e1e !important;
 }
 
 .product-column .card-text {

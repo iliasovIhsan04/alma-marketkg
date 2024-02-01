@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LuBadgePercent } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import home from "../img/home.svg";
 import home_red from "../img/home-red.svg";
 import catalog from "../img/catalog.svg";
 import catalog_red from "../img/catalog-red.svg";
 import card from "../img/card.svg";
-import profil from "../img/profile.svg";
+import profil_img from "../img/profile.svg";
 import profile_red from "../img/profile-red.svg";
+import map_alma_img from "../img/map-alma.svg";
+import map_red_img from "../img/map-red.svg";
 import "../style/css/main.css";
 
 const Footer = () => {
@@ -16,18 +18,39 @@ const Footer = () => {
   const [homes, setHomes] = useState(true);
   const [catalogs, setCatalogs] = useState(false);
   const [profile, setProfile] = useState(false);
-  const destination =
-    data?.user?.user_roll === "2" ? "/who-router/who-shop" : "/shop-all/shop";
+  const [mapAlma, setMapAlma] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname == "/") {
+      setHomes(true);
+      setCatalogs(false);
+      setProfile(false);
+      setMapAlma(false);
+    } else if (location.pathname == "/shop-all/shop") {
+      setCatalogs(true);
+      setMapAlma(false);
+      setProfile(false);
+      setHomes(false);
+    } else if (location.pathname == "/dashboard") {
+      setProfile(true);
+      setMapAlma(false);
+      setHomes(false);
+      setCatalogs(false);
+    } else if (location.pathname == "/promotion") {
+      setMapAlma(true);
+      setHomes(false);
+      setCatalogs(false);
+      setProfile(false);
+    } else {
+    }
+  }, [location.pathname]);
+
   return (
     <div id="footer">
       <div className="container">
         <div className="nav_footer">
-          <div
-            className="flex_block"
-            onClick={() => {
-              setCatalogs(false) || setProfile(false) || setHomes(true);
-            }}
-          >
+          <div className="flex_block">
             <NavLink
               to="/"
               exact="true"
@@ -41,17 +64,12 @@ const Footer = () => {
               <span>Главная</span>
             </NavLink>
           </div>
-          <div
-            className="flex_block"
-            onClick={() => {
-              setCatalogs(true) || setHomes(false) || setProfile(false);
-            }}
-          >
+          <div className="flex_block">
             <NavLink
-              to={destination}
+              to="/shop-all/shop"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {home === false || profil === false || catalogs === true ? (
+              {catalogs === true ? (
                 <img className="fi ai" src={catalog_red} alt="" />
               ) : (
                 <img className="fi ai" src={catalog} alt="" />
@@ -75,24 +93,23 @@ const Footer = () => {
               to="/promotion"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <LuBadgePercent className="fi ai" />
+              {mapAlma === true ? (
+                <img className="fi ai" src={map_red_img} alt="" />
+              ) : (
+                <img className="fi ai" src={map_alma_img} alt="" />
+              )}
               <span>Акции</span>
             </NavLink>
           </div>
-          <div
-            className="flex_block"
-            onClick={() => {
-              setProfile(true) || setHomes(false) || setCatalogs(false);
-            }}
-          >
+          <div className="flex_block">
             <NavLink
               to="/dashboard"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {home === false || catalogs === false || profil === true ? (
+              {profile === true ? (
                 <img className="fi ai" src={profile_red} alt="" />
               ) : (
-                <img className="fi ai" src={profil} alt="" />
+                <img className="fi ai" src={profil_img} alt="" />
               )}
               <span>Профиль</span>
             </NavLink>
