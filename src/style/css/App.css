@@ -278,7 +278,8 @@ label span {
 .all_shop {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   grid-auto-flow: dense;
   margin-top: 80px;
@@ -287,7 +288,7 @@ label span {
 
 .all_shop .shops {
   width: 100%;
-  min-height: 120px;
+  min-height: 125px;
   border-radius: 14px;
   background: rgba(239, 210, 54, 0.2);
   padding: 10px;
@@ -485,25 +486,35 @@ button {
 }
 .blocks {
   width: 100%;
-  height: 168px;
+  height: 320px !important;
   border: none;
+  border-radius: 14px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.blocks img {
+.blocks_product {
   width: 100%;
-  height: 100%;
+  height: 300px;
+  border: none !important;
+  border-radius: 14px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blocks_product img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 14px;
+}
+.blocks img {
+  width: 100% !important;
+  height: 100% !important;
   object-fit: contain;
   object-position: center;
   border-radius: 14px;
-}
-
-.date_img {
-  width: 100% !important;
-  height: 100% !important;
 }
 
 .hover_blocks {
@@ -962,7 +973,7 @@ button {
   white-space: nowrap;
 }
 .block_shop {
-  margin: 80px 0 0 0;
+  margin: 65px 0 0 0;
 }
 .search-button {
   height: 45px;
@@ -985,6 +996,11 @@ button {
   font-weight: 400;
   color: #646363;
 }
+.price_alma_product {
+  font-size: 14px !important;
+  color: rgb(170, 170, 170) !important;
+  margin-bottom: 7px !important;
+}
 .main_left {
   margin: 0 20px 0 0;
 }
@@ -993,6 +1009,21 @@ button {
   font-weight: 500;
   margin: 30px 0 5px 0;
   line-height: 1;
+}
+.nmb {
+  font-size: 14px !important;
+  color: rgb(107, 107, 107);
+}
+.price_old_alma {
+  font-size: 20px;
+  color: rgb(25, 25, 25);
+  font-weight: 500;
+}
+.alma_price_color {
+  color: var(--red);
+}
+.title_alma_product {
+  font-size: 18px !important;
 }
 .price_data {
   color: var(--orange);

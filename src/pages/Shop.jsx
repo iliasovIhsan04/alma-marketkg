@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../style/css/App.css";
 import { useNavigate } from "react-router-dom";
 import logoalma from "../img/logo-alma.svg";
@@ -19,7 +19,12 @@ const Shop = () => {
     <>
       <div className="nav">
         <div className="container nav_content">
-          <img className="more_img" onClick={() => navigate("/")} src={more} alt="" />
+          <img
+            className="more_img"
+            onClick={() => navigate("/")}
+            src={more}
+            alt=""
+          />
           <img src={logoalma} alt="" />
           <div />
         </div>

@@ -337,7 +337,7 @@ p {
 
 .special_offers {
   margin-bottom: 100px;
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 .title_top {
@@ -349,12 +349,56 @@ p {
   display: flex;
   justify-content: space-between;
 }
-
+.alma_detail_id_block {
+  margin: 70px 0 0 0;
+}
+.alma_detail_date {
+  display: flex;
+  justify-content: space-between;
+}
+.alma_detail_date span {
+  font-size: 16px;
+  font-weight: 500;
+}
+.date_cll1 {
+  color: rgb(25, 25, 25);
+}
+.date-cll2 {
+  color: rgb(220, 2, 0);
+}
+.alma_detail_img_block {
+  margin: 10px 0 0 0;
+  width: 100%;
+  height: 380px;
+  border-radius: 14px;
+}
+.alma_detail_img_block img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-position: center;
+  object-fit: cover;
+}
+.price_title_alma {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(25, 25, 25);
+  margin: 20px 0 0 0;
+}
+.price_text_alma {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(25, 25, 25);
+  margin-top: 10px;
+}
 .div_box {
   margin: 10px 0 0 0;
   width: 100%;
+  height: 380px;
 }
-
+.sp_box {
+  margin: 10px 0 0 0;
+}
 .special_image {
   width: 100%;
   height: 100%;
@@ -483,6 +527,11 @@ p {
   border-radius: 15px;
   object-fit: cover;
   object-position: center;
+}
+.alma_title_header {
+  font-size: 20px;
+  color: rgb(25, 25, 25);
+  font-weight: 500;
 }
 /* SpecialDetails */
 .new_promotions {

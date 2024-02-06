@@ -27,7 +27,7 @@ const GetShot = ({ token }) => {
                   onClick={() => navigate(`/get-shot-details-id/${el.id}`)}
                   className="special_box_blok"
                 >
-                  <div className="div_box special_details_box">
+                  <div className="sp_box special_details_box">
                     <img
                       className="special_image_block"
                       src={el.img}
