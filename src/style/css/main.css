@@ -20,16 +20,14 @@ p {
   padding-bottom: 50px;
 }
 .first_last_name_header {
-  font-size: 16px;
-  color: #fff;
-  font-weight: 400;
-  margin: 5px 0 0 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  line-height: 18px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  margin: 25px 0 0 0 !important;
+}
+.header_personals_alma img {
+  width: 77px;
+  height: 30px;
 }
 .bonus_block_all {
   display: flex;
@@ -209,22 +207,43 @@ p {
   opacity: 0;
   transition: opacity 0.3s ease-out;
 }
-
 .nav img {
   width: 20%;
 }
-
+.area_all_block {
+  width: 100%;
+  height: 112px;
+  background: #f5f7fa;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+.area_all_block_logauto {
+  width: 100%;
+  background: #f5f7fa;
+  padding: 10px;
+  border-radius: 14px;
+}
 .area_all {
   width: 100%;
-  padding: 10px;
-  background: white;
-  box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  margin: 0 0 20px 0;
+}
+/* .area_all:first-child {
+  border-bottom: 1px solid #aaaa;
+} */
+.header_personals_alma {
+  width: 100%;
+  height: 140px;
+  background: var(--red);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 30px 0 30px 0;
 }
 
 .a_class a {
@@ -232,7 +251,7 @@ p {
 }
 
 .one {
-  margin: 85px 0 30px 0;
+  margin: 40px 0 30px 0;
 }
 
 .area_all .bell {
@@ -240,18 +259,11 @@ p {
   align-items: center;
 }
 
-.area_all .bell h3 {
-  color: #000;
-  font-weight: 400;
-  font-size: 14px;
-  margin-left: 20px;
-}
-
 .bi {
   border-radius: 50%;
-  background: white;
-  width: 40px;
-  height: 40px;
+  background: var(--red);
+  width: 36px;
+  height: 36px;
   box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
@@ -260,7 +272,7 @@ p {
 
 .be {
   font-size: 21px;
-  color: var(--orange);
+  color: #ffffff;
 }
 
 .block {
@@ -1152,33 +1164,39 @@ input#file-upload-button {
 
 .acaunt_block_modal {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 15px;
-  /* margin-bottom: 20px; */
 }
 
 .acaunt_block_modal h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1;
+  margin-bottom: 15px;
 }
-
 .acaunt_block_modal p {
-  text-align: center;
+  font-size: 14px;
+  color: rgb(107, 107, 107);
   line-height: 1.2;
 }
-
+.btn_block_alma {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 .acaunt_block_modal button {
-  background: var(--orange);
-  color: #fff;
   border: none;
   margin-top: 15px;
   font-size: 16px;
   font-weight: 400;
 }
-
+.btn_cancellation {
+  color: rgb(25, 25, 25);
+  background: rgb(228, 228, 228);
+}
+.btn_come_in {
+  color: #fff;
+  background: var(--red);
+}
 .acaunt_block_modal h4 {
   font-size: 16px;
   font-weight: 400;

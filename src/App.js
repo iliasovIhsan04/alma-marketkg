@@ -23,6 +23,7 @@ import { url } from "./Api";
 import Notifications from "./pages/Notifications";
 import NotificationsDetail from "./pages/NotificationsDetail";
 import QrCode from "./pages/QrCode";
+import Locations from "./pages/Locations";
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
     open: false,
@@ -168,6 +169,7 @@ const App = () => {
                 element={<NotificationsDetail />}
               />
               <Route path="/qr-code" element={<QrCode />} />
+              <Route path="/locations" element={<Locations />} />
             </Routes>
             <Footer />
           </div>

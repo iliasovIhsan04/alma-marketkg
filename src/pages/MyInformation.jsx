@@ -8,6 +8,8 @@ import { url } from "../Api";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
+import more from "../img/more.svg";
 
 const dataSelect = {
   language: [
@@ -248,12 +250,10 @@ const MyInformation = ({ Alert }) => {
         <div id="modal">
           <div className="nav">
             <div className="container d-flex justify-content-between align-items-center ">
-              <HiArrowLongLeft
-                className="fi"
-                onClick={() => navigate("/dashboard")}
-              />
-              <p className="header_name">Персональные данные</p>
-              <TbFileSettings onClick={createPerson} className="fi" />
+              <img  className="more_img" onClick={() => navigate("/dashboard")} src={more} alt="" />
+              <p className="header_name">Мои данные</p>
+              {/* <TbFileSettings onClick={createPerson} className="fi" /> */}
+              <FaCheck />
             </div>
             <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div>
           </div>

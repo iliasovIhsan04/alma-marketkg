@@ -34,7 +34,7 @@ const Footer = () => {
       setMapAlma(false);
       setHomes(false);
       setCatalogs(false);
-    } else if (location.pathname == "/promotion") {
+    } else if (location.pathname == "/locations") {
       setMapAlma(true);
       setHomes(false);
       setCatalogs(false);
@@ -87,7 +87,7 @@ const Footer = () => {
           </div>
           <div className="flex_block">
             <NavLink
-              to="/promotion"
+              to="/locations"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               {mapAlma === true ? (
@@ -95,7 +95,7 @@ const Footer = () => {
               ) : (
                 <img className="fi ai" src={map_alma_img} alt="" />
               )}
-              <span>Акции</span>
+              <span>Локации</span>
             </NavLink>
           </div>
           <div className="flex_block">

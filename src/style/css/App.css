@@ -117,8 +117,11 @@ a {
   font-size: 14px;
   color: #000;
 }
-.mt-2 {
-  margin-top: 0px !important;
+.personal_title {
+  margin: 0 0 0 12px !important;
+  font-size: 16px;
+  color: rgb(25, 25, 25);
+  font-weight: 600;
 }
 
 h1,
@@ -282,7 +285,7 @@ label span {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   grid-auto-flow: dense;
-  margin-top: 80px;
+  margin-top: 70px;
   padding-bottom: 90px;
 }
 
