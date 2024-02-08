@@ -608,7 +608,9 @@ p {
   flex-direction: column;
   align-items: center;
 }
-
+.sup-top {
+  margin-top: 10px;
+}
 .key {
   position: absolute;
   top: -2px;
@@ -620,8 +622,10 @@ p {
 
 .support_text {
   width: 100%;
-  text-align: center;
-  margin-top: 50px;
+  height: 185px;
+  background: #f5f7fa;
+  border-radius: 14px;
+  padding: 16px;
 }
 
 .support_text h3 {
@@ -630,30 +634,24 @@ p {
 }
 
 .support_text p {
-  color: #777;
+  color: #6b6b6b;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
   margin-top: 5px;
 }
 
 .worker_box {
   align-items: center;
-  /* border: 7px solid #ff5c00; */
-  /* border-radius: 50%; */
   display: flex;
-  height: 200px;
   justify-content: center;
-  margin: 40px 0 0;
-  width: 230px;
+  margin: 50px 0 0;
 }
 
 .worker_box img {
-  /* border-radius: 50%; */
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  /* width: 100%; */
+  width: 210px;
+  height: 78px;
+  margin-bottom: 50px;
 }
 
 .to_contact {
@@ -661,10 +659,10 @@ p {
   display: grid;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-top: 30px;
-  gap: 10px;
+  margin-top: 20px;
+  gap: 20px;
   color: #ff5c00;
 }
 
@@ -680,9 +678,8 @@ p {
 .contact_box {
   border-radius: 50%;
   background: white;
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
+  width: 64px;
+  height: 64px;
   display: grid;
   align-items: center;
   justify-content: center;
