@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HiArrowLongLeft } from "react-icons/hi2";
 import { useNavigate } from "react-router";
-import { TbFileSettings } from "react-icons/tb";
 import IMask from "imask";
 import axios from "axios";
 import { url } from "../Api";
@@ -250,10 +248,24 @@ const MyInformation = ({ Alert }) => {
         <div id="modal">
           <div className="nav">
             <div className="container d-flex justify-content-between align-items-center ">
-              <img  className="more_img" onClick={() => navigate("/dashboard")} src={more} alt="" />
+              <img
+                className="more_img"
+                onClick={() => navigate("/dashboard")}
+                src={more}
+                alt=""
+              />
               <p className="header_name">Мои данные</p>
-              {/* <TbFileSettings onClick={createPerson} className="fi" /> */}
-              <FaCheck />
+              <div>
+                {inputChanged ? (
+                  <FaCheck
+                    size={20}
+                    onClick={createPerson}
+                    style={{ color: "#DC0200" }}
+                  />
+                ) : (
+                  <FaCheck size={20} style={{ color: "#aaaaaa" }} />
+                )}
+              </div>
             </div>
             <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div>
           </div>
@@ -263,15 +275,14 @@ const MyInformation = ({ Alert }) => {
                 <>
                   <div className="input_form_block top">
                     <div className="input_box">
-                      <label>Номер телефона</label>
+                      <label>Имя</label>
                       <input
-                        disabled={true}
-                        id="phone"
                         className="input_form new_add_input"
-                        placeholder="996"
-                        value={info.phone}
+                        type="text"
+                        value={info.first_name}
                         onChange={(e) =>
-                          setInfo({ ...info, phone: e.target.value })
+                          setInfo({ ...info, first_name: e.target.value }) ||
+                          setInputChanged(true)
                         }
                       />
                     </div>
@@ -288,14 +299,15 @@ const MyInformation = ({ Alert }) => {
                       />
                     </div>
                     <div className="input_box">
-                      <label>Имя</label>
+                      <label>Номер телефона</label>
                       <input
+                        disabled={true}
+                        id="phone"
                         className="input_form new_add_input"
-                        type="text"
-                        value={info.first_name}
+                        placeholder="996"
+                        value={info.phone}
                         onChange={(e) =>
-                          setInfo({ ...info, first_name: e.target.value }) ||
-                          setInputChanged(true)
+                          setInfo({ ...info, phone: e.target.value })
                         }
                       />
                     </div>
@@ -304,6 +316,7 @@ const MyInformation = ({ Alert }) => {
                       <input
                         className="input_form new_add_input"
                         type="date"
+                        placeholder="Выберите дату рождения"
                         value={info.birthday}
                         onChange={(e) =>
                           setInfo({ ...info, birthday: e.target.value }) ||

@@ -255,7 +255,8 @@ h6 {
 label {
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  color: rgb(25, 25, 25);
 }
 
 label span {
@@ -1173,10 +1174,11 @@ select {
 }
 
 .select_arrow {
-  font-size: 30px;
+  font-size: 25px;
   position: absolute;
-  top: 32px;
+  top: 37px;
   right: 6px;
+  color: #aaaaaa;
 }
 
 .hover_btn {

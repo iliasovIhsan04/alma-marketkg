@@ -214,7 +214,6 @@ p {
   width: 100%;
   height: 112px;
   background: #f5f7fa;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -224,7 +223,6 @@ p {
 .area_all_block_logauto {
   width: 100%;
   background: #f5f7fa;
-  padding: 10px;
   border-radius: 14px;
 }
 .area_all {
@@ -233,10 +231,11 @@ p {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  padding: 10px;
 }
-/* .area_all:first-child {
+.area_all:first-child {
   border-bottom: 1px solid #aaaa;
-} */
+}
 .header_personals_alma {
   width: 100%;
   height: 140px;
@@ -921,10 +920,8 @@ input#file-upload-button {
 }
 
 .settings_title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 2px !important;
-  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .green {
@@ -932,14 +929,14 @@ input#file-upload-button {
 }
 
 .settings_kart {
-  color: #777;
+  color: rgb(107, 107, 107);
   font-size: 14px;
   letter-spacing: 0.5px;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .akaunt_remove {
-  color: red;
+  color: rgb(220, 2, 0);
   margin-top: 20px;
   cursor: pointer;
 }
@@ -1031,7 +1028,7 @@ input#file-upload-button {
 
 .new_add_input {
   border: none !important;
-  background: #e9ecef;
+  background: rgb(242, 242, 242);
 }
 
 .new_button {
@@ -1292,8 +1289,9 @@ input#file-upload-button {
 }
 
 .header_name {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
+  color: rgb(25, 25, 25);
 }
 
 .come_in {

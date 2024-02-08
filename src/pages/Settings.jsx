@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { HiArrowLongLeft } from "react-icons/hi2";
 import { useNavigate } from "react-router";
-import { TbFileSettings } from "react-icons/tb";
 import axios from "axios";
 import { url } from "../Api";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
+import { FaCheck } from "react-icons/fa6";
+import more from "../img/more.svg";
 
 const Settings = ({ Alert }) => {
   const [openModalSetting, setOpenModalSetting] = useState(false);
@@ -25,7 +25,6 @@ const Settings = ({ Alert }) => {
     dispatch(auth());
   }, [dispatch]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [receiveEmails, setReceiveEmails] = useState(false);
   const [inputInfo, setInputInfo] = useState({
     email: "",
     notification: true,
@@ -105,83 +104,70 @@ const Settings = ({ Alert }) => {
       <div className="settings">
         <div className="nav">
           <div className="container d-flex justify-content-between align-items-center ">
-            <HiArrowLongLeft onClick={() => navigate(-1)} className="fi" />
+            <img
+              className="more_img"
+              onClick={() => navigate(-1)}
+              src={more}
+              alt=""
+            />
             <p className="header_name">Настройки</p>
-            <TbFileSettings className="fi" onClick={handleSubmit} />
-            <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div>
+            <div>
+              {inputChanged ? (
+                <FaCheck
+                  size={20}
+                  onClick={handleSubmit}
+                  style={{ color: "#DC0200" }}
+                />
+              ) : (
+                <FaCheck size={20} style={{ color: "#aaaaaa" }} />
+              )}
+            </div>
           </div>
+          <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div>
         </div>
         <div className="container">
           <div className="settings_block">
-            <h5 className="settings_title">Уведомления</h5>
-            <div className="toggle_block">
-              <p>Получать уведомления</p>
-              <label className="switch">
-                <input
-                  onClick={() =>
-                    setInputInfo({
-                      ...inputInfo,
-                      notification: !inputInfo.notification,
-                    }) || setInputChanged(true)
-                  }
-                  type="checkbox"
-                  checked={inputInfo.notification}
-                />
-                <span className="slider_toggle round"></span>
-              </label>
-            </div>
-            <div className="toggle_block">
-              <p>Получать письма на email</p>
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  checked={receiveEmails}
-                  onChange={() => {
-                    setReceiveEmails(!receiveEmails);
-                    setInputChanged(true);
-                  }}
-                />
-                <span className="slider_toggle round"></span>
-              </label>
-            </div>
-            <div>
-              {receiveEmails && (
-                <div>
+            <div className="toggle_block_alma">
+              <div className="block_yr">
+                <p className="settings_title">Уведомления</p>
+                <label className="switch">
                   <input
-                    className="toggle_block"
-                    style={{ outline: "none", border: "none" }}
-                    type="text"
-                    placeholder="email"
-                    value={inputInfo.email}
-                    onChange={(e) =>
+                    onClick={() =>
                       setInputInfo({
                         ...inputInfo,
-                        email: e.target.value,
-                      })
+                        notification: !inputInfo.notification,
+                      }) || setInputChanged(true)
                     }
+                    type="checkbox"
+                    checked={inputInfo.notification}
                   />
-                </div>
-              )}
+                  <span className="slider_toggle round"></span>
+                </label>
+              </div>
+              <p className="settings_kart">
+                Получайте уведомления об акциях и социальных предложениях
+              </p>
             </div>
-            <h5 className="settings_title">Настройки приложения</h5>
-            <p className="settings_kart">
-              Автояркость нужна для корректного считывания штрихкода
-            </p>
-            <div className="toggle_block">
-              <p>Включить автояркость</p>
-              <label className="switch">
-                <input
-                  onClick={() =>
-                    setInputInfo({
-                      ...inputInfo,
-                      auto_brightness: !inputInfo.auto_brightness,
-                    }) || setInputChanged(true)
-                  }
-                  type="checkbox"
-                  checked={inputInfo.auto_brightness}
-                />
-                <span className="slider_toggle round"></span>
-              </label>
+            <div className="toggle_block_alma">
+              <div className="block_yr">
+                <p className="settings_title">Автояркость</p>
+                <label className="switch">
+                  <input
+                    onClick={() =>
+                      setInputInfo({
+                        ...inputInfo,
+                        auto_brightness: !inputInfo.auto_brightness,
+                      }) || setInputChanged(true)
+                    }
+                    type="checkbox"
+                    checked={inputInfo.auto_brightness}
+                  />
+                  <span className="slider_toggle round"></span>
+                </label>
+              </div>
+              <p className="settings_kart">
+                Получайте уведомления об акциях и социальных предложениях
+              </p>
             </div>
             <h5
               className="settings_title akaunt_remove"
@@ -193,9 +179,22 @@ const Settings = ({ Alert }) => {
               <div className="filters_oll" onClick={closeOpenModal}>
                 <div className="order">
                   <div className="acaunt_block_modal">
-                    <h3>Вы действительно хотите удалить?</h3>
-                    <button onClick={deleteAccount}>Да</button>
-                    <h4>Нет</h4>
+                    <h3>Удалить аккаунт?</h3>
+                    <p>
+                      Ваш аккаунт удалится насвегда, и вам придется заново
+                      зарегистрироваться
+                    </p>
+                    <div className="btn_block_alma">
+                      <button
+                        onClick={closeOpenModal}
+                        className="btn_cancellation"
+                      >
+                        Отмена
+                      </button>
+                      <button className="btn_come_in" onClick={deleteAccount}>
+                        Удалить
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
