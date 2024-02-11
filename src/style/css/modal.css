@@ -9,6 +9,17 @@
   z-index: 99999;
   animation: name 0.5s;
 }
+.notification_modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f5f7fa;
+  width: 100%;
+  z-index: 999;
+  animation: name 0.5s;
+}
 .modal_shop_all_block {
   position: absolute;
   top: 0;

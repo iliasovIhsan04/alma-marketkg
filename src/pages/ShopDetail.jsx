@@ -339,10 +339,9 @@ const ShopDetail = ({ data, setData }) => {
                     onClick={() => navigate(`/shop-all/product/${el.id}`)}
                   >
                     <img src={el.img} alt="" />
-                    {localStorage.getItem(`activePlus_${el.id}`) === `${el.id}`}
                   </div>
                   <div className="all">
-                    <h3 className="title_one mt">{el.title}</h3>
+                    <h3 className="title_one ">{el.title}</h3>
                     <div className="product-info">
                       <div className="product-column column-top">
                         <span>1 {el.price_for}</span>

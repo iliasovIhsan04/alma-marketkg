@@ -2,11 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../style/css/main.css";
 import "../style/css/App.css";
 import "../style/css/modal.css";
-import { IoIosArrowForward } from "react-icons/io";
-import { FiUser } from "react-icons/fi";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { IoSettingsOutline } from "react-icons/io5";
-import { BsQuestionCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import vector5 from "../img/Vector5.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +12,7 @@ import setting from "../img/setting-two.svg";
 import help from "../img/help-color.svg";
 import info from "../img/info-color.svg";
 import logout from "../img/logout.svg";
+import line from "../img/Line 8.svg";
 
 const PersonalArea = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -48,33 +44,6 @@ const PersonalArea = () => {
   }, [dispatch]);
   return (
     <>
-      {/* <div className="nav">
-        <div className="container nav_content">
-          <HiArrowLongLeft className="fi" onClick={() => navigate("/")} />
-          <img src={bekbekei} alt="" />
-          <HiMiniArrowRightOnRectangle
-            className="fi"
-            onClick={() => isOpenModal()}
-          />
-        </div>
-        {openModal === true && (
-          <div className="filters_oll" onClick={closeOpenModal}>
-            <div className="order">
-              <div className="acaunt_block_modal">
-                <h3>Выйти из аккаунта?</h3>
-                <button
-                  onClick={() =>
-                    localStorage.removeItem("token") || navigate("/to-come-in")
-                  }
-                >
-                  Да, я выйду
-                </button>
-                <h4>Нет, я останусь</h4>
-              </div>
-            </div>
-          </div>
-        )}
-      </div> */}
       <div className="header_personals_alma">
         <div className="container">
           <img src={vector5} alt="" />
@@ -104,7 +73,11 @@ const PersonalArea = () => {
                 <img src={more_left} alt="" />
               </div>
             </div>
-            <img src="" alt="" />
+            <img
+              style={{ width: "294px", marginLeft: "auto" }}
+              src={line}
+              alt=""
+            />
             <div className="area_all" onClick={() => navigate(`/settings`)}>
               <div className="bell">
                 <div className="bi">
@@ -129,6 +102,11 @@ const PersonalArea = () => {
                 <img src={more_left} alt="" />
               </div>
             </div>
+            <img
+              style={{ width: "294px", marginLeft: "auto" }}
+              src={line}
+              alt=""
+            />
             <div onClick={() => navigate(`/application`)} className="area_all">
               <div className="bell">
                 <div className="bi">

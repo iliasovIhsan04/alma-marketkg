@@ -23,7 +23,7 @@ const ToHelpPage = () => {
               src={more}
               alt=""
             />
-            <p className="header_name">Настройки</p>
+            <p className="header_name">Помощь</p>
             <div></div>
           </div>
         </div>

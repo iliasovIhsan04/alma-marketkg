@@ -233,9 +233,9 @@ p {
   cursor: pointer;
   padding: 10px;
 }
-.area_all:first-child {
+/* .area_all:first-child {
   border-bottom: 1px solid #aaaa;
-}
+} */
 .header_personals_alma {
   width: 100%;
   height: 140px;
@@ -1400,23 +1400,19 @@ input#file-upload-button {
 
 .notificatios_block {
   width: 100%;
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 .notifications_box {
   width: 100%;
-  min-height: 85px;
+  min-height: 110px;
   background-color: #fff;
-  border-bottom: 1px solid rgba(17, 23, 29, 0.142);
   display: flex;
   align-items: center;
-  padding: 10px 0px 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 14px;
 }
-
-.notifications_box:first-child {
-  border-top: 1px solid rgba(17, 23, 29, 0.142);
-}
-
 .notification_index {
   width: 100%;
   display: flex;
