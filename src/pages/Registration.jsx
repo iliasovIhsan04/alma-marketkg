@@ -73,26 +73,24 @@ const Registration = ({ Alert }) => {
       <div className="registration_phone">
         <div className="nav">
           <div className="container d-flex justify-content-between align-items-center ">
-            <HiArrowLongLeft className="fi" onClick={() => navigate(-1)} />
-            <img className="images" src={bekbekei} alt="Бекбекей" />
-            <LiaQuestionCircleSolid
-              className="fi"
-              onClick={() => navigate("/personal/to-help-page")}
-            />
+            <p></p>
+            <h1 className="regis_titl">Регистрация</h1>
+            <p></p>
           </div>
         </div>
         <div className="container">
           <div className="phone_block_all">
+            <p className="registration_rules">
+              Зарегистрировавшись у вас создается карта, с помощью которой
+            </p>
             <div className="phone_block pb-4">
-              <h1>Регистрация</h1>
               <form onSubmit={handleSubmit}>
                 <div className="input_box">
-                  <label>
-                    Имя <span>*</span>
-                  </label>
+                  <label>Имя</label>
                   <input
                     className="input_form new_add_input"
                     type="text"
+                    placeholder="Введите имя"
                     value={userData.first_name}
                     onChange={(e) =>
                       setUserData({
@@ -106,12 +104,11 @@ const Registration = ({ Alert }) => {
                   )}
                 </div>
                 <div className="input_box">
-                  <label>
-                    Фaмилия <span>*</span>
-                  </label>
+                  <label>Фaмилия</label>
                   <input
                     className="input_form new_add_input"
                     type="text"
+                    placeholder="Введите фамилия"
                     value={userData.last_name}
                     onChange={(e) =>
                       setUserData({
@@ -123,9 +120,7 @@ const Registration = ({ Alert }) => {
                   {error.last_name && <p className="red">{error.last_name}</p>}
                 </div>
                 <div className="input_box">
-                  <label>
-                    Номер телефона <span>*</span>
-                  </label>
+                  <label>Номер телефона</label>
                   <InputMask
                     className="input_form new_add"
                     mask={"+996 (999) 99-99-99"}
@@ -145,12 +140,11 @@ const Registration = ({ Alert }) => {
                   </InputMask>
                 </div>
                 <div className="input_box">
-                  <label>
-                    Пароль <span>*</span>
-                  </label>
+                  <label>Пароль</label>
                   <input
                     className="input_form new_add_input"
                     type={visible ? "text" : "password"}
+                    placeholder="Введите пароль"
                     value={userData.password}
                     onChange={(e) =>
                       setUserData({
@@ -168,12 +162,11 @@ const Registration = ({ Alert }) => {
                   {error.password && <p className="red">{error.password}</p>}
                 </div>
                 <div className="input_box">
-                  <label>
-                    Повторите пароль <span>*</span>
-                  </label>
+                  <label>Повторите пароль</label>
                   <input
                     className="input_form new_add_input"
                     type={visible2 ? "text" : "password"}
+                    placeholder="Повторите пароль"
                     value={userData.confirm_password}
                     onChange={(e) =>
                       setUserData({

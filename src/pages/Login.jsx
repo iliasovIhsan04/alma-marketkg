@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { HiArrowLongLeft } from "react-icons/hi2";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../Redux/slice/UserSlice";
 import Loading from "../UI/Loading/Loading";
-import { LiaQuestionCircleSolid } from "react-icons/lia";
 import { url } from "../Api";
 import axios from "axios";
+import more from "../img/more.svg";
 import {
   registerFailure,
   registerSuccess,
@@ -75,20 +74,20 @@ const Login = ({ Alert }) => {
       <div className="login">
         <div className="nav">
           <div className="container d-flex justify-content-between align-items-center ">
-            <HiArrowLongLeft className="fi" onClick={() => navigate(-1)} />
-            <p className="header_name">Войти</p>
-            <LiaQuestionCircleSolid
-              className="fi"
-              onClick={() => navigate("/personal/to-help-page")}
+            <img
+              className="more_img"
+              onClick={() => navigate(-1)}
+              src={more}
+              alt=""
             />
+            <h1 className="regis_titl">Войти</h1>
+            <p></p>
           </div>
         </div>
         <div className="container">
           <form className="login_block pb-4" onSubmit={handleLoginEvent}>
             <div className="input_box">
-              <label>
-                Номер телефона <span>*</span>
-              </label>
+              <label>Номер телефона</label>
               <InputMask
                 className="input_form new_add_input"
                 mask="+996 (999) 99-99-99"
@@ -106,9 +105,7 @@ const Login = ({ Alert }) => {
               </InputMask>
             </div>
             <div className="input_box">
-              <label>
-                Пароль <span>*</span>
-              </label>
+              <label>Пароль</label>
               <input
                 className="input_form new_add_input"
                 type={visible ? "text" : "password"}
@@ -125,7 +122,7 @@ const Login = ({ Alert }) => {
               className="forgot_password"
               onClick={() => navigate("/personal/reset-the-password")}
             >
-              Забыли пароль?
+              Забыл(-a) пароль?
             </p>
             <button disabled={isLoading} type="submit" className="forgot_btn">
               {isLoading ? <Loading /> : "Войти"}

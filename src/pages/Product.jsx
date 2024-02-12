@@ -45,7 +45,7 @@ const Product = () => {
           <div className="all_alls mb-0 overflow-hidden">
             <p className="project_product price_alma_product">Артикул:</p>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <span className="nmb">{datas.barrcode}</span>
+              <span className="nmb">{datas.code}</span>
             </div>
           </div>
           <div className="all_alls mb-0 overflow-hidden">

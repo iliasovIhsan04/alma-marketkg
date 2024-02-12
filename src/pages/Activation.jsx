@@ -1,10 +1,8 @@
 import React from "react";
-import { HiArrowLongLeft } from "react-icons/hi2";
-import bekbekei from "../img/bekbekei-h-logo.svg";
-import { LiaQuestionCircleSolid } from "react-icons/lia";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import Loading from "../UI/Loading/Loading";
+import more from "../img/more.svg";
 import {
   registerFailure,
   registerSuccess,
@@ -71,23 +69,26 @@ const Activation = ({ Alert }) => {
     <div id="modal">
       <div className="nav">
         <div className="container d-flex justify-content-between align-items-center ">
-          <HiArrowLongLeft className="fi" onClick={() => navigate(-1)} />
-          <img className="images" src={bekbekei} alt="Бекбекей" />
-          <LiaQuestionCircleSolid
-            className="fi"
-            onClick={() => navigate("/personal/to-help-page")}
+          <img
+            className="more_img"
+            onClick={() => navigate(-1)}
+            src={more}
+            alt=""
           />
+          <h1 className="regis_titl">Код подверждения</h1>
+          <p></p>
         </div>
       </div>
       <div className="container">
         <div className="activation">
           <p>Введитe код подтверждения из CMC</p>
           <form onSubmit={handleSubmit}>
+            <label className="confirmation_label">Код подверждения</label>
             <input
               style={{ textAlign: "center" }}
-              className="input_form"
+              className="input_form confirm_input"
               value={code}
-              type="number"
+              type="text"
               placeholder="Введите код"
               onChange={(e) => setCode(e.target.value)}
             />
@@ -101,7 +102,7 @@ const Activation = ({ Alert }) => {
               {loading ? <Loading /> : "Подтвердить"}
             </button>
             <button onClick={handleCode} className="repeat_the_code_btn">
-              Отправить снова код
+              Отправить снова
             </button>
           </form>
         </div>

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { HiArrowLongLeft } from "react-icons/hi2";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../UI/Loading/Loading";
-import { LiaQuestionCircleSolid } from "react-icons/lia";
 import InputMask from "react-input-mask";
 import axios from "axios";
 import { url } from "../Api";
+import more from "../img/more.svg";
+
 import {
   registerFailure,
   registerSuccess,
@@ -54,21 +54,21 @@ const ResetThePassword = ({ Alert }) => {
     <div className="reset_the_password">
       <div className="nav">
         <div className="container d-flex justify-content-between align-items-center ">
-          <HiArrowLongLeft className="fi" onClick={() => navigate(-1)} />
-          <p className="header_name">Сбросить пароль</p>
-          <LiaQuestionCircleSolid
-            className="fi"
-            onClick={() => navigate("/personal/to-help-page")}
+          <img
+            className="more_img"
+            onClick={() => navigate(-1)}
+            src={more}
+            alt=""
           />
+          <h1 className="regis_titl">Сбросить пароль</h1>
+          <p></p>
         </div>
       </div>
       <div className="container">
         <form className="reset_password_block" onSubmit={handleForgotEvent}>
           <p className="py-2">Вам будет отправлено сообщение с новым паролем</p>
           <div className="input_box">
-            <label>
-              Номер телефона <span>*</span>
-            </label>
+            <label>Номер телефона</label>
             <InputMask
               className="input_form new_add_input"
               mask="+996 (999) 99-99-99"
