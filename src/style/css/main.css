@@ -1408,10 +1408,37 @@ input#file-upload-button {
   min-height: 110px;
   background-color: #fff;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 14px;
+  gap: 5px;
+}
+.notifications_box p,
+.notifications_box span {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(107, 107, 107);
+  line-height: 1.2;
+}
+.noti_title_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+.noti_title_block h2 {
+  margin-bottom: 0px !important;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(25, 25, 25);
+  width: 330px;
+}
+.noti_active {
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
 }
 .notification_index {
   width: 100%;

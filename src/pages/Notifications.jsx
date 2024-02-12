@@ -1,9 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { IoIosMegaphone } from "react-icons/io";
 import { url } from "../Api";
 import { useNavigate } from "react-router";
-import korzina from "../img/korzina.jpeg";
 import more from "../img/more.svg";
 
 const Notifications = () => {
@@ -40,44 +38,24 @@ const Notifications = () => {
         </div>
       </div>
       <div className="shop_details_madal">
-        {loading ? (
-          ""
-        ) : (
-          <>
-            {notify.length > 0 ? (
-              <div className="notificatios_block">
-                <div className="container">
-                  {notify.map((el) => (
-                    <div
-                      className="notifications_box"
-                      key={el.id}
-                      onClick={() =>
-                        navigate(`/notifications-details/${el.id}`)
-                      }
-                    ></div>
-                  ))}
+        <div className="notificatios_block">
+          <div className="container">
+            {notify.map((el) => (
+              <div
+                className="notifications_box"
+                key={el.id}
+                onClick={() => navigate(`/notifications-details/${el.id}`)}
+              >
+                <div className="noti_title_block">
+                  <h2>{el.title} </h2>
+                  <div className="noti_active"></div>
                 </div>
+                <p>{el.description}</p>
+                <span>{el.date}</span>
               </div>
-            ) : (
-              <div className="container">
-                <div className="ionic ionic_block">
-                  <div></div>
-                  <div className="ionic_box1">
-                    <img src={korzina} alt="" />
-                    <h3>Бул жер азырынча бош</h3>
-                    <p>Бул жерде сизге жаны жаңылыктар көрсөтүлөт</p>
-                  </div>
-                  <button className="ionic_button">
-                    <h5 className="ionic_button_text">Тарыхты көрсөтүү</h5>
-                    <p className="ionic_button_date">
-                      01.10.2023 дан 31.10.2023 чейин
-                    </p>
-                  </button>
-                </div>
-              </div>
-            )}
-          </>
-        )}
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

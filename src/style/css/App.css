@@ -212,7 +212,6 @@ h6 {
   margin: 20px 0 0 0;
   font-weight: 300;
 }
-
 .nav_line {
   width: 100%;
   position: fixed;
@@ -225,7 +224,7 @@ h6 {
   border: 0.5px solid #f4f4f4;
 }
 .nav_notification {
-  background: #F5F7FA;
+  background: #f5f7fa;
 }
 .shop_details_modal {
   width: 100%;
@@ -243,34 +242,28 @@ h6 {
   font-weight: 400;
   color: var(--orange);
 }
-
 .all_title {
   width: 0 !important;
   font-weight: 400 !important;
   margin: -2px 100px 0 0;
 }
-
 .btn {
   width: 100%;
   background: #ff640d;
 }
-
 label {
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 5px;
   color: rgb(25, 25, 25);
 }
-
 label span {
   font-size: 14px;
   color: red;
 }
-
 .images {
   width: 20%;
 }
-
 .fi {
   font-size: 25px;
   cursor: pointer;
@@ -292,12 +285,10 @@ label span {
   margin-top: 70px;
   padding-bottom: 90px;
 }
-
 .all_shop .shops {
   width: 100%;
   min-height: 125px;
   border-radius: 14px;
-  background: rgba(239, 210, 54, 0.2);
   padding: 10px;
   cursor: pointer;
   position: relative;
@@ -334,7 +325,6 @@ label span {
   height: 100%;
   width: 100%;
 }
-
 .row_two {
   padding: 20px 0 30px 0;
   height: 110%;

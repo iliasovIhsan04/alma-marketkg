@@ -33,6 +33,7 @@ const Shop = () => {
         <div className="all_shop">
           {products.map((el) => (
             <div
+              style={{ background: el.color }}
               className="shops"
               key={el.id}
               onClick={() => navigate(`/shop-all/shop/${el.id}`)}
