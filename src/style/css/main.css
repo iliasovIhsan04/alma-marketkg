@@ -244,7 +244,28 @@ p {
   border-bottom-right-radius: 20px;
   padding: 30px 0 30px 0;
 }
-
+.area_all_application {
+  width: 100%;
+  padding: 10px;
+  background: white;
+  box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: 0 0 20px 0;
+}
+.area_all_application .bell {
+  display: flex;
+  align-items: center;
+}
+.area_all_application .bell h3 {
+  color: rgb(25, 25, 25);
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 20px;
+}
 .a_class a {
   text-decoration: none;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/css/main.css";
 import { useNavigate } from "react-router";
-import ihsan from "../../src/img/logo-alma.svg";
+import alma_logot from "../../src/img/logo-alma.svg";
 import more from "../img/more.svg";
 import phone from "../img/phone_alma.svg";
 import whatsap from "../img/whatsap_alma.svg";
@@ -30,7 +30,7 @@ const ToHelpPage = () => {
         <div className="container">
           <div className="guestions_block_all">
             <div className="worker_box">
-              <img src={ihsan} alt="" />
+              <img src={alma_logot} alt="" />
             </div>
             <div className="support_text">
               <h3>Возникли вопросы?</h3>

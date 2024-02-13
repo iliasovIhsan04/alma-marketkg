@@ -17,6 +17,9 @@ const Main = () => {
     ? localStorage.getItem("token")
     : false;
   const data = useSelector((state) => state.users);
+  useEffect(() => {
+    dispatch(auth());
+  }, [dispatch]);
 
   const handleRefresh = async () => {
     try {
