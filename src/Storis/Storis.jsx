@@ -16,13 +16,11 @@ const Storis = ({ token }) => {
     <>
       {token ? (
         <div className="storis">
-          <p className="text " style={{ color: "#fff" }}>
-            Что нового?
-          </p>
           <div className="storis_block">
             {stosis &&
               stosis.map((el, id) => <StorisContent key={id} data={el} />)}
           </div>
+        
         </div>
       ) : (
         ""

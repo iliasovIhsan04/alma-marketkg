@@ -10,7 +10,7 @@ const StorisContent = ({ data }) => {
   const [view, setView] = useState(false);
 
   return (
-    <div>
+    <div className="storis_width">
       <>
         <div
           style={{
@@ -52,6 +52,7 @@ const StorisContent = ({ data }) => {
           ""
         )}
       </>
+      <p className="storis_title">Новое в приложении</p>
     </div>
   );
 };
