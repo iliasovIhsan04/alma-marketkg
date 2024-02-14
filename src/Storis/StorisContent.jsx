@@ -52,7 +52,7 @@ const StorisContent = ({ data }) => {
           ""
         )}
       </>
-      <p className="storis_title">Новое в приложении</p>
+      <p className="storis_title">{data.title}</p>
     </div>
   );
 };

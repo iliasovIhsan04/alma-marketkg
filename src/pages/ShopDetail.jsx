@@ -195,9 +195,7 @@ const ShopDetail = ({ data, setData }) => {
               onClick={() => setSearch(true)}
             />
           </div>
-          <div
-            className="container d-flex align-items-center scroll"
-          >
+          <div className="container d-flex align-items-center scroll">
             <div className="from_btn">
               <div
                 className={
@@ -237,14 +235,13 @@ const ShopDetail = ({ data, setData }) => {
                 <img className="icons" src={filter_img} alt="" />
                 <h6 className="title_one mt_one">Фильтр</h6>
               </div>
-              <div className="dnow d-flex align-items-center justify-content-center">
+
+              <div
+                className="dnow d-flex align-items-center justify-content-center"
+                onClick={() => setFilter(true)}
+              >
                 <img src={transfer} alt="" />
-                <h6
-                  className="title_one mt_one"
-                  onClick={() => setFilter(true)}
-                >
-                  Сортировка
-                </h6>
+                <h6 className="title_one mt_one">Сортировка</h6>
               </div>
             </div>
           </div>
@@ -279,57 +276,49 @@ const ShopDetail = ({ data, setData }) => {
               </div>
             </div>
           )}
-          {filters === true && (
-            <div id="modal_one">
-              <div className="nav_line">
-                <div className="">
-                  <div className=" d-flex justify-content-between align-items-center ner">
-                    <HiArrowLongLeft
-                      className="fi"
-                      onClick={() => navigate(-1)}
+          <div>
+            {filters === true && (
+              <div className="filters_oll">
+                <div className="order">
+                  <div className="container iner">
+                    <h3 className="title_h4 filtr_title">Фильтр</h3>
+                    <div className="filtr_from d-flex align-items-center justify-content-between">
+                      <div className="filtr_from_box">
+                        <h6 className="title_h6 nava">От</h6>
+                        <div className="value">
+                          <span className="values">{requests.budget[0]}</span>
+                        </div>
+                      </div>
+                      <div className="filtr_from_box">
+                        <h6 className="title_h6 nava">До</h6>
+
+                        <div className="value">
+                          <span className="values">{requests.budget[1]}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <Slider
+                      className="slider"
+                      onChange={(newBudget) =>
+                        setRequests({ ...requests, budget: newBudget })
+                      }
+                      value={requests.budget}
+                      min={MIN}
+                      max={MAX}
                     />
-                    <h4 className="title_h5 all_title_one">Сортировка</h4>
-                    <div></div>
+                  </div>
+                  <div className="container">
+                    <button
+                      className="btn_button all_btn"
+                      onClick={filtersData}
+                    >
+                      {isLoading ? <Loading /> : "Применить"}
+                    </button>
                   </div>
                 </div>
               </div>
-              <div className="container iner">
-                <h3 className="title_h4 mt-5" style={{ color: "#000" }}>
-                  Цена
-                </h3>
-                <div className="renge mt-3">
-                  <div className="d-flex align-items-center justify-content-between">
-                    <div className="d-flex align-items-center">
-                      <div className="value">
-                        <span className="values">{requests.budget[0]}</span>
-                      </div>
-                      <h6 className="title_h6 nava">От</h6>
-                    </div>
-                    <div className="d-flex align-items-center">
-                      <div className="value">
-                        <span className="values"> {requests.budget[1]}</span>
-                      </div>
-                      <h6 className="title_h6 nava">До</h6>
-                    </div>
-                  </div>
-                  <Slider
-                    className="slider mt-4"
-                    onChange={(newBudget) =>
-                      setRequests({ ...requests, budget: newBudget })
-                    }
-                    value={requests.budget}
-                    min={MIN}
-                    max={MAX}
-                  />
-                </div>
-              </div>
-              <div className="container">
-                <button className="btn_button all_btn" onClick={filtersData}>
-                  {isLoading ? <Loading /> : "Применить"}
-                </button>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
           <div className="container">
             <div className="shops_block_all  row_one pb-5">
               {data.map((el) => (
@@ -376,17 +365,18 @@ const ShopDetail = ({ data, setData }) => {
                     <input
                       id="wp-comment-cookies-consent"
                       name="wp-comment-cookies-consent"
-                      type="checkbox"
+                      type="radio"
                       value="yes"
                       onClick={() => setFilter(false)}
+                      style={{ color: "red" }}
                     />
-                    <h6 className="title_one m-lg-2">По умолчение</h6>
+                    <h6 className="title_one m-lg-2">По умолчанию</h6>
                   </div>
                   <div className="sort-wrap" onClick={() => handleSales()}>
                     <input
                       id="popular-checkbox"
                       name="popular-sort"
-                      type="checkbox"
+                      type="radio"
                       value="yes"
                       onClick={() => setFilter(false)}
                     />
@@ -404,9 +394,8 @@ const ShopDetail = ({ data, setData }) => {
                     <input
                       id="wp-comment-cookies-consent"
                       name="wp-comment-cookies-consent"
-                      type="checkbox"
+                      type="radio"
                       value="yes"
-                      onClick={() => setFilter(false)}
                     />
                     <label
                       htmlFor="popular-checkbox"
@@ -420,11 +409,10 @@ const ShopDetail = ({ data, setData }) => {
                     onClick={handlePriceMinus || setFilter(false)}
                   >
                     <input
-                      id="wp-comment-cookies-consent"
+                      id="wp-comment-cookies-consent "
                       name="wp-comment-cookies-consent"
-                      type="checkbox"
+                      type="radio"
                       value="yes"
-                      onClick={() => setFilter(false)}
                     />
                     <label
                       htmlFor="popular-checkbox"
@@ -438,11 +426,10 @@ const ShopDetail = ({ data, setData }) => {
                     onClick={handleTitle || setFilter(false)}
                   >
                     <input
-                      id="wp-comment-cookies-consent"
+                      id="wp-comment-cookies-consent "
                       name="wp-comment-cookies-consent"
-                      type="checkbox"
+                      type="radio"
                       value="yes"
-                      onClick={() => setFilter(false)}
                     />
                     <label
                       htmlFor="popular-checkbox"
@@ -456,11 +443,10 @@ const ShopDetail = ({ data, setData }) => {
                     onClick={handleTitleMinus || setFilter(false)}
                   >
                     <input
-                      id="wp-comment-cookies-consent"
+                      id="wp-comment-cookies-consent "
                       name="wp-comment-cookies-consent"
-                      type="checkbox"
+                      type="radio"
                       value={el.title}
-                      onClick={() => setFilter(false)}
                     />
                     <label
                       htmlFor="popular-checkbox"
