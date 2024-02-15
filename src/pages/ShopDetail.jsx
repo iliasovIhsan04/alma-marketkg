@@ -10,6 +10,7 @@ import "../style/css/modal.css";
 import { url } from "../Api";
 import Loading from "../UI/Loading/Loading";
 import Slider from "react-slider";
+import lineModal from "../img/line-4.svg";
 
 const MIN = 40;
 const MAX = 500;
@@ -280,6 +281,7 @@ const ShopDetail = ({ data, setData }) => {
             {filters === true && (
               <div className="filters_oll">
                 <div className="order">
+                  <img className="line_modal" src={lineModal} alt="" />
                   <div className="container iner">
                     <h3 className="title_h4 filtr_title">Фильтр</h3>
                     <div className="filtr_from d-flex align-items-center justify-content-between">

@@ -128,7 +128,12 @@ a {
   color: rgb(25, 25, 25);
   font-weight: 600;
 }
-
+.appl_text {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(25, 25, 25);
+  margin-bottom: 0px !important;
+}
 h1,
 h2,
 h3,
@@ -168,6 +173,7 @@ h6 {
   color: #ffffff;
   font-size: 16px;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 .confirmation_label {
   margin-top: 20px;
@@ -424,7 +430,7 @@ button {
   margin-bottom: 20px;
 }
 .filtr_from {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 .filtr_from_box {
   display: flex;
@@ -471,7 +477,7 @@ button {
 }
 
 .value {
-  width: 150px;
+  width: 155px;
   height: 45px;
   border-radius: 10px;
   background: rgb(242, 242, 242);
@@ -486,10 +492,11 @@ button {
   font-size: 16px !important;
 }
 .all_title_one {
-  font-weight: 400 !important;
+  font-weight: 600 !important;
   text-align: center;
   width: 300px !important;
   margin-top: 0px !important;
+  font-size: 20px !important;
 }
 .from_btn {
   margin: 0 13px 0 0;

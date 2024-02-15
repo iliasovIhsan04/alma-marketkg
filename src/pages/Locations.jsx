@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import location from "../img/locations.svg";
 import time from "../img/time.svg";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import axios from "axios";
+import { url } from "../Api";
 
 const Locations = () => {
   const [tab, setTab] = useState(true);
   const [tabs, setTabs] = useState(false);
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(url + "/map")
+      .then((response) => {
+        setLocations(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
   return (
     <div className="locations">
       <div>
@@ -45,19 +59,20 @@ const Locations = () => {
         <div className="container">
           {tabs === true ? (
             <div className="list_block">
-              <div className="list_box">
-                <div className="list_address">
-                  <img src={location} alt="" />
-                  <h2>г. Бишкек, ул. Калык Акиева 66, ТЦ Весна</h2>
+              {locations.map((el) => (
+                <div className="list_box">
+                  <div className="list_address">
+                    <img src={location} alt="" />
+                    <h2>{el.address}</h2>
+                  </div>
+                  <div className="list_time">
+                    <img src={time} alt="" />
+                    <p>
+                      График работы: <span>{el.time}</span>
+                    </p>
+                  </div>
                 </div>
-                <div className="list_time">
-                  <img src={time} alt="" />
-                  <p>
-                    График работы: <span>Круглосуточно</span>
-                  </p>
-                </div>
-              </div>
-              <div className="list_box"></div>
+              ))}
             </div>
           ) : (
             ""

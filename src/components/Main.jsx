@@ -9,6 +9,8 @@ import NewPromotions from "../pages/NewPromotions";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
 import ReactPullToRefresh from "react-simple-pull-to-refresh";
+import application from "../img/all-application.svg";
+import scanner from "../img/scanning.svg";
 const Main = () => {
   const [user, setUser] = useState([]);
   const dispatch = useDispatch();
@@ -67,6 +69,19 @@ const Main = () => {
             ) : (
               ""
             )}
+          </div>
+          <div className="scanner_block container">
+            <div
+              className="scanner_box"
+              onClick={() => navigate("/shop-all/shop")}
+            >
+              <img src={application} alt="" />
+              <p>Посмотреть товары</p>
+            </div>
+            <div className="scanner_box">
+              <img src={scanner} alt="" />
+              <p>Проверить цену</p>
+            </div>
           </div>
           <GetShot token={token} user={user} />
           <NewPromotions />
