@@ -251,3 +251,26 @@ a:focus {
     padding-bottom: calc(env(safe-area-inset-bottom) + 30px) !important;
   }
 }
+.custom_radio_btn {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px !important;
+}
+.custom_radio_btn .checmark {
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  border-radius: 50%;
+  background: var(--red);
+  display: none;
+}
+.custom_radio_btn input {
+  display: none;
+}
+.custom_radio_btn input:checked + .checmark {
+  display: inline-block;
+}

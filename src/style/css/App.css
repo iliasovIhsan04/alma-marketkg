@@ -103,7 +103,7 @@ a {
   font-size: 20px !important;
   font-weight: 600 !important;
   text-align: start !important;
-  margin: 40px 0 0 0;
+  margin: 20px 0 20px 0;
 }
 .m-lg-2 {
   font-size: 18px;
@@ -306,7 +306,6 @@ label span {
   gap: 10px;
 }
 .shops_box {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -372,10 +371,19 @@ label span {
   font-size: 16px !important;
   font-weight: 400;
   border-radius: 15px !important;
-  padding: 5px 10px;
+  padding: 5px 18px 5px 18px;
   white-space: nowrap;
 }
-
+.btn_tabs_active {
+  border: none;
+  background: var(--red);
+  color: #ffffff;
+  font-size: 16px !important;
+  font-weight: 400;
+  border-radius: 15px !important;
+  padding: 5px 18px 5px 18px;
+  white-space: nowrap;
+}
 .scroll {
   width: 100%;
   overflow-x: scroll;
@@ -447,12 +455,11 @@ button {
 
 .slider .thumb {
   margin-top: -10px;
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   cursor: grab;
-  background: var(--orange);
+  background: var(--red);
   border-radius: 50%;
-  border: 2px solid white;
   outline: none;
 }
 
@@ -468,7 +475,7 @@ button {
 
 .track-1 {
   height: 6px;
-  background: var(--orange);
+  background: var(--red);
   border-radius: 100px;
 }
 
@@ -513,7 +520,7 @@ button {
 .blocks img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   border-radius: 14px;
 }
@@ -531,6 +538,8 @@ button {
   width: 100% !important;
   height: 100% !important;
   border-radius: 14px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .hover_blocks {
@@ -976,16 +985,7 @@ button {
   width: 85%;
   color: #ffffff;
 }
-.btn_tabs_active {
-  border: none;
-  background: var(--red);
-  color: #ffffff;
-  font-size: 16px !important;
-  font-weight: 400;
-  border-radius: 15px !important;
-  padding: 5px 10px;
-  white-space: nowrap;
-}
+
 .block_shop {
   margin: 65px 0 0 0;
 }
@@ -1202,7 +1202,7 @@ select {
   background: red;
 }
 .iner {
-  padding: 40px 0 0 0;
+  padding: 30px 0 0 0;
 }
 .verson {
   position: fixed;

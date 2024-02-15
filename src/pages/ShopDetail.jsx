@@ -11,6 +11,7 @@ import { url } from "../Api";
 import Loading from "../UI/Loading/Loading";
 import Slider from "react-slider";
 import lineModal from "../img/line-4.svg";
+import { RiCloseLine } from "react-icons/ri";
 
 const MIN = 40;
 const MAX = 500;
@@ -81,7 +82,9 @@ const ShopDetail = ({ data, setData }) => {
       setSearch(false);
     }
   };
-
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+  };
   const handleSearchButtonClick = async () => {
     try {
       const response = await axios.get(`${url}/${api}?search=${query}`);
@@ -108,9 +111,6 @@ const ShopDetail = ({ data, setData }) => {
     setLastClicked("handleTabClick");
   };
 
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
   useEffect(() => {
     axios
       .get(url + `/product/sub-categories/${cat}`)
@@ -278,48 +278,54 @@ const ShopDetail = ({ data, setData }) => {
             </div>
           )}
           <div>
-            {filters === true && (
-              <div className="filters_oll">
-                <div className="order">
-                  <img className="line_modal" src={lineModal} alt="" />
-                  <div className="container iner">
-                    <h3 className="title_h4 filtr_title">Фильтр</h3>
-                    <div className="filtr_from d-flex align-items-center justify-content-between">
-                      <div className="filtr_from_box">
-                        <h6 className="title_h6 nava">От</h6>
-                        <div className="value">
-                          <span className="values">{requests.budget[0]}</span>
-                        </div>
-                      </div>
-                      <div className="filtr_from_box">
-                        <h6 className="title_h6 nava">До</h6>
-
-                        <div className="value">
-                          <span className="values">{requests.budget[1]}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <Slider
-                      className="slider"
-                      onChange={(newBudget) =>
-                        setRequests({ ...requests, budget: newBudget })
-                      }
-                      value={requests.budget}
-                      min={MIN}
-                      max={MAX}
+            <div>
+              {filters === true && (
+                <div className="filters_oll" onClick={() => setFilters(false)}>
+                  <div className="order" onClick={(e) => e.stopPropagation()}>
+                    <img className="line_modal" src={lineModal} alt="" />
+                    <RiCloseLine
+                      size={25}
+                      className="line_x"
+                      onClick={() => setFilters(false)}
                     />
-                  </div>
-                  <div className="container">
-                    <button
-                      className="btn_button all_btn"
-                      onClick={filtersData}
-                    >
-                      {isLoading ? <Loading /> : "Применить"}
-                    </button>
+                    <div className="container iner">
+                      <h3 className="title_h4 filtr_title">Фильтр</h3>
+                      <div className="filtr_from d-flex align-items-center justify-content-between">
+                        <div className="filtr_from_box">
+                          <h6 className="title_h6 nava">От</h6>
+                          <div className="value">
+                            <span className="values">{requests.budget[0]}</span>
+                          </div>
+                        </div>
+                        <div className="filtr_from_box">
+                          <h6 className="title_h6 nava">До</h6>
+                          <div className="value">
+                            <span className="values">{requests.budget[1]}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <Slider
+                        className="slider"
+                        onChange={(newBudget) =>
+                          setRequests({ ...requests, budget: newBudget })
+                        }
+                        value={requests.budget}
+                        min={MIN}
+                        max={MAX}
+                      />
+                    </div>
+                    <div className="container">
+                      <button
+                        className="btn_button all_btn"
+                        onClick={filtersData}
+                      >
+                        {isLoading ? <Loading /> : "Применить"}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
           <div className="container">
             <div className="shops_block_all  row_one pb-5">
@@ -357,31 +363,43 @@ const ShopDetail = ({ data, setData }) => {
       {data.map((el) => (
         <div>
           {filter === true && (
-            <div className="filters_oll" onClick={() => setFilter(false)}>
+            <div className="filter_oll_1" onClick={() => setFilter(false)}>
               <div className="order" onClick={(e) => e.stopPropagation()}>
+                <img className="line_modal" src={lineModal} alt="" />
+                <RiCloseLine
+                  size={25}
+                  className="line_x"
+                  onClick={() => setFilter(false)}
+                />
                 <div className="container">
                   <div className="d-flex justify-content-between">
                     <h6 className="title_h3 orders">Сортировка</h6>
                   </div>
                   <div className="sort-wrap">
-                    <input
-                      id="wp-comment-cookies-consent"
-                      name="wp-comment-cookies-consent"
-                      type="radio"
-                      value="yes"
-                      onClick={() => setFilter(false)}
-                      style={{ color: "red" }}
-                    />
+                    <label className="custom_radio_btn">
+                      <input
+                        id="wp-comment-cookies-consent"
+                        name="wp-comment-cookies-consent"
+                        type="radio"
+                        value="yes"
+                        // onClick={() => setFilter(false)}
+                        style={{ color: "red" }}
+                      />
+                      <span className="checmark"></span>
+                    </label>
                     <h6 className="title_one m-lg-2">По умолчанию</h6>
                   </div>
-                  <div className="sort-wrap" onClick={() => handleSales()}>
-                    <input
-                      id="popular-checkbox"
-                      name="popular-sort"
-                      type="radio"
-                      value="yes"
-                      onClick={() => setFilter(false)}
-                    />
+                  <div className="sort-wrap" onClick={handleSales}>
+                    <label className="custom_radio_btn">
+                      <input
+                        id="wp-comment-cookies-consent"
+                        name="wp-comment-cookies-consent"
+                        type="radio"
+                        value="yes"
+                        // onClick={() => setFilter(false)}
+                      />
+                      <span className="checmark"></span>
+                    </label>
                     <label
                       htmlFor="popular-checkbox"
                       className="title_one m-lg-2"
@@ -389,16 +407,16 @@ const ShopDetail = ({ data, setData }) => {
                       Сначала популярные
                     </label>
                   </div>
-                  <div
-                    className="sort-wrap"
-                    onClick={handlePrice || setFilter(false)}
-                  >
-                    <input
-                      id="wp-comment-cookies-consent"
-                      name="wp-comment-cookies-consent"
-                      type="radio"
-                      value="yes"
-                    />
+                  <div className="sort-wrap" onClick={handlePrice}>
+                    <label className="custom_radio_btn">
+                      <input
+                        id="wp-comment-cookies-consent"
+                        name="wp-comment-cookies-consent"
+                        type="radio"
+                        value="yes"
+                      />
+                      <span className="checmark"></span>
+                    </label>
                     <label
                       htmlFor="popular-checkbox"
                       className="title_one m-lg-2"
@@ -406,16 +424,16 @@ const ShopDetail = ({ data, setData }) => {
                       Сначала дешевые
                     </label>
                   </div>
-                  <div
-                    className="sort-wrap"
-                    onClick={handlePriceMinus || setFilter(false)}
-                  >
-                    <input
-                      id="wp-comment-cookies-consent "
-                      name="wp-comment-cookies-consent"
-                      type="radio"
-                      value="yes"
-                    />
+                  <div className="sort-wrap" onClick={handlePriceMinus}>
+                    <label className="custom_radio_btn">
+                      <input
+                        id="wp-comment-cookies-consent "
+                        name="wp-comment-cookies-consent"
+                        type="radio"
+                        value="yes"
+                      />
+                      <span className="checmark"></span>
+                    </label>
                     <label
                       htmlFor="popular-checkbox"
                       className="title_one m-lg-2"
@@ -427,12 +445,15 @@ const ShopDetail = ({ data, setData }) => {
                     className="sort-wrap"
                     onClick={handleTitle || setFilter(false)}
                   >
-                    <input
-                      id="wp-comment-cookies-consent "
-                      name="wp-comment-cookies-consent"
-                      type="radio"
-                      value="yes"
-                    />
+                    <label className="custom_radio_btn">
+                      <input
+                        id="wp-comment-cookies-consent "
+                        name="wp-comment-cookies-consent"
+                        type="radio"
+                        value="yes"
+                      />
+                      <span className="checmark"></span>
+                    </label>
                     <label
                       htmlFor="popular-checkbox"
                       className="title_one m-lg-2"
@@ -440,16 +461,16 @@ const ShopDetail = ({ data, setData }) => {
                       По алфавиту от А до Я
                     </label>
                   </div>
-                  <div
-                    className="sort-wrap"
-                    onClick={handleTitleMinus || setFilter(false)}
-                  >
-                    <input
-                      id="wp-comment-cookies-consent "
-                      name="wp-comment-cookies-consent"
-                      type="radio"
-                      value={el.title}
-                    />
+                  <div className="sort-wrap" onClick={handleTitleMinus}>
+                    <label className="custom_radio_btn">
+                      <input
+                        id="wp-comment-cookies-consent "
+                        name="wp-comment-cookies-consent"
+                        type="radio"
+                        value={el.title}
+                      />
+                      <span className="checmark"></span>
+                    </label>
                     <label
                       htmlFor="popular-checkbox"
                       className="title_one m-lg-2"

@@ -216,6 +216,15 @@ p {
   justify-content: center !important;
   margin: 0 auto;
 }
+.line_x {
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  margin-left: auto;
+  color: #9f9f9f;
+  cursor: pointer;
+  margin-right: 10px;
+}
 .area_all_block {
   width: 100%;
   height: 112px;
