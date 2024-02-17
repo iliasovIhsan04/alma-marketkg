@@ -78,7 +78,10 @@ const Main = () => {
               <img src={application} alt="" />
               <p>Посмотреть товары</p>
             </div>
-            <div className="scanner_box">
+            <div
+              className="scanner_box"
+              onClick={() => navigate("/price-address")}
+            >
               <img src={scanner} alt="" />
               <p>Проверить цену</p>
             </div>

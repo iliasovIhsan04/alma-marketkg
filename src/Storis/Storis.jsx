@@ -20,7 +20,6 @@ const Storis = ({ token }) => {
             {stosis &&
               stosis.map((el, id) => <StorisContent key={id} data={el} />)}
           </div>
-        
         </div>
       ) : (
         ""

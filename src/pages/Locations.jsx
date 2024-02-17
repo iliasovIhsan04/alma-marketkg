@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import location from "../img/locations.svg";
 import time from "../img/time.svg";
 import axios from "axios";
 import { url } from "../Api";
+import location from "../img/locations.svg";
 
 const Locations = () => {
   const [tab, setTab] = useState(true);

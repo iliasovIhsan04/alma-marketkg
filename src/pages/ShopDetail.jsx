@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { HiArrowLongLeft } from "react-icons/hi2";
-import { BsSearch } from "react-icons/bs";
 import more from "../img/more.svg";
 import filter_img from "../img/filter.svg";
 import transfer from "../img/transfer-data.svg";
@@ -12,6 +10,7 @@ import Loading from "../UI/Loading/Loading";
 import Slider from "react-slider";
 import lineModal from "../img/line-4.svg";
 import { RiCloseLine } from "react-icons/ri";
+import search1 from "../img/search-icon-rel.svg";
 
 const MIN = 40;
 const MAX = 500;
@@ -25,9 +24,10 @@ const ShopDetail = ({ data, setData }) => {
   const [sub_cat, setSubCat] = useState(0);
   const [filter, setFilter] = useState(false);
   const [filters, setFilters] = useState(false);
-  const [search, setSearch] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [all, setAll] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = useState("");
   const [requests, setRequests] = useState({
     budget: [MIN, MAX],
   });
@@ -35,6 +35,14 @@ const ShopDetail = ({ data, setData }) => {
   const headers = {
     Authorization: `Token ${local}`,
   };
+  const [checkmark, setCheckmark] = useState({
+    one: true,
+    two: false,
+    three: false,
+    four: false,
+    five: false,
+    six: false,
+  });
   const api = "product/list";
   useEffect(() => {
     axios
@@ -50,7 +58,6 @@ const ShopDetail = ({ data, setData }) => {
       console.error("Ошибка при получении данных:", error);
     } finally {
       setFilters(false);
-      setSearch(false);
     }
   };
   const fetchData = async (subCatId) => {
@@ -62,7 +69,6 @@ const ShopDetail = ({ data, setData }) => {
       console.error("Ошибка при получении данных:", error);
     } finally {
       setFilters(false);
-      setSearch(false);
       setRequests({
         budget: [MIN, MAX],
       });
@@ -79,22 +85,6 @@ const ShopDetail = ({ data, setData }) => {
       console.error("Ошибка при получении данных:", error);
     } finally {
       setFilters(false);
-      setSearch(false);
-    }
-  };
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
-  const handleSearchButtonClick = async () => {
-    try {
-      const response = await axios.get(`${url}/${api}?search=${query}`);
-      const categoryProducts = response.data;
-      setData(categoryProducts);
-    } catch (error) {
-      console.error("Ошибка при получении данных:", error);
-    } finally {
-      setFilters(false);
-      setSearch(false);
     }
   };
   const dataClicks = () => {
@@ -111,73 +101,149 @@ const ShopDetail = ({ data, setData }) => {
     setLastClicked("handleTabClick");
   };
 
-  useEffect(() => {
+  function OneFunc() {
+    setCheckmark({
+      ...checkmark,
+      one: true,
+      two: false,
+      three: false,
+      four: false,
+      five: false,
+      six: false,
+    });
+    setFilter(false);
+    setLoading(true);
     axios
       .get(url + `/product/sub-categories/${cat}`)
       .then((response) => {
         const categoryProducts = response.data;
         setTabs(categoryProducts);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Ошибка при получении данных:", error);
+        setLoading(false);
       });
+  }
+
+  useEffect(() => {
+    OneFunc();
   }, [cat]);
 
   const handleTitleMinus = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: false,
+      two: false,
+      three: false,
+      four: false,
+      five: false,
+      six: true,
+    });
+    setFilter(false);
     try {
       const response = await axios.get(`${url}/${api}?ordering=-title`);
       const categoryProducts = response.data;
       setData(categoryProducts);
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
-    } finally {
-      setFilters(false);
     }
   };
+
   const handleTitle = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: false,
+      two: false,
+      three: false,
+      four: false,
+      five: true,
+      six: false,
+    });
+    setFilter(false);
+    setLoading(true);
+    setData([]);
     try {
       const response = await axios.get(`${url}/${api}?ordering=title`);
       const categoryProducts = response.data;
       setData(categoryProducts);
+      setLoading(false);
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
-    } finally {
-      setFilters(false);
+      setLoading(false);
     }
   };
   const handlePrice = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: false,
+      two: false,
+      three: true,
+      four: false,
+      five: false,
+      six: false,
+    });
+    setFilter(false);
+    setLoading(true);
+    setData([]);
     try {
       const response = await axios.get(`${url}/${api}?ordering=price`);
       const categoryProducts = response.data;
       setData(categoryProducts);
+      setLoading(false);
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
-    } finally {
-      setFilters(false);
+      setLoading(false);
     }
   };
+
   const handlePriceMinus = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: false,
+      two: false,
+      three: false,
+      four: true,
+      five: false,
+      six: false,
+    });
+    setFilter(false);
+    setLoading(true);
+    setData([]);
     try {
       const response = await axios.get(`${url}/${api}?ordering=-price`);
       const categoryProducts = response.data;
       setData(categoryProducts);
+      setLoading(false);
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
-    } finally {
-      setFilters(false);
+      setLoading(false);
     }
   };
   const handleSales = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: false,
+      two: true,
+      three: false,
+      four: false,
+      five: false,
+      six: false,
+    });
+    setFilter(false);
+    setLoading(true);
+    setData([]);
     try {
       const response = await axios.get(`${url}/${api}?ordering=-sales`);
       const categoryProducts = response.data;
       setData(categoryProducts);
+      setLoading(false);
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
-    } finally {
-      setFilters(false);
+      setLoading(false);
     }
   };
+
   return (
     <>
       <div id="modal">
@@ -190,13 +256,18 @@ const ShopDetail = ({ data, setData }) => {
               onClick={() => navigate("/shop-all/shop")}
             />
             <h4 className="title_h5 all_title_one">Каталог, товары</h4>
-            <BsSearch
-              size={22}
-              style={{ color: "#191919" }}
-              onClick={() => setSearch(true)}
+            <p></p>
+          </div>
+          <div className="input_box_search container">
+            <img className="search_img" src={search1} alt="" />
+            <input
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="Поиск товаров"
+              type="text"
             />
           </div>
-          <div className="container d-flex align-items-center scroll">
+          <div className="container d-flex align-items-center scroll type_mt">
             <div className="from_btn">
               <div
                 className={
@@ -248,35 +319,6 @@ const ShopDetail = ({ data, setData }) => {
           </div>
         </div>
         <div className="shop_details_modal">
-          {search === true && (
-            <div id="modal_one">
-              <div className="nav">
-                <div className="container d-flex justify-content-between align-items-center">
-                  <HiArrowLongLeft
-                    className="fi"
-                    onClick={() => navigate(-1)}
-                  />
-                  <h4 className="title_h5 all_title">Поиск</h4>
-                  <div />
-                </div>
-              </div>
-              <div className="container search_in">
-                <input
-                  className="input_form_all mt-4"
-                  type="text"
-                  placeholder="Поиск..."
-                  value={query}
-                  onChange={handleInputChange}
-                />
-                <button
-                  className="search-button"
-                  onClick={handleSearchButtonClick}
-                >
-                  {isLoading ? <Loading /> : "Поиск"}
-                </button>
-              </div>
-            </div>
-          )}
           <div>
             <div>
               {filters === true && (
@@ -329,39 +371,51 @@ const ShopDetail = ({ data, setData }) => {
           </div>
           <div className="container">
             <div className="shops_block_all  row_one pb-5">
-              {data.map((el) => (
-                <div className="shops_box" key={el.id}>
-                  <div
-                    className="blocks"
-                    onClick={() => navigate(`/shop-all/product/${el.id}`)}
-                  >
-                    <img src={el.img} alt="" />
-                  </div>
-                  <div className="all">
-                    <h3 className="title_one ">{el.title}</h3>
-                    <div className="product-info">
-                      <div className="product-column column-top">
-                        <span>1 {el.price_for}</span>
-                        <h2 className="price old">
-                          {el.old_price ? el.old_price : el.price} сом
-                        </h2>
-                      </div>
-                      {el.old_price && (
-                        <div className="product-column">
-                          <span className="card-text">По карте</span>
-                          <h2 className="price">{el.price} сом</h2>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+              {loading ? (
+                <div className="loading_div">
+                  <Loading />
                 </div>
-              ))}
+              ) : (
+                data
+                  .filter((obj) => {
+                    return obj.title
+                      .toLowerCase()
+                      .includes(value.toLowerCase());
+                  })
+                  .map((el) => (
+                    <div className="shops_box" key={el.id}>
+                      <div
+                        className="blocks"
+                        onClick={() => navigate(`/shop-all/product/${el.id}`)}
+                      >
+                        <img src={el.img} alt="" />
+                      </div>
+                      <div className="all">
+                        <h3 className="title_one ">{el.title}</h3>
+                        <div className="product-info">
+                          <div className="product-column column-top">
+                            <span>1 {el.price_for}</span>
+                            <h2 className="price old">
+                              {el.old_price ? el.old_price : el.price} сом
+                            </h2>
+                          </div>
+                          {el.old_price && (
+                            <div className="product-column">
+                              <span className="card-text">По карте</span>
+                              <h2 className="price">{el.price} сом</h2>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+              )}
             </div>
           </div>
         </div>
       </div>
       {data.map((el) => (
-        <div>
+        <div className="">
           {filter === true && (
             <div className="filter_oll_1" onClick={() => setFilter(false)}>
               <div className="order" onClick={(e) => e.stopPropagation()}>
@@ -375,30 +429,15 @@ const ShopDetail = ({ data, setData }) => {
                   <div className="d-flex justify-content-between">
                     <h6 className="title_h3 orders">Сортировка</h6>
                   </div>
-                  <div className="sort-wrap">
+                  <div className="sort-wrap" onClick={OneFunc}>
                     <label className="custom_radio_btn">
-                      <input
-                        id="wp-comment-cookies-consent"
-                        name="wp-comment-cookies-consent"
-                        type="radio"
-                        value="yes"
-                        // onClick={() => setFilter(false)}
-                        style={{ color: "red" }}
-                      />
-                      <span className="checmark"></span>
+                      {checkmark.one && <span className="checmark"></span>}
                     </label>
                     <h6 className="title_one m-lg-2">По умолчанию</h6>
                   </div>
                   <div className="sort-wrap" onClick={handleSales}>
                     <label className="custom_radio_btn">
-                      <input
-                        id="wp-comment-cookies-consent"
-                        name="wp-comment-cookies-consent"
-                        type="radio"
-                        value="yes"
-                        // onClick={() => setFilter(false)}
-                      />
-                      <span className="checmark"></span>
+                      {checkmark.two && <span className="checmark"></span>}
                     </label>
                     <label
                       htmlFor="popular-checkbox"
@@ -409,13 +448,7 @@ const ShopDetail = ({ data, setData }) => {
                   </div>
                   <div className="sort-wrap" onClick={handlePrice}>
                     <label className="custom_radio_btn">
-                      <input
-                        id="wp-comment-cookies-consent"
-                        name="wp-comment-cookies-consent"
-                        type="radio"
-                        value="yes"
-                      />
-                      <span className="checmark"></span>
+                      {checkmark.three && <span className="checmark"></span>}
                     </label>
                     <label
                       htmlFor="popular-checkbox"
@@ -426,13 +459,7 @@ const ShopDetail = ({ data, setData }) => {
                   </div>
                   <div className="sort-wrap" onClick={handlePriceMinus}>
                     <label className="custom_radio_btn">
-                      <input
-                        id="wp-comment-cookies-consent "
-                        name="wp-comment-cookies-consent"
-                        type="radio"
-                        value="yes"
-                      />
-                      <span className="checmark"></span>
+                      {checkmark.four && <span className="checmark"></span>}
                     </label>
                     <label
                       htmlFor="popular-checkbox"
@@ -441,18 +468,9 @@ const ShopDetail = ({ data, setData }) => {
                       Сначала дорогие
                     </label>
                   </div>
-                  <div
-                    className="sort-wrap"
-                    onClick={handleTitle || setFilter(false)}
-                  >
+                  <div className="sort-wrap" onClick={handleTitle}>
                     <label className="custom_radio_btn">
-                      <input
-                        id="wp-comment-cookies-consent "
-                        name="wp-comment-cookies-consent"
-                        type="radio"
-                        value="yes"
-                      />
-                      <span className="checmark"></span>
+                      {checkmark.five && <span className="checmark"></span>}
                     </label>
                     <label
                       htmlFor="popular-checkbox"
@@ -463,13 +481,7 @@ const ShopDetail = ({ data, setData }) => {
                   </div>
                   <div className="sort-wrap" onClick={handleTitleMinus}>
                     <label className="custom_radio_btn">
-                      <input
-                        id="wp-comment-cookies-consent "
-                        name="wp-comment-cookies-consent"
-                        type="radio"
-                        value={el.title}
-                      />
-                      <span className="checmark"></span>
+                      {checkmark.six && <span className="checmark"></span>}
                     </label>
                     <label
                       htmlFor="popular-checkbox"

@@ -24,6 +24,7 @@ import Notifications from "./pages/Notifications";
 import NotificationsDetail from "./pages/NotificationsDetail";
 import QrCode from "./pages/QrCode";
 import Locations from "./pages/Locations";
+import PriceAddress from "./pages/PriceAddress";
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
     open: false,
@@ -170,6 +171,7 @@ const App = () => {
               />
               <Route path="/qr-code" element={<QrCode />} />
               <Route path="/locations" element={<Locations />} />
+              <Route path="/price-address" element={<PriceAddress />} />
             </Routes>
             <Footer />
           </div>
