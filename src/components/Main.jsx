@@ -11,7 +11,9 @@ import { auth } from "../Redux/reduser/auth";
 import ReactPullToRefresh from "react-simple-pull-to-refresh";
 import application from "../img/all-application.svg";
 import scanner from "../img/scanning.svg";
-const Main = () => {
+import Modal from "../UI/Modal/Modal";
+
+const Main = ({ modal, setModal }) => {
   const [user, setUser] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,6 +35,18 @@ const Main = () => {
   const users = data?.user;
   return (
     <div className="main_block">
+      {modal && (
+        <Modal setModal={setModal}>
+          <div className="modal_success">
+            <div className="check"></div>
+            <p className="modal_title">Успешное оформление заявки!</p>
+            <p className="modal_text">
+              После отправки заявки, сотрудники компании свяжутся с вами в
+              скором времени
+            </p>
+          </div>
+        </Modal>
+      )}
       <Header users={users} />
       <ReactPullToRefresh
         onRefresh={handleRefresh}

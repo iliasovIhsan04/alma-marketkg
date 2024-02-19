@@ -1065,6 +1065,7 @@ button {
   font-weight: 400;
   text-align: center;
   color: rgb(25, 25, 25);
+  line-height: 1.1;
 }
 .register_login {
   display: flex;

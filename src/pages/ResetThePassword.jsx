@@ -60,13 +60,15 @@ const ResetThePassword = ({ Alert }) => {
             src={more}
             alt=""
           />
-          <h1 className="regis_titl">Сбросить пароль</h1>
+          <h1 className="regis_titl">Забыл(-а) пароль</h1>
           <p></p>
         </div>
       </div>
       <div className="container">
         <form className="reset_password_block" onSubmit={handleForgotEvent}>
-          <p className="py-2">Вам будет отправлено сообщение с новым паролем</p>
+          <p className="py-2">
+            Мы отправим 6х значный код на этот номер телефона
+          </p>
           <div className="input_box">
             <label>Номер телефона</label>
             <InputMask

@@ -25,6 +25,8 @@ import NotificationsDetail from "./pages/NotificationsDetail";
 import QrCode from "./pages/QrCode";
 import Locations from "./pages/Locations";
 import PriceAddress from "./pages/PriceAddress";
+import Modal from "./UI/Modal/Modal";
+
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
     open: false,
@@ -38,6 +40,8 @@ const App = () => {
   const [version, setVersion] = useState([]);
   const [upDate, setUpDate] = useState(false);
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
+  const [modal, setModal] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const headers = {
     Authorization: `Token ${local}`,
@@ -144,8 +148,25 @@ const App = () => {
       {token ? (
         <div>
           <div>
+            {modal && (
+              <Modal setModal={setModal}>
+                <div className="modal_success">
+                  <div className="check"></div>
+                  <p className="modal_title">Успешное оформление заявки!</p>
+                  <p className="modal_text">
+                    После отправки заявки, сотрудники компании свяжутся с вами в
+                    скором времени
+                  </p>
+                </div>
+              </Modal>
+            )}
             <Routes>
-              <Route path="/" element={<Main user={user} />} />
+              <Route
+                path="/"
+                element={
+                  <Main modal={success} setModal={setSuccess} user={user} />
+                }
+              />
               <Route path="promotion" element={<Promotion />} />
               <Route path="/get-shot-details" element={<GetShotDetails />} />
               <Route
@@ -181,7 +202,7 @@ const App = () => {
           <Routes>
             <Route
               path="personal/*"
-              element={<AllProject Alert={FuncAlert} />}
+              element={<AllProject setSuccess={setSuccess} Alert={FuncAlert} />}
             />
           </Routes>
         </div>

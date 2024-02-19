@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import "../style/css/main.css";
 import { fetchData } from "../Redux/reduser/fetchData";
 import more_left from "../img/more-left.svg";
+import sock from "../img/sock.svg";
+import tvorog from "../img/tvorog.svg";
 
 const GetShot = ({ token }) => {
   const navigate = useNavigate();
@@ -35,13 +37,25 @@ const GetShot = ({ token }) => {
                   onClick={() => navigate(`/get-shot-details-id/${el.id}`)}
                   className="special_box_blok"
                 >
-                  <div className="sp_box special_details_box">
-                    <img
-                      className="special_image_block"
-                      src={el.img}
-                      alt=""
-                      loading="lazy"
-                    />
+                  <div className="sp_box">
+                    <div className="price_title_text_block">
+                      <div className="alma_price_block">
+                        <div className="alma_price_box">
+                          <h1>115</h1> <span>137</span>
+                        </div>
+                      </div>
+                      <div className="sp_title_text_block">
+                        <h1>
+                          Coca Cola, Fanta апельс., Sprite суусундугу/напиток
+                        </h1>
+                        <p>2л</p>
+                        <h2>ТОЛЬКО ДЛЯ СУПЕРМАРКЕТА В ТЦ ВЕСНА</h2>
+                      </div>
+                    </div>
+                    <div className="price_img_block">
+                      <img src={tvorog} alt="" />
+                    </div>
+                    <div className="price_date_block">16.01-31.01</div>
                   </div>
                 </div>
               ))}

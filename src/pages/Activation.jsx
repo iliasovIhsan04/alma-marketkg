@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { url } from "../Api";
 
-const Activation = ({ Alert }) => {
+const Activation = ({ Alert, setModal }) => {
   const navigate = useNavigate();
   const [code, setCode] = useState("");
   const dispatch = useDispatch();
@@ -53,6 +53,7 @@ const Activation = ({ Alert }) => {
         if (response.data.response === true) {
           Alert(response.data.message, "success");
           navigate("/");
+          setModal(true);
         }
         if (response.data.code) {
           setError(response.data);
