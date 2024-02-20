@@ -75,6 +75,8 @@ p {
   padding: 10px 0 15px 0;
   box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
   border-top: 0.5px solid #aaaaaa;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px; 
 }
 
 #footer .nav_footer {

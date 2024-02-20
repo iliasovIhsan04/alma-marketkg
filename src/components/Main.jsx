@@ -12,6 +12,7 @@ import ReactPullToRefresh from "react-simple-pull-to-refresh";
 import application from "../img/all-application.svg";
 import scanner from "../img/scanning.svg";
 import Modal from "../UI/Modal/Modal";
+import modal_img from "../img/modal-image.svg";
 
 const Main = ({ modal, setModal }) => {
   const [user, setUser] = useState([]);
@@ -32,18 +33,23 @@ const Main = ({ modal, setModal }) => {
       console.error("Ошибка инициализации Pull to refresh:", error);
     }
   };
+
   const users = data?.user;
+
   return (
     <div className="main_block">
       {modal && (
         <Modal setModal={setModal}>
           <div className="modal_success">
-            <div className="check"></div>
-            <p className="modal_title">Успешное оформление заявки!</p>
+            <div className="check">
+              <img src={modal_img} alt="" />
+            </div>
+            <p className="modal_title">Ваша карта успешно создана!</p>
             <p className="modal_text">
-              После отправки заявки, сотрудники компании свяжутся с вами в
-              скором времени
+              Теперь вы можете экономить на покупках, получать скидки, подарки и
+              многое другое
             </p>
+            <button onClick={() => setModal(false)}>Понятно</button>
           </div>
         </Modal>
       )}

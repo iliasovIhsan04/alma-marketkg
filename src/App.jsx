@@ -49,6 +49,7 @@ const App = () => {
   const handleScroll = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  
   useEffect(() => {
     handleScroll();
   }, [location]);
@@ -148,18 +149,7 @@ const App = () => {
       {token ? (
         <div>
           <div>
-            {modal && (
-              <Modal setModal={setModal}>
-                <div className="modal_success">
-                  <div className="check"></div>
-                  <p className="modal_title">Успешное оформление заявки!</p>
-                  <p className="modal_text">
-                    После отправки заявки, сотрудники компании свяжутся с вами в
-                    скором времени
-                  </p>
-                </div>
-              </Modal>
-            )}
+            {modal && <Modal setModal={setModal}></Modal>}
             <Routes>
               <Route
                 path="/"
