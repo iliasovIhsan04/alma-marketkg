@@ -4,7 +4,6 @@ import { useNavigate } from "react-router";
 import "../style/css/main.css";
 import { fetchData } from "../Redux/reduser/fetchData";
 import more_left from "../img/more-left.svg";
-import sock from "../img/sock.svg";
 import tvorog from "../img/tvorog.svg";
 
 const GetShot = ({ token }) => {
@@ -41,21 +40,23 @@ const GetShot = ({ token }) => {
                     <div className="price_title_text_block">
                       <div className="alma_price_block">
                         <div className="alma_price_box">
-                          <h1>115</h1> <span>137</span>
+                          <h1>{el.prom_price}</h1> <span>{el.price}</span>
                         </div>
+                        <div className="list_prom">
+                          <p>{el.percentage}</p>
+                        </div>
+                        <div className="prom_line"></div>
                       </div>
                       <div className="sp_title_text_block">
-                        <h1>
-                          Coca Cola, Fanta апельс., Sprite суусундугу/напиток
-                        </h1>
-                        <p>2л</p>
-                        <h2>ТОЛЬКО ДЛЯ СУПЕРМАРКЕТА В ТЦ ВЕСНА</h2>
+                        <h1>{el.title}</h1>
+                        <p>{el.net}</p>
+                        <h2>{el.where}</h2>
                       </div>
                     </div>
                     <div className="price_img_block">
-                      <img src={tvorog} alt="" />
+                      <img src={el.img} alt="" />
                     </div>
-                    <div className="price_date_block">16.01-31.01</div>
+                    <div className="price_date_block">{el.date}</div>
                   </div>
                 </div>
               ))}

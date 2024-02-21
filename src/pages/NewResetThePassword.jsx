@@ -5,6 +5,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { url } from "../Api";
+import more from "../img/more.svg";
 import { useDispatch } from "react-redux";
 import {
   registerFailure,
@@ -64,17 +65,21 @@ const NewResetThePassword = ({ Alert }) => {
       <div className="new_reset_the_password">
         <div className="nav">
           <div className="container d-flex justify-content-between align-items-center ">
-            <HiArrowLongLeft className="fi" onClick={() => navigate(-1)} />
+            <img
+              className="more_img"
+              onClick={() => navigate(-1)}
+              src={more}
+              alt=""
+            />
             <p className="header_name">Новый пароль</p>
             <span></span>
           </div>
         </div>
         <div className="container">
+          <p className="login-text1">Придумайте новый пароль</p>
           <form onSubmit={handleNewSubmit}>
-            <div className="input_box">
-              <label>
-                Пароль <span>*</span>
-              </label>
+            <div className="input_box mt-top">
+              <label>Пароль</label>
               <input
                 className="input_form new_add_input"
                 type={visible ? "text" : "password"}
@@ -87,9 +92,7 @@ const NewResetThePassword = ({ Alert }) => {
               {error.password && <p className="red">{error.password}</p>}
             </div>
             <div className="input_box">
-              <label>
-                Повторите пароль <span>*</span>
-              </label>
+              <label>Повторите пароль</label>
               <input
                 className="input_form new_add_input"
                 type={visible2 ? "text" : "password"}
@@ -112,7 +115,7 @@ const NewResetThePassword = ({ Alert }) => {
               className="registr_btn new_btn"
               type="submit"
             >
-              {isLoading ? <Loading /> : "Отправить"}
+              {isLoading ? <Loading /> : "Сбросить пароль"}
             </button>
           </form>
         </div>

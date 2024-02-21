@@ -366,19 +366,21 @@ label span {
   border: none;
   background: #f4f2f2;
   color: #191919;
+  height: 36px;
   font-size: 16px !important;
   font-weight: 400;
-  border-radius: 15px !important;
+  border-radius: 300px;
   padding: 6px 18px 6px 18px;
   white-space: nowrap;
 }
 .btn_tabs_active {
   border: none;
+  height: 36px;
   background: var(--red);
   color: #ffffff;
   font-size: 16px !important;
   font-weight: 400;
-  border-radius: 15px !important;
+  border-radius: 300px;
   padding: 5px 18px 5px 18px;
   white-space: nowrap;
 }

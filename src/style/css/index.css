@@ -1,85 +1,41 @@
 @font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Thin.ttf");
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-UltraLight.ttf");
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Light.ttf");
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-Light.ttf");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Regular.ttf");
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-Regular.ttf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Medium.ttf");
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-Medium.ttf");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Semibold.ttf");
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-SemiBold.ttf");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Bold.ttf");
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-Bold.ttf");
   font-weight: 700;
 }
-
 @font-face {
-  font-family: Gilroy;
-  src: url("../../fonts/Gilroy-Extrabold.ttf");
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-ExtraBold.ttf");
   font-weight: 800;
 }
-
 @font-face {
-  font-family: Rubik;
-  src: url("../../fonts/Rubik-Light.ttf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Rubik;
-  src: url("../../fonts/Rubik-Regular.ttf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Rubik;
-  src: url("../../fonts/Rubik-Medium.ttf");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Rubik;
-  src: url("../../fonts/Rubik-SemiBold.ttf");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: Rubik;
-  src: url("../../fonts/Rubik-Bold.ttf");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Rubik;
-  src: url("../../fonts/Rubik-ExtraBold.ttf");
-  font-weight: 800;
+  font-family: Lato;
+  src: url("../../fonts/Lato/Lato-Black.ttf");
+  font-weight: 900;
 }
 
 * {

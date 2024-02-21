@@ -84,8 +84,9 @@ const Login = ({ Alert }) => {
             <p></p>
           </div>
         </div>
-        <div className="container">
-          <form className="login_block pb-4" onSubmit={handleLoginEvent}>
+        <div className="login_block container">
+          <p className="login-text1">Введите свои данные для авторизации</p>
+          <form onSubmit={handleLoginEvent}>
             <div className="input_box">
               <label>Номер телефона</label>
               <InputMask

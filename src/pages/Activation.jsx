@@ -82,7 +82,7 @@ const Activation = ({ Alert, setModal }) => {
       </div>
       <div className="container">
         <div className="activation">
-          <p>Введитe код подтверждения из CMC</p>
+          <p>Мы отправили 6х значный код на ваш номер телефона</p>
           <form onSubmit={handleSubmit}>
             <label className="confirmation_label">Код подверждения</label>
             <input

@@ -76,7 +76,7 @@ p {
   box-shadow: 0 0.2rem 0.525rem 0 rgba(0, 0, 0, 0.08);
   border-top: 0.5px solid #aaaaaa;
   border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px; 
+  border-bottom-right-radius: 14px;
 }
 
 #footer .nav_footer {
@@ -452,9 +452,15 @@ p {
   border: 2px solid var(--red);
   border-radius: 20px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .price_title_text_block {
   display: flex;
+}
+.alma_price_block {
+  position: relative;
 }
 .alma_price_box {
   width: 70px;
@@ -464,6 +470,21 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.list_prom {
+  background: url("../../img/list.svg") no-repeat;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: 25px;
+  z-index: 999999;
+  width: 100%;
+}
+.list_prom p {
+  font-size: 11px;
+  color: #fff;
+  margin: 3px 0 0 8px;
 }
 .alma_price_box h1 {
   margin-top: 20px;
@@ -487,12 +508,18 @@ p {
   flex-direction: column;
   line-height: 1.2;
   margin-left: 10px;
+  gap: 2px;
 }
 .sp_title_text_block h1 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #191919;
   margin-bottom: 0px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .sp_title_text_block p {
   font-size: 14px;
@@ -500,14 +527,20 @@ p {
   color: #6b6b6b;
 }
 .sp_title_text_block h2 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: #68b936;
   margin-bottom: 0px !important;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .price_img_block {
-  width: 100%;
-  height: 130px;
+  width: 150px;
+  height: 120px;
   margin: 0 auto;
   margin-top: 12px;
   display: flex;
@@ -517,19 +550,21 @@ p {
 .price_img_block img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .price_date_block {
   width: 100px;
   height: 20px;
   background: #68b936;
   margin: 0 auto;
-  margin-top: 5px;
   font-size: 12px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  bottom: 0px !important;
 }
 .get_block_all_block {
   overflow-y: hidden;
@@ -656,6 +691,19 @@ p {
   border-radius: 15px;
   object-fit: cover;
   object-position: center;
+}
+.prom_line {
+  width: 30px;
+  height: 0.8px;
+  border-radius: 5px;
+  background: #ffffff;
+  position: absolute;
+  top: 56px;
+  bottom: 0;
+  left: 21px;
+  right: 0;
+  z-index: 999999;
+  transform: rotate(160deg);
 }
 .alma_title_header {
   font-size: 20px;
@@ -1445,9 +1493,15 @@ input#file-upload-button {
 }
 
 .login_block {
-  padding-top: 50px;
+  padding-top: 60px !important;
 }
-
+.login-text1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #6b6b6b;
+  text-align: center;
+}
 .forgot_password {
   font-size: 16px;
   margin-top: 20px;
@@ -1472,12 +1526,16 @@ input#file-upload-button {
   line-height: 1.2;
   text-align: center;
   font-size: 14px;
+  font-weight: 400;
+  color: #6b6b6b;
 }
 
 .reset_btn {
   margin-top: 20px;
 }
-
+.mt-top {
+  margin-top: 20px !important;
+}
 .span-icon {
   z-index: 1;
   position: absolute;
@@ -1519,7 +1577,7 @@ input#file-upload-button {
 .text {
   font-size: 16px;
   color: #111;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .search_in {

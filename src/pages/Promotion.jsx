@@ -21,7 +21,7 @@ const Promotion = () => {
           <span></span>
         </div>
       </div>
-      <GetShot />
+      {/* <GetShot /> */}
       <SpecialOffers />
     </div>
   );
