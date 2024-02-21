@@ -1,6 +1,5 @@
 import React from "react";
 import logoalma from "../img/logo-alma.svg";
-import GetShot from "../components/GetShot";
 import SpecialOffers from "../components/SpecialOffers";
 import { useNavigate } from "react-router";
 import more from "../img/more.svg";
@@ -21,7 +20,6 @@ const Promotion = () => {
           <span></span>
         </div>
       </div>
-      {/* <GetShot /> */}
       <SpecialOffers />
     </div>
   );

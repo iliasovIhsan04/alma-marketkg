@@ -4,7 +4,6 @@ import "../style/css/App.css";
 import Header from "./Header";
 import { useNavigate } from "react-router";
 import Storis from "../Storis/Storis";
-import GetShot from "./GetShot";
 import NewPromotions from "../pages/NewPromotions";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
@@ -13,6 +12,7 @@ import application from "../img/all-application.svg";
 import scanner from "../img/scanning.svg";
 import Modal from "../UI/Modal/Modal";
 import modal_img from "../img/modal-image.svg";
+import HarryBuy from "./HarryBuy";
 
 const Main = ({ modal, setModal }) => {
   const [user, setUser] = useState([]);
@@ -106,7 +106,7 @@ const Main = ({ modal, setModal }) => {
               <p>Проверить цену</p>
             </div>
           </div>
-          <GetShot token={token} user={user} />
+          <HarryBuy token={token} user={token} />
           <NewPromotions />
         </div>
       </ReactPullToRefresh>

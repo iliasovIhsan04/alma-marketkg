@@ -12,10 +12,14 @@ const mySlice = createSlice({
     allPromotions: (state, action) => {
       state.data = action.payload;
     },
+    allHarryBuy: (state, action) => {
+      state.data = action.payload;
+    },
   },
 });
 
 export const { fetchDataSuccess } = mySlice.actions;
 export const { allPromotions } = mySlice.actions;
+export const { allHarryBuy } = mySlice.actions;
 
 export default mySlice.reducer;

@@ -26,6 +26,8 @@ import QrCode from "./pages/QrCode";
 import Locations from "./pages/Locations";
 import PriceAddress from "./pages/PriceAddress";
 import Modal from "./UI/Modal/Modal";
+import HarryBuyDeatils from "./pages/HarryBuyDeatils";
+import HarryBuyDetailsId from "./pages/HarryBuyDetailsId";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -49,7 +51,7 @@ const App = () => {
   const handleScroll = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  
+
   useEffect(() => {
     handleScroll();
   }, [location]);
@@ -159,9 +161,14 @@ const App = () => {
               />
               <Route path="promotion" element={<Promotion />} />
               <Route path="/get-shot-details" element={<GetShotDetails />} />
+              <Route path="/harry" element={<HarryBuyDeatils />} />
               <Route
                 path="/get-shot-details-id/:id"
                 element={<GetShotDetailsId />}
+              />
+              <Route
+                path="/harry-buy-details-id/:id"
+                element={<HarryBuyDetailsId />}
               />
               <Route path="/to-help-page" element={<ToHelpPage />} />
               <Route

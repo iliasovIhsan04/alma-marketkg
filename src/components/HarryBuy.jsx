@@ -4,9 +4,8 @@ import { useNavigate } from "react-router";
 import "../style/css/main.css";
 import { fetchData } from "../Redux/reduser/fetchData";
 import more_left from "../img/more-left.svg";
-import tvorog from "../img/tvorog.svg";
 
-const GetShot = ({ token }) => {
+const HarryBuy = ({ token }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.myData);
@@ -23,7 +22,7 @@ const GetShot = ({ token }) => {
               <p className="text t-custom">Успей купить</p>
               <h4
                 className="title_add t-custom"
-                onClick={() => navigate("/promotion")}
+                onClick={() => navigate("/harry")}
               >
                 Все
                 <img src={more_left} alt="" />
@@ -33,7 +32,7 @@ const GetShot = ({ token }) => {
               {data.map((el, id) => (
                 <div
                   key={id}
-                  onClick={() => navigate(`/get-shot-details-id/${el.id}`)}
+                  onClick={() => navigate(`/harry-buy-details-id/${el.id}`)}
                   className="special_box_blok"
                 >
                   <div className="sp_box">
@@ -70,4 +69,4 @@ const GetShot = ({ token }) => {
   );
 };
 
-export default GetShot;
+export default HarryBuy;
