@@ -757,9 +757,27 @@ p {
 .new_promotion_block {
   margin: 0 10px 0 0;
 }
+
 .new_promotion_box {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 210px;
+  background: rgb(245, 247, 250);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.new_promotion_box h1 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 0px !important;
+}
+.new_promotion_img_block {
+  width: 100%;
+  height: 145px;
+  border-radius: 14px;
 }
 .new_promotion_img {
   width: 100%;

@@ -41,12 +41,15 @@ const NewPromotions = () => {
                 className="new_promotion_block"
               >
                 <div className="new_promotion_box">
-                  <img
-                    className="new_promotion_img"
-                    src={el.img}
-                    alt=""
-                    loading="lazy"
-                  />
+                  <div className="new_promotion_img_block">
+                    <img
+                      className="new_promotion_img"
+                      src={el.img}
+                      alt=""
+                      loading="lazy"
+                    />
+                  </div>
+                  <h1>{el.title}</h1>
                 </div>
               </div>
             ))}
