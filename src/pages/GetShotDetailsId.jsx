@@ -33,13 +33,13 @@ const GetShotDetailsId = () => {
         <div className="alma_detail_id_block">
           <div className="container">
             <div className="alma_detail_date">
-              <span className="date-cll1">Акция</span>
-              <span className="date-cll2">{card.dateto}</span>
+              <span className="date_cll1">Акция</span>
+              <span className="date_cll2">{card.dateto}</span>
             </div>
             <div className="alma_detail_img_block">
               <img src={card.img} alt="" />
             </div>
-            <h1 className="price_title_alma">{card.title}</h1>
+            <h1 className="get_price_title_alma">{card.title}</h1>
             <p
               dangerouslySetInnerHTML={{ __html: card.text }}
               className="price_text_alma"

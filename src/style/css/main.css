@@ -438,11 +438,11 @@ p {
   color: rgb(25, 25, 25);
   margin-top: 10px;
   overflow-y: hidden;
+  line-height: 1.2;
 }
 .div_box {
-  margin: 10px 0 0 0;
   width: 100%;
-  height: 380px;
+  height: 260px;
 }
 .sp_box {
   margin: 10px 0 0 0;
@@ -757,7 +757,37 @@ p {
 .new_promotion_block {
   margin: 0 10px 0 0;
 }
-
+.special_promotion_wh {
+  width: 100%;
+  height: 380px;
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.special_promotion_wh h1 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 0px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.special_promotion_wh button {
+  border: 1px solid #dc0200;
+  font-size: 16px;
+  font-weight: 500;
+  color: #dc0200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .new_promotion_box {
   width: 240px;
   height: 210px;
@@ -770,7 +800,7 @@ p {
 }
 .new_promotion_box h1 {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 0px !important;
 }
@@ -821,7 +851,12 @@ p {
   width: 100%;
   margin-bottom: 100px;
 }
-
+.get_price_title_alma {
+  font-size: 20px;
+  font-weight: 700;
+  color: #191919;
+  margin: 14px 0 14px 0;
+}
 .special_details_block_all {
   width: 100%;
   display: flex;
