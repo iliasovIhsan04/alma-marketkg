@@ -14,15 +14,11 @@ const HarryBuyDetailsId = () => {
     axios
       .get(url + `/card/one/${id}`)
       .then((response) => {
-        if (Array.isArray(response.data)) {
-          setHarryBuy(response.data);
-        } else {
-          // Handle the case where response.data is not an array
-          console.error("Response data is not an array:", response.data);
-        }
+        console.log("Данные ответа:", response.data);
+        setHarryBuy(response.data);
       })
       .catch((error) => {
-        console.error("Axios Error:", error);
+        console.error("Ошибка Axios:", error);
       });
   }, []);
 
@@ -38,42 +34,39 @@ const HarryBuyDetailsId = () => {
                 src={more}
                 alt=""
               />
-              <p className="alma_title_header">Условия акции</p>
+              <p className="alma_title_header">Условия скидки</p>
               <span></span>
             </div>
           </div>
           <div className="container">
-            <div className="harry_buy_block">
-              {harryBuy.map((el, id) => (
-                <div
-                  key={id}
-                  onClick={() => navigate(`/get-shot-details-id/${el.id}`)}
-                  className="special_box"
-                >
-                  <div className="harry_sp_box">
-                    <div className="price_title_text_block">
-                      <div className="alma_price_block">
-                        <div className="harry_price_box">
-                          <h1>{el.prom_price}</h1> <span>{el.price}</span>
-                        </div>
-                        <div className="harry_list_prom">
-                          <p className="harry_percentage">{el.percentage}</p>
-                        </div>
-                        <div className="prom_line_harry"></div>
-                      </div>
-                      <div className="harry_buy_title_block">
-                        <h1 className="harry_title">{el.title}</h1>
-                        <p>{el.net}</p>
-                        <h2>{el.where}</h2>
-                      </div>
+            <div className="harry_buy_id_block">
+              <div className="alma_detail_date">
+                <span className="date_cll1">Акция</span>
+                <span className="date_cll2">{harryBuy.date}</span>
+              </div>
+              <div className="harry_sp_box">
+                <div className="price_title_text_block">
+                  <div className="alma_price_block">
+                    <div className="harry_price_box">
+                      <h1>{harryBuy.prom_price}</h1>{" "}
+                      <span>{harryBuy.price}</span>
                     </div>
-                    <div className="harry_buy_img_block">
-                      <img src={el.img} alt="" />
+                    <div className="harry_list_prom">
+                      <p className="harry_percentage">{harryBuy.percentage}</p>
                     </div>
-                    <div className="harry_buy_date_block">{el.date}</div>
+                    <div className="prom_line_harry"></div>
+                  </div>
+                  <div className="harry_buy_title_block">
+                    <h1 className="harry_title">{harryBuy.title}</h1>
+                    <p>{harryBuy.net}</p>
+                    <h2>{harryBuy.where}</h2>
                   </div>
                 </div>
-              ))}
+                <div className="harry_buy_img_block">
+                  <img src={harryBuy.img} alt="" />
+                </div>
+                <div className="harry_buy_date_block">{harryBuy.date}</div>
+              </div>
             </div>
           </div>
         </div>

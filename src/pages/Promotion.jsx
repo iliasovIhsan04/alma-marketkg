@@ -1,5 +1,4 @@
 import React from "react";
-import logoalma from "../img/logo-alma.svg";
 import SpecialOffers from "../components/SpecialOffers";
 import { useNavigate } from "react-router";
 import more from "../img/more.svg";

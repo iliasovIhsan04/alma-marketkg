@@ -13,6 +13,7 @@ import scanner from "../img/scanning.svg";
 import Modal from "../UI/Modal/Modal";
 import modal_img from "../img/modal-image.svg";
 import HarryBuy from "./HarryBuy";
+import alma_go from "../img/alma-goo.svg";
 
 const Main = ({ modal, setModal }) => {
   const [user, setUser] = useState([]);
@@ -92,11 +93,10 @@ const Main = ({ modal, setModal }) => {
           </div>
           <div className="scanner_block container">
             <div
-              className="scanner_box"
+              className="scanner_box1"
               onClick={() => navigate("/shop-all/shop")}
             >
-              <img src={application} alt="" />
-              <p>Посмотреть товары</p>
+              <img src={alma_go} alt="" />
             </div>
             <div
               className="scanner_box"

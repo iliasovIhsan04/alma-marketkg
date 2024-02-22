@@ -1,6 +1,7 @@
 import React from "react";
 import { BiBell } from "react-icons/bi";
 import logoalma from "../img/logo-alma.svg";
+import cart from "../img/cart-icons.svg";
 import "../style/css/App.css";
 import "../style/css/media.css";
 import "../style/css/main.css";
@@ -12,13 +13,13 @@ const Header = () => {
   return (
     <div className="nav relative">
       <div className="container nav_content">
-        <span></span>
-        <img className="alma_header_img" src={logoalma} alt="" />
         <BiBell
           className="fi"
           color="#191919"
           onClick={() => navigate("/notifications")}
         />
+        <img className="alma_header_img" src={logoalma} alt="" />
+        <img className="more_img" src={cart} alt="" />
       </div>
     </div>
   );

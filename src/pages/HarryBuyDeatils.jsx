@@ -25,7 +25,7 @@ const HarryBuyDeatils = () => {
                 src={more}
                 alt=""
               />
-              <p className="alma_title_header">Условия акции</p>
+              <p className="alma_title_header">Успей купить</p>
               <span></span>
             </div>
           </div>

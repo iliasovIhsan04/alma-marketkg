@@ -404,15 +404,15 @@ p {
 .alma_detail_date {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
-.alma_detail_date span {
-  font-size: 16px;
-  font-weight: 500;
-}
-.date_cll1 {
+.date_cll1,
+.date_cll2 {
   color: rgb(25, 25, 25);
+  font-size: 18px !important;
+  font-weight: 500 !important;
 }
-.date-cll2 {
+.date_cll2 {
   color: rgb(220, 2, 0);
 }
 .alma_detail_img_block {
@@ -444,7 +444,6 @@ p {
   width: 100%;
   height: 380px;
 }
-
 .sp_box {
   margin: 10px 0 0 0;
   width: 260px;
@@ -535,7 +534,7 @@ p {
 }
 .alma_price_box h1 {
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: #fff;
   margin-bottom: -2px;
@@ -794,7 +793,7 @@ p {
 .alma_title_header {
   font-size: 20px;
   color: rgb(25, 25, 25);
-  font-weight: 500;
+  font-weight: 700;
 }
 /* SpecialDetails */
 .new_promotions {
@@ -1984,6 +1983,18 @@ input#file-upload-button {
   cursor: pointer;
   padding: 10px;
 }
+.scanner_box1 {
+  height: 58px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.scanner_box1 img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
 .scanner_box p {
   font-size: 16px;
   font-weight: 400;
@@ -2000,4 +2011,56 @@ input#file-upload-button {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+}
+.harry_buy_id_block {
+  width: 100%;
+  padding-top: 65px;
+}
+@media (max-width: 420px) {
+  .harry_sp_box {
+    max-width: 100%;
+    height: 378px;
+  }
+  .harry_buy_title_block h1 {
+    font-size: 16px !important;
+  }
+  .harry_buy_title_block p {
+    font-size: 16px !important;
+  }
+  .harry_price_box {
+    width: 95px;
+    height: 95px;
+  }
+  .harry_price_box h1 {
+    margin-top: 27px;
+    font-size: 28px;
+  }
+  .prom_line_harry {
+    width: 45px !important;
+    height: 1.1px !important;
+    top: 73px;
+    bottom: 0;
+    left: 25px;
+    right: 0;
+    transform: rotate(165deg);
+  }
+  .harry_buy_img_block {
+    width: 215px !important;
+    height: 180px !important;
+  }
+  .harry_buy_date_block {
+    width: 140px !important;
+    height: 25px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+  }
+  .harry_list_prom {
+    position: absolute;
+    top: -9px;
+    right: 0;
+    bottom: 0;
+    left: 33px;
+    z-index: 996;
+    width: 100%;
+  }
 }
