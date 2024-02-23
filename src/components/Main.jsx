@@ -14,6 +14,7 @@ import Modal from "../UI/Modal/Modal";
 import modal_img from "../img/modal-image.svg";
 import HarryBuy from "./HarryBuy";
 import alma_go from "../img/alma-goo.svg";
+import logo_many from "../img/logo-many.svg";
 
 const Main = ({ modal, setModal }) => {
   const [user, setUser] = useState([]);

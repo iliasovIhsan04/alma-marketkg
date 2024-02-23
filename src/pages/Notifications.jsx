@@ -24,8 +24,8 @@ const Notifications = () => {
   }, []);
 
   return (
-    <div className="notification_modal">
-      <div className="nav nav_notification">
+    <div id="modal">
+      <div className="nav ">
         <div className="container d-flex justify-content-between align-items-center">
           <img
             className="more_img"
