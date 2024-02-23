@@ -28,6 +28,9 @@ import PriceAddress from "./pages/PriceAddress";
 import Modal from "./UI/Modal/Modal";
 import HarryBuyDeatils from "./pages/HarryBuyDeatils";
 import HarryBuyDetailsId from "./pages/HarryBuyDetailsId";
+import FeaturedProducts from "./pages/FeaturedProducts";
+import PurchaseHistory from "./pages/PurchaseHistory";
+import BasketProduct from "./pages/BasketProduct";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -190,6 +193,9 @@ const App = () => {
               <Route path="/qr-code" element={<QrCode />} />
               <Route path="/locations" element={<Locations />} />
               <Route path="/price-address" element={<PriceAddress />} />
+              <Route path="/featured-products" element={<FeaturedProducts />} />
+              <Route path="/purchase-history" element={<PurchaseHistory />} />
+              <Route path="/basket-product" element={<BasketProduct />} />
             </Routes>
             <Footer />
           </div>

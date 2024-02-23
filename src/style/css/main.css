@@ -803,6 +803,11 @@ p {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 0px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .new_promotion_img_block {
   width: 100%;
@@ -856,6 +861,11 @@ p {
   font-weight: 700;
   color: #191919;
   margin: 14px 0 14px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .special_details_block_all {
   width: 100%;

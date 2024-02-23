@@ -13,6 +13,8 @@ import help from "../img/help-color.svg";
 import info from "../img/info-color.svg";
 import logout from "../img/logout.svg";
 import line from "../img/Line 8.svg";
+import heart from "../img/live.svg";
+import order_history from "../img/order-history.svg";
 
 const PersonalArea = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -84,6 +86,41 @@ const PersonalArea = () => {
                   <img src={setting} alt="" />
                 </div>
                 <h3 className="personal_title">Настройка</h3>
+              </div>
+              <div className="lo">
+                <img src={more_left} alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="area_all_block">
+            <div
+              className="area_all"
+              onClick={() => navigate("/featured-products")}
+            >
+              <div className="bell">
+                <div className="bi">
+                  <img src={heart} alt="" />
+                </div>
+                <h3 className="personal_title">Избранные товары </h3>
+              </div>
+              <div className="lo">
+                <img src={more_left} alt="" />
+              </div>
+            </div>
+            <img
+              style={{ width: "294px", marginLeft: "auto" }}
+              src={line}
+              alt=""
+            />
+            <div
+              className="area_all"
+              onClick={() => navigate(`/purchase-history`)}
+            >
+              <div className="bell">
+                <div className="bi">
+                  <img src={order_history} alt="" />
+                </div>
+                <h3 className="personal_title">История покупок</h3>
               </div>
               <div className="lo">
                 <img src={more_left} alt="" />

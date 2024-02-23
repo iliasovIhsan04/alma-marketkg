@@ -39,9 +39,7 @@ const Product = () => {
           <div className="blocks_product">
             <img className="date_img" src={datas.img} alt={datas.title} />
           </div>
-          <h3 className="product_title my-4 title_alma_product">
-            {datas.title}
-          </h3>
+          <h3 className=" my-4 title_alma_product">{datas.title}</h3>
           <div className="all_alls mb-0 overflow-hidden">
             <p className="project_product price_alma_product">Артикул:</p>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -66,6 +64,14 @@ const Product = () => {
               </div>
             </div>
           )}
+          <h1 className="description">Описание:</h1>
+          <p className="description_text">
+            Всего один ломтик этого нежного продукта с лёгкими пикантными
+            нотками поднимет ваше настроение и зарядит бодростью на весь
+            день. Всё потому, что колбасный сыр "БЕЛАЯ РЕКА" натуральный и богат
+            витаминами и микроэлементами, необходимыми для вашего здоровья.
+          </p>
+          <button className="description_btn">Добавить в корзину</button>
         </div>
       </div>
     </div>

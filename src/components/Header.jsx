@@ -19,7 +19,12 @@ const Header = () => {
           onClick={() => navigate("/notifications")}
         />
         <img className="alma_header_img" src={logoalma} alt="" />
-        <img className="more_img" src={cart} alt="" />
+        <img
+          onClick={() => navigate("/basket-product")}
+          className="more_img"
+          src={cart}
+          alt=""
+        />
       </div>
     </div>
   );

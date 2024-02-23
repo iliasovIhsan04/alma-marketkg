@@ -11,6 +11,7 @@ import Slider from "react-slider";
 import lineModal from "../img/line-4.svg";
 import { RiCloseLine } from "react-icons/ri";
 import search1 from "../img/search-icon-rel.svg";
+import shape_heart from "../img/Shape-heart.svg";
 
 const MIN = 40;
 const MAX = 500;
@@ -384,12 +385,16 @@ const ShopDetail = ({ data, setData }) => {
                   })
                   .map((el) => (
                     <div className="shops_box" key={el.id}>
-                      <div
-                        className="blocks"
-                        onClick={() => navigate(`/shop-all/product/${el.id}`)}
-                      >
-                        <img src={el.img} alt="" />
+                      <div className="blocks_block">
+                        <img className="shape_heart" src={shape_heart} alt="" />
+                        <div
+                          className="blocks"
+                          onClick={() => navigate(`/shop-all/product/${el.id}`)}
+                        >
+                          <img src={el.img} alt="" />
+                        </div>
                       </div>
+
                       <div className="all">
                         <h3 className="title_one ">{el.title}</h3>
                         <div className="product-info">
