@@ -1354,7 +1354,7 @@ input#file-upload-button {
 
 .new_add_input {
   border: none !important;
-  background: rgb(242, 242, 242);
+  background:#F5F7FA;
 }
 
 .new_button {
@@ -1590,7 +1590,7 @@ input#file-upload-button {
 }
 
 .phone_block input {
-  background: #e9ecef;
+  background: #f5f7fa;
   border: none;
 }
 

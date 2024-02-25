@@ -4,11 +4,11 @@ import { useNavigate } from "react-router";
 import alma_logot from "../../src/img/logo-alma.svg";
 import more from "../img/more.svg";
 import phone from "../img/phone_alma.svg";
-import whatsap from "../img/whatsap_alma.svg";
-import telegram from "../img/telegram_alma.svg";
-import instagram from "../img/instagram_alma.svg";
-import tikTok from "../img/Tik Tok_alma.svg";
-import youtube from "../img/youtube_alma.svg";
+import whatsap from "../img/whatsap-ORIGIN.svg";
+import telegram from "../img/telegram-origin.svg";
+import instagram from "../img/instagram-orogon.svg";
+import tikTok from "../img/tik-tok-orginal.svg";
+import youtube from "../img/youtub-origin.svg";
 const ToHelpPage = () => {
   const navigate = useNavigate();
 

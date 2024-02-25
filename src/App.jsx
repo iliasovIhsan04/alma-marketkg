@@ -31,6 +31,8 @@ import HarryBuyDetailsId from "./pages/HarryBuyDetailsId";
 import FeaturedProducts from "./pages/FeaturedProducts";
 import PurchaseHistory from "./pages/PurchaseHistory";
 import BasketProduct from "./pages/BasketProduct";
+import DeliveryAddress from "./pages/DeliveryAddress";
+import NewAddress from "./pages/NewAddress";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -196,6 +198,8 @@ const App = () => {
               <Route path="/featured-products" element={<FeaturedProducts />} />
               <Route path="/purchase-history" element={<PurchaseHistory />} />
               <Route path="/basket-product" element={<BasketProduct />} />
+              <Route path="/delivery-address" element={<DeliveryAddress />} />
+              <Route path="/new-address" element={<NewAddress />} />
             </Routes>
             <Footer />
           </div>

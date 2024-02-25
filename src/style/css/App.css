@@ -230,6 +230,7 @@ h6 {
   margin: 0 auto;
   border: 0.5px solid #f4f4f4;
 }
+
 .shop_details_modal {
   width: 100%;
   height: 100%;
@@ -976,15 +977,18 @@ button {
   font-weight: 300;
 }
 .btn_butto {
-  width: 100%;
-  height: 45px;
-  background: #ff640d;
+  background: #6b6b6b;
   border: none;
-  border-radius: 15px;
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
-  margin: 0 0 20px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  width: 90% !important;
+  margin: 0 auto;
+  z-index: 995;
 }
 .line {
   width: 100%;
@@ -1521,14 +1525,19 @@ select {
 .basket_product {
   margin-top: 65px;
 }
-.featured_products_block {
+.delivery_address {
+  margin-top: 40px;
+}
+.featured_products_block,
+.address_block {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
 }
-.featured_products_block h1 {
+.featured_products_block h1,
+.address_block h1 {
   font-size: 26px;
   font-weight: 700;
   margin: 40px 0 12px 0;
@@ -1543,7 +1552,8 @@ select {
 .history_featured_text {
   font-size: 23px !important;
 }
-.featured_products_block p {
+.featured_products_block p,
+.address_block p {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.1;
@@ -1558,6 +1568,17 @@ select {
   font-weight: 500;
   margin: 30px 0 0 0;
   cursor: pointer;
+}
+.address_block button {
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  margin-bottom: 40px;
 }
 .basket_top {
   padding-top: 60px !important;
