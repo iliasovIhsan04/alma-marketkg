@@ -95,7 +95,7 @@ const PersonalArea = () => {
           <div className="area_all_block">
             <div
               className="area_all"
-              onClick={() => navigate("/featured-products")}
+              onClick={() => navigate("/shop-all/featured-products")}
             >
               <div className="bell">
                 <div className="bi">
@@ -129,7 +129,7 @@ const PersonalArea = () => {
           </div>
           <div className="area_all_block">
             <div
-              onClick={() => navigate(`/delivery-address`)}
+              onClick={() => navigate(`/placing-orders`)}
               className="area_all"
             >
               <div className="bell">

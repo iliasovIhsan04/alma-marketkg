@@ -33,6 +33,7 @@ import PurchaseHistory from "./pages/PurchaseHistory";
 import BasketProduct from "./pages/BasketProduct";
 import DeliveryAddress from "./pages/DeliveryAddress";
 import NewAddress from "./pages/NewAddress";
+import PlacingOrders from "./pages/PlacingOrders";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -181,7 +182,10 @@ const App = () => {
                 element={<Settings Alert={FuncAlert} />}
               />
               <Route path="/dashboard" element={<PersonalArea />} />
-              <Route path="shop-all/*" element={<Project />} />
+              <Route
+                path="shop-all/*"
+                element={<Project Alert={FuncAlert} />}
+              />
               <Route path="/application" element={<AboutApplication />} />
               <Route
                 path="/my-information"
@@ -195,11 +199,11 @@ const App = () => {
               <Route path="/qr-code" element={<QrCode />} />
               <Route path="/locations" element={<Locations />} />
               <Route path="/price-address" element={<PriceAddress />} />
-              <Route path="/featured-products" element={<FeaturedProducts />} />
               <Route path="/purchase-history" element={<PurchaseHistory />} />
               <Route path="/basket-product" element={<BasketProduct />} />
               <Route path="/delivery-address" element={<DeliveryAddress />} />
               <Route path="/new-address" element={<NewAddress />} />
+              <Route path="/placing-orders" element={<PlacingOrders />} />
             </Routes>
             <Footer />
           </div>

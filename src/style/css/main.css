@@ -1351,12 +1351,25 @@ input#file-upload-button {
   width: 100%;
   padding-top: 60px;
 }
-
 .new_add_input {
   border: none !important;
-  background:#F5F7FA;
+  background: #f5f7fa;
 }
-
+.new_add_input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+.new_add_input::before {
+  position: absolute;
+  content: url("../../img/green_icons.svg");
+  top: 39px;
+  right: 10px;
+}
+.new_add_input::after {
+  position: absolute;
+  content: url("../../img/date.svg");
+  top: 39px;
+  left: 15px;
+}
 .new_button {
   border: none;
   color: #fff;

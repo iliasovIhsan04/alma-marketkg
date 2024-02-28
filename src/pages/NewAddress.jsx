@@ -7,7 +7,11 @@ import more from "../img/more.svg";
 const NewAddress = () => {
   const navigate = useNavigate();
   const [address, setAddress] = useState({
-    address: "",
+    street: "",
+    number: "",
+    building: "",
+    apartment: "",
+    floor: "",
   });
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
   const [isLoading, setIsLoading] = useState(false);
@@ -59,8 +63,8 @@ const NewAddress = () => {
                 placeholder="Введите название улицы"
                 className="input_form new_add_input"
                 type="text"
-                name="address"
-                value={address.address}
+                name="street"
+                value={address.street}
                 onChange={handleChange}
               />
             </div>
@@ -72,8 +76,8 @@ const NewAddress = () => {
                 placeholder="Введите номер дома"
                 className="input_form new_add_input"
                 type="text"
-                name="address"
-                value={address.address}
+                name="number"
+                value={address.number}
                 onChange={handleChange}
               />
             </div>
@@ -83,8 +87,8 @@ const NewAddress = () => {
                 placeholder="Введите номер корпуса"
                 className="input_form new_add_input"
                 type="text"
-                name="address"
-                value={address.address}
+                name="building"
+                value={address.building}
                 onChange={handleChange}
               />
             </div>
@@ -94,8 +98,8 @@ const NewAddress = () => {
                 placeholder="Введите номер подъезда"
                 className="input_form new_add_input"
                 type="text"
-                name="address"
-                value={address.address}
+                name="apartment"
+                value={address.apartment}
                 onChange={handleChange}
               />
             </div>
@@ -105,8 +109,8 @@ const NewAddress = () => {
                 placeholder="Введите номер этажа"
                 className="input_form new_add_input"
                 type="text"
-                name="address"
-                value={address.address}
+                name="floor"
+                value={address.floor}
                 onChange={handleChange}
               />
             </div>

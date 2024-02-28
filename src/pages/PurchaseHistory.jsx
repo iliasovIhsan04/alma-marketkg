@@ -23,7 +23,9 @@ const PurchaseHistory = () => {
         <div className="container">
           <div className="featured_products_block">
             <img src={history_img} alt="" />
-            <h1 className="history_featured_text">Вы не сделали ни одной покупки, но это поправимо...</h1>
+            <h1 className="history_featured_text">
+              Вы не сделали ни одной покупки, но это поправимо...
+            </h1>
             <p>
               Добавьте в корзину всё, что душе угодно, а мы доставим заказ
               от 150 сом

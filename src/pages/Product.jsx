@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import more from "../img/more.svg";
 import axios from "axios";
 import "../style/css/App.css";
 import "../style/css/main.css";
 import "../style/css/modal.css";
 import { url } from "../Api";
+import Slider from "react-slick";
 
-const Product = () => {
+const Product = ({ Alert }) => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
+  const [isBasket, setIsBasket] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +20,28 @@ const Product = () => {
       .then((response) => setDatas(response.data))
       .catch();
   }, [id]);
-  const mun = JSON.parse(localStorage.getItem("plus"));
+
+  const Basket = (id) => {
+    localStorage.setItem(`activeItems_${id}`, id);
+    const existingCart = JSON.parse(localStorage.getItem("carts")) || [];
+    const updatedCart = [...existingCart, datas];
+    localStorage.setItem("carts", JSON.stringify(updatedCart));
+    if (localStorage.getItem(`activeItems_${id}`)) {
+      Alert("товар уже в корзине", "success");
+    } else {
+      setIsBasket(false);
+    }
+  };
+
+  const imagesSlider = datas.img ? datas.img.map((el) => el.img) : [];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <div id="modal" className="modal-wrap">
       <div className="nav">
@@ -36,9 +59,13 @@ const Product = () => {
       </div>
       <div className="container">
         <div className="block_shop">
-          <div className="blocks_product">
-            <img className="date_img" src={datas.img} alt={datas.title} />
-          </div>
+          <Slider {...settings}>
+            {datas?.img?.map((el) => (
+              <div className="blocks_product">
+                <img className="date_img" src={el.img} alt={datas.title} />
+              </div>
+            ))}
+          </Slider>
           <h3 className=" my-4 title_alma_product">{datas.title}</h3>
           <div className="all_alls mb-0 overflow-hidden">
             <p className="project_product price_alma_product">Артикул:</p>
@@ -71,7 +98,18 @@ const Product = () => {
             день. Всё потому, что колбасный сыр "БЕЛАЯ РЕКА" натуральный и богат
             витаминами и микроэлементами, необходимыми для вашего здоровья.
           </p>
-          <button className="description_btn">Добавить в корзину</button>
+          {localStorage.getItem(`activeItems_${datas.id}`) ? (
+            <NavLink to="/basket-product">
+              <button className="description_btn">В корзине</button>
+            </NavLink>
+          ) : (
+            <button
+              className="description_btn"
+              onClick={() => Basket(datas.id)}
+            >
+              Добавить в корзину
+            </button>
+          )}
         </div>
       </div>
     </div>
