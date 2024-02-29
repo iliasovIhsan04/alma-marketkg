@@ -14,7 +14,7 @@ const PlacingOrders = ({ Alert }) => {
   const getData = JSON.parse(localStorage.getItem(`address`));
   const [address, setAddress] = useState({
     address_to: "",
-    get_date: "",
+    get_date: "Как можно быстрее",
     comment: "",
   });
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
@@ -131,7 +131,11 @@ const PlacingOrders = ({ Alert }) => {
               <img src={location_img} alt="" />
               <span style={{ margin: "0 10px" }} className="project">
                 {getData?.active === false ? (
-                  <span>{getData?.street}</span>
+                  <span>
+                    {getData?.street} {getData?.street} {getData.number}{" "}
+                    {getData.building} {getData.apartment}
+                    {getData.floor}
+                  </span>
                 ) : (
                   <span>Выберите адрес доставки</span>
                 )}
@@ -142,18 +146,20 @@ const PlacingOrders = ({ Alert }) => {
           <form action="">
             <div className="input_box">
               <label>Время получения</label>
-              <label htmlFor="">
-                <input
-                  style={{ padding: "0 0 0 50px " }}
-                  placeholder="Как можно быстрее"
-                  className="input_form new_add_input"
-                  type="date"
-                  value={address.get_date}
-                  onChange={(e) =>
-                    setAddress({ ...address, get_date: e.target.value })
-                  }
-                />
-              </label>
+              <input
+                id="data_date"
+                style={{ padding: "0 0 0 50px " }}
+                className="input_form new_add_input"
+                type="date"
+                value={address.get_date}
+                placeholder="Как можно быстрее"
+                onChange={(e) =>
+                  setAddress({ ...address, get_date: e.target.value })
+                }
+                onClick={() => {
+                  document.getElementById("data_date").type = "date";
+                }}
+              />
             </div>
             <div className="input_box">
               <label>Комментарий к заказу( 0-2000)</label>

@@ -44,7 +44,10 @@
   box-sizing: border-box;
   font-family: Rubik, Gilroy, sans-serif;
 }
-
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
 :root {
   --orange: #ff640d;
   --green: #04c700;

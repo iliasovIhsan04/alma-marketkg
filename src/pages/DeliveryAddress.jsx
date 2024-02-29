@@ -4,7 +4,6 @@ import address_img from "../img/empty_address.svg";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { useNavigate } from "react-router";
 import { url } from "../Api";
-import { MdDelete } from "react-icons/md";
 import axios from "axios";
 import close_address from "../img/close-address.svg";
 
@@ -12,7 +11,6 @@ const DeliveryAddress = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const getData = JSON.parse(localStorage.getItem(`address`));
-  const [address, setAddress] = useState([]);
   const [orderDelete, setOrderDelete] = useState([]);
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
   const [addressAll, setAddressAll] = useState(false);
@@ -48,8 +46,7 @@ const DeliveryAddress = () => {
       console.log("Error", error);
     }
   };
-  const datas = data[0]?.status;
-  const item = localStorage.getItem(`addres`);
+  const datas = data[0]?.active;
 
   return (
     <div id="modal">
@@ -74,58 +71,59 @@ const DeliveryAddress = () => {
             <HiOutlinePlusSm size={24} style={{ color: "#DC0200" }} /> Добавить
             адрес
           </button>
-          {/* {datas === true ? ( */}
-          <div
-            className="position_address_relt"
-            style={{ width: "100%", margin: "30px 0 0 0" }}
-          >
-            {data.map((el) => (
-              <div className="addres_all" key={el.id}>
-                <div
-                  className="radius_block"
-                  onClick={() => {
-                    localStorage.setItem(`address`, JSON.stringify(el));
-                    localStorage.setItem(`addres`, JSON.stringify(true));
-                    <div className="block_lean"></div>;
-                    navigate("/placing-orders");
-                  }}
-                >
-                  <div className="border_leans ">
-                    <div
-                      className={
-                        el.active
-                          ? "block_lean"
-                          : getData?.id == el.id
-                          ? "block_lean"
-                          : "leans"
-                      }
-                    ></div>
-                  </div>
-                  <p className="project" style={{ margin: "0 10px" }}>
-                    {el.street}
-                  </p>
-                </div>
-                <div className="icons_block">
-                  <img
-                    src={close_address}
-                    alt=""
-                    className="icon_delt"
-                    onClick={async () => {
-                      await delite(el.id);
-                      ordering();
+          {datas === false ? (
+            <div
+              className="position_address_relt"
+              style={{ width: "100%", margin: "30px 0 0 0" }}
+            >
+              {data.map((el) => (
+                <div className="addres_all" key={el.id}>
+                  <div
+                    className="radius_block"
+                    onClick={() => {
+                      localStorage.setItem(`address`, JSON.stringify(el));
+                      localStorage.setItem(`addres`, JSON.stringify(true));
+                      <div className="block_lean"></div>;
+                      navigate("/placing-orders");
                     }}
-                  />
+                  >
+                    <div className="border_leans ">
+                      <div
+                        className={
+                          el.active
+                            ? "block_lean"
+                            : getData?.id == el.id
+                            ? "block_lean"
+                            : "leans"
+                        }
+                      ></div>
+                    </div>
+                    <p className="project" style={{ margin: "0 10px" }}>
+                      {el.street} {el.number} {el.building} {el.apartment}
+                      {el.floor}
+                    </p>
+                  </div>
+                  <div className="icons_block">
+                    <img
+                      src={close_address}
+                      alt=""
+                      className="icon_delt"
+                      onClick={async () => {
+                        await delite(el.id);
+                        ordering();
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          {/* ) : (
+              ))}
+            </div>
+          ) : (
             <div className="address_block">
               <img src={address_img} alt="" />
               <h1>Пока тут пусто</h1>
               <p>Здесь будут храниться ваши адреса</p>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </div>
