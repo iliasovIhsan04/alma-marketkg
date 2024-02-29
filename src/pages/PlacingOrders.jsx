@@ -13,24 +13,19 @@ const PlacingOrders = ({ Alert }) => {
   const [error, setError] = useState([]);
   const getData = JSON.parse(localStorage.getItem(`address`));
   const [address, setAddress] = useState({
-    address: "",
-    product: "",
-    count: "",
+    address_to: "",
+    get_date: "",
+    comment: "",
   });
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
   const [isLoading, setIsLoading] = useState(false);
   const headers = {
     Authorization: `Token ${local}`,
   };
-  const handleChange = (e) => {
-    setAddress({ ...address, [e.target.name]: e.target.value });
-  };
-  const plusData = JSON.parse(localStorage.getItem("plus"));
   const shopCart = JSON.parse(localStorage.getItem("shopCart"));
 
   if (shopCart) {
     const cartIds = shopCart.map((el) => el.id);
-
     const idCount = cartIds.reduce((acc, id) => {
       if (acc[id]) {
         acc[id] += 1;
@@ -67,21 +62,25 @@ const PlacingOrders = ({ Alert }) => {
       }));
 
       const dataToSend = {
-        address: getData?.id ? getData?.id : null,
-        product_for_order: productsForOrder,
+        address_to: getData?.id ? getData?.id : null,
+        get_date: address.get_date,
+        comment: address.comment,
+        product: productsForOrder,
       };
-      const response = await axios.post(url + "/order/order", dataToSend, {
+      const response = await axios.post(url + "/order/create", dataToSend, {
         headers,
-        address,
       });
 
       if (response.data.response === true) {
         setIsLoading(false);
         shopCart.map((el) => localStorage.removeItem(`activePlus_${el.id}`));
+        shopCart.map((el) => localStorage.removeItem(`activeItems_${el.id}`));
         localStorage.removeItem("myData");
         localStorage.removeItem("cart");
+        localStorage.removeItem("carts");
         localStorage.removeItem("updatedOldPrice");
         localStorage.removeItem("address");
+        localStorage.removeItem("addres");
         localStorage.removeItem("plus");
         localStorage.removeItem("shopCart");
         navigate("/success");
@@ -131,7 +130,7 @@ const PlacingOrders = ({ Alert }) => {
             <div className="d-flex align-items-center">
               <img src={location_img} alt="" />
               <span style={{ margin: "0 10px" }} className="project">
-                {getData?.status === true ? (
+                {getData?.active === false ? (
                   <span>{getData?.street}</span>
                 ) : (
                   <span>Выберите адрес доставки</span>
@@ -143,12 +142,18 @@ const PlacingOrders = ({ Alert }) => {
           <form action="">
             <div className="input_box">
               <label>Время получения</label>
-              <input
-                style={{ padding: "0 0 0 50px " }}
-                placeholder="Как можно быстрее"
-                className="input_form new_add_input"
-                type="date"
-              />
+              <label htmlFor="">
+                <input
+                  style={{ padding: "0 0 0 50px " }}
+                  placeholder="Как можно быстрее"
+                  className="input_form new_add_input"
+                  type="date"
+                  value={address.get_date}
+                  onChange={(e) =>
+                    setAddress({ ...address, get_date: e.target.value })
+                  }
+                />
+              </label>
             </div>
             <div className="input_box">
               <label>Комментарий к заказу( 0-2000)</label>
@@ -159,6 +164,10 @@ const PlacingOrders = ({ Alert }) => {
                 id=""
                 cols="30"
                 rows="10"
+                value={address.comment}
+                onChange={(e) =>
+                  setAddress({ ...address, comment: e.target.value })
+                }
               ></textarea>
             </div>
           </form>

@@ -8,13 +8,11 @@ import NewPromotions from "../pages/NewPromotions";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
 import ReactPullToRefresh from "react-simple-pull-to-refresh";
-import application from "../img/all-application.svg";
 import scanner from "../img/scanning.svg";
 import Modal from "../UI/Modal/Modal";
 import modal_img from "../img/modal-image.svg";
 import HarryBuy from "./HarryBuy";
-import alma_go from "../img/alma-goo.svg";
-import logo_many from "../img/logo-many.svg";
+import alma_go from "../img/служба-logo.svg";
 
 const Main = ({ modal, setModal }) => {
   const [user, setUser] = useState([]);
@@ -93,10 +91,7 @@ const Main = ({ modal, setModal }) => {
             )}
           </div>
           <div className="scanner_block container">
-            <div
-              className="scanner_box1"
-              onClick={() => navigate("/shop-all/shop")}
-            >
+            <div className="scanner_box1" onClick={() => setModal(true)}>
               <img src={alma_go} alt="" />
             </div>
             <div

@@ -34,6 +34,7 @@ import BasketProduct from "./pages/BasketProduct";
 import DeliveryAddress from "./pages/DeliveryAddress";
 import NewAddress from "./pages/NewAddress";
 import PlacingOrders from "./pages/PlacingOrders";
+import SuccessProduct from "./pages/SuccessProduct";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -177,6 +178,7 @@ const App = () => {
                 element={<HarryBuyDetailsId />}
               />
               <Route path="/to-help-page" element={<ToHelpPage />} />
+              <Route path="/success-product" element={<SuccessProduct />} />
               <Route
                 path="/settings"
                 element={<Settings Alert={FuncAlert} />}

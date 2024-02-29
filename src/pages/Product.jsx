@@ -42,6 +42,7 @@ const Product = ({ Alert }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <div id="modal" className="modal-wrap">
       <div className="nav">

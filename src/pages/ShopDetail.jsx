@@ -391,7 +391,8 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
                           `${el.id}` ? (
                             <img
                               className="shape_heart"
-                              src={heart}f
+                              src={heart}
+                              f
                               alt=""
                               onClick={() => saveToLocalStorage(el.id)}
                             />

@@ -14,6 +14,7 @@ const BasketProduct = () => {
   const [shopCart, setShopCart] = useState([]);
   const [plusFrom, setPlusFrom] = useState([]);
   const [count, setCount] = useState(0);
+
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     const storedShopCart = JSON.parse(localStorage.getItem("shopCart")) || [];
@@ -182,6 +183,7 @@ const BasketProduct = () => {
                           <span key={el.id}>
                             {localStorage.getItem(`plus`) &&
                               JSON.parse(localStorage.getItem(`plus`))[el.id]}
+                            {/* {shopCart.length} */}
                           </span>
                           <div className="plus_carts_rr">
                             <GoPlus
