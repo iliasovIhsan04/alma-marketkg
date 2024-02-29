@@ -35,6 +35,7 @@ import DeliveryAddress from "./pages/DeliveryAddress";
 import NewAddress from "./pages/NewAddress";
 import PlacingOrders from "./pages/PlacingOrders";
 import SuccessProduct from "./pages/SuccessProduct";
+import PurchaseHistoryDetailsId from "./pages/PurchaseHistoryDetailsId";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -214,6 +215,10 @@ const App = () => {
               <Route path="/delivery-address" element={<DeliveryAddress />} />
               <Route path="/new-address" element={<NewAddress />} />
               <Route path="/placing-orders" element={<PlacingOrders />} />
+              <Route
+                path="/purchase-id/:id"
+                element={<PurchaseHistoryDetailsId />}
+              />
             </Routes>
             <Footer />
           </div>

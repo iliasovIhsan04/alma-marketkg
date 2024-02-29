@@ -147,7 +147,6 @@ const PlacingOrders = ({ Alert }) => {
             <div className="input_box">
               <label>Время получения</label>
               <input
-                id="data_date"
                 style={{ padding: "0 0 0 50px " }}
                 className="input_form new_add_input"
                 type="date"
@@ -156,9 +155,6 @@ const PlacingOrders = ({ Alert }) => {
                 onChange={(e) =>
                   setAddress({ ...address, get_date: e.target.value })
                 }
-                onClick={() => {
-                  document.getElementById("data_date").type = "date";
-                }}
               />
             </div>
             <div className="input_box">
