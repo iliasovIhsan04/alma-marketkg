@@ -12,6 +12,7 @@ const Product = ({ Alert }) => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
   const [isBasket, setIsBasket] = useState(false);
+  const [productId, setproductId] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +23,11 @@ const Product = ({ Alert }) => {
   }, [id]);
 
   const Basket = (id) => {
+    localStorage.getItem(`activeItems_${id}`, id);
+    if (localStorage.getItem(`activeItems_${id}`, id)) {
+      setproductId(...productId, id);
+    }
+
     localStorage.setItem(`activeItems_${id}`, id);
     const existingCart = JSON.parse(localStorage.getItem("carts")) || [];
     const updatedCart = [...existingCart, datas];

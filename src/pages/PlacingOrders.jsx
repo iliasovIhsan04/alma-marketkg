@@ -83,7 +83,7 @@ const PlacingOrders = ({ Alert }) => {
         localStorage.removeItem("addres");
         localStorage.removeItem("plus");
         localStorage.removeItem("shopCart");
-        navigate("/success");
+        navigate("/success-product");
       }
     } catch (error) {
       if (!localStorage.getItem("address")) {

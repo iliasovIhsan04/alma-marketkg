@@ -232,3 +232,4 @@ input:checked + .slider_toggle:before {
     transform: translateY(0);
   }
 }
+

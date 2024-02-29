@@ -51,6 +51,8 @@ const App = () => {
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
   const [modal, setModal] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [modal2, setModal2] = useState(false);
+  const [success2, setSuccess2] = useState(false);
 
   const headers = {
     Authorization: `Token ${local}`,
@@ -163,7 +165,13 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <Main modal={success} setModal={setSuccess} user={user} />
+                  <Main
+                    modal={success}
+                    setModal={setSuccess}
+                    modal2={success2}
+                    setModal2={setSuccess2}
+                    user={user}
+                  />
                 }
               />
               <Route path="promotion" element={<Promotion />} />

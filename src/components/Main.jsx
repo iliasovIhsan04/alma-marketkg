@@ -9,12 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Redux/reduser/auth";
 import ReactPullToRefresh from "react-simple-pull-to-refresh";
 import scanner from "../img/scanning.svg";
+import Modal1 from "../UI/Modal2/Modal2";
 import Modal from "../UI/Modal/Modal";
 import modal_img from "../img/modal-image.svg";
 import HarryBuy from "./HarryBuy";
 import alma_go from "../img/служба-logo.svg";
+import soon_alma_goo from "../img/soon_Alma_go.svg";
 
-const Main = ({ modal, setModal }) => {
+const Main = ({ modal, setModal, modal2, setModal2 }) => {
   const [user, setUser] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -91,7 +93,7 @@ const Main = ({ modal, setModal }) => {
             )}
           </div>
           <div className="scanner_block container">
-            <div className="scanner_box1" onClick={() => setModal(true)}>
+            <div className="scanner_box1" onClick={() => setModal2(true)}>
               <img src={alma_go} alt="" />
             </div>
             <div
@@ -102,6 +104,13 @@ const Main = ({ modal, setModal }) => {
               <p>Проверить цену</p>
             </div>
           </div>
+          {modal2 && (
+            <Modal1 setModal={setModal2}>
+              <div className="modalgo_img_block">
+                <img src={soon_alma_goo} alt="" />
+              </div>
+            </Modal1>
+          )}
           <HarryBuy token={token} user={token} />
           <NewPromotions />
         </div>
