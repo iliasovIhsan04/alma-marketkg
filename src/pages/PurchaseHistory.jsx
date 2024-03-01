@@ -8,13 +8,18 @@ import { url } from "../Api";
 const PurchaseHistory = () => {
   const navigate = useNavigate();
   const [order, setOrder] = useState([]);
+  const [dateTo, setDateTo] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
   const headers = {
     Authorization: `Token ${local}`,
   };
   const ordering = async () => {
     try {
-      const response = await axios.get(url + "/order/list/", { headers });
+      const response = await axios.get(
+        url + `/order/list/?date_to=${dateTo}&date_from=${dateFrom}`,
+        { headers }
+      );
       setOrder(response.data);
     } catch (error) {
       console.log("Error", error);
@@ -51,36 +56,44 @@ const PurchaseHistory = () => {
                     style={{ padding: "0 0 0 45px " }}
                     className="input_form date_add_input"
                     type="date"
+                    value={dateTo}
+                    onChange={(e) => setDateTo(e.target.value)}
                   />
                   <input
                     style={{ padding: "0 0 0 45px " }}
                     className="input_form date_add_input2"
                     type="date"
+                    value={dateFrom}
+                    onChange={(e) => setDateFrom(e.target.value)}
                   />
                 </div>
                 {order &&
-                  order.map((elem) => (
-                    <>
-                      <p className="date_time">{elem.date}</p>
-                      {elem.data.map((el, id) => (
-                        <div
-                          className="featured_list_box"
-                          key={el.id}
-                          onClick={() => navigate(`/purchase-id/${id}`)}
-                        >
-                          <div className="feat_sum_block">
-                            <h1>Покупка на сумму</h1>
-                            <h2>{el.sum}</h2>
+                  order
+                    ?.filter((obj) => {
+                      return obj.date >= dateFrom && obj.date <= dateTo;
+                    })
+                    .map((elem) => (
+                      <>
+                        <p className="date_time">{elem.date}</p>
+                        {elem.data.map((el, id) => (
+                          <div
+                            className="featured_list_box"
+                            key={id}
+                            onClick={() => navigate(`/purchase-id/${el.id}`)}
+                          >
+                            <div className="feat_sum_block">
+                              <h1>Покупка на сумму</h1>
+                              <h2>{el.sum}</h2>
+                            </div>
+                            <p>{el.address} s;dkajflb;vkbdasvo feab eoia;fb </p>
+                            <div className="time_bonus_block">
+                              <span>{el.date}</span>
+                              <h3>+13 баллов</h3>
+                            </div>
                           </div>
-                          <p>{el.address}</p>
-                          <div className="time_bonus_block">
-                            <span>{el.date}</span>
-                            <h3>+13 баллов</h3>
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  ))}
+                        ))}
+                      </>
+                    ))}
               </div>
             ) : (
               <div className="featured_products_block">

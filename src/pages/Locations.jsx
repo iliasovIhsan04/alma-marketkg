@@ -3,6 +3,7 @@ import time from "../img/time.svg";
 import axios from "axios";
 import { url } from "../Api";
 import location from "../img/locations.svg";
+import { Map, Placemark, YMaps } from "react-yandex-map";
 
 const Locations = () => {
   const [tab, setTab] = useState(true);
@@ -18,8 +19,8 @@ const Locations = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
-
+  }, []);
+  console.log(location);
   return (
     <div className="locations">
       <div>
@@ -41,17 +42,28 @@ const Locations = () => {
         </div>
         <div>
           {tab === true ? (
-            <div>
-              <div>
-                <iframe
-                  src="https://yandex.ru/map-widget/v1/?ll=74.587393%2C42.880250&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTE3NzQxMjc1EkfQmtGL0YDQs9GL0LfRgdGC0LDQvSwg0JHQuNGI0LrQtdC6LCDQnNCw0L3QsNGBINC_0YDQvtGB0L_QtdC60YLQuCwgNjQvMSIKDS8tlUIVTIUrQg%2C%2C&z=16.84"
+            <YMaps>
+              <div style={{ width: "100%", height: "100vh" }} className="y_map">
+                <div className="map_head container">
+                  <p>{locations[0]?.address}</p>
+                </div>
+                <Map
+                  defaultState={{
+                    center: [locations[0]?.lat, locations[0]?.lon],
+                    zoom: 6,
+                  }}
                   width="100%"
-                  height="682"
-                  frameborder="1"
-                  allowfullscreen="true"
-                ></iframe>
+                  height="100vh"
+                  onBoundsChange={(event) => {
+                    console.log("Bounds changed:", event);
+                  }}
+                >
+                  <Placemark
+                    geometry={[locations[0]?.lat, locations[0]?.lon]}
+                  />
+                </Map>
               </div>
-            </div>
+            </YMaps>
           ) : (
             ""
           )}
