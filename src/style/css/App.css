@@ -1728,6 +1728,11 @@ select {
   color: #191919;
   margin-bottom: 0px !important;
   line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .price_add {
   display: flex;

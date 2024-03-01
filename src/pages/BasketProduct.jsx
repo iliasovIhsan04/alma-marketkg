@@ -158,7 +158,7 @@ const BasketProduct = () => {
                     <div className="carts_title_bl">
                       <div className="close_carts">
                         <h2>{el.title}</h2>
-                        <img
+                        {/* <img
                           src={close}
                           onClick={() => {
                             localStorage.removeItem(`activeItems_${el.id}`);
@@ -166,7 +166,7 @@ const BasketProduct = () => {
                             rowElement.remove();
                           }}
                           alt=""
-                        />
+                        /> */}
                       </div>
                       <div className="price_add">
                         <h3>{el.price} сом</h3>
@@ -183,8 +183,12 @@ const BasketProduct = () => {
                           <span key={el.id}>
                             {localStorage.getItem(`plus`) &&
                               JSON.parse(localStorage.getItem(`plus`))[el.id]}
-                            {/* {shopCart.length} */}
                           </span>
+                          {JSON.parse(localStorage.getItem(`plus`))[el.id] === 0
+                            ? (localStorage.removeItem(`activeItems_${el.id}`),
+                              handleRemoveItem(el.id),
+                              rowElement.remove())
+                            : null}
                           <div className="plus_carts_rr">
                             <GoPlus
                               color="#000"

@@ -16,10 +16,10 @@ const Product = ({ Alert }) => {
   const [shopCart, setShopCart] = useState([]);
 
   useEffect(() => {
-    const basket = JSON.parse(localStorage.getItem("carts")) || []
+    const basket = JSON.parse(localStorage.getItem("carts")) || [];
     const storedShopCart = JSON.parse(localStorage.getItem("shopCart")) || [];
     setShopCart(storedShopCart);
-    setIsBasket(basket)
+    setIsBasket(basket);
   }, []);
 
   useEffect(() => {
@@ -29,16 +29,18 @@ const Product = ({ Alert }) => {
       .catch();
   }, [id]);
 
-
   const Basket = (id) => {
-    let prevID = localStorage.getItem("plus") !== null ? JSON.parse(localStorage.getItem("plus")) : {};
+    let prevID =
+      localStorage.getItem("plus") !== null
+        ? JSON.parse(localStorage.getItem("plus"))
+        : {};
     let updatedPrevID = { ...prevID, [id]: 1 };
     localStorage.setItem("plus", JSON.stringify(updatedPrevID));
     setShopCart((prevShopCart) => {
       const updatedCart = [...prevShopCart, datas];
       localStorage.setItem("shopCart", JSON.stringify(updatedCart));
       return updatedCart;
-    })
+    });
     localStorage.setItem(`activeItems_${id}`, id);
     const existingCart = JSON.parse(localStorage.getItem("carts")) || [];
     const updatedCart = [...existingCart, datas];
@@ -49,8 +51,6 @@ const Product = ({ Alert }) => {
       setIsBasket(false);
     }
   };
-
-  const imagesSlider = datas.img ? datas.img.map((el) => el.img) : [];
 
   const settings = {
     dots: true,

@@ -214,7 +214,10 @@ const App = () => {
               <Route path="/basket-product" element={<BasketProduct />} />
               <Route path="/delivery-address" element={<DeliveryAddress />} />
               <Route path="/new-address" element={<NewAddress />} />
-              <Route path="/placing-orders" element={<PlacingOrders />} />
+              <Route
+                path="/placing-orders"
+                element={<PlacingOrders Alert={FuncAlert} />}
+              />
               <Route
                 path="/purchase-id/:id"
                 element={<PurchaseHistoryDetailsId />}
