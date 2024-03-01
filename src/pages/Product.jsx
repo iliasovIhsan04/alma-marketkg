@@ -11,9 +11,16 @@ import Slider from "react-slick";
 const Product = ({ Alert }) => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
-  const [isBasket, setIsBasket] = useState(false);
-  const [productId, setproductId] = useState({});
+  const [basket, setIsBasket] = useState([]);
   const navigate = useNavigate();
+  const [shopCart, setShopCart] = useState([]);
+
+  useEffect(() => {
+    const basket = JSON.parse(localStorage.getItem("carts")) || []
+    const storedShopCart = JSON.parse(localStorage.getItem("shopCart")) || [];
+    setShopCart(storedShopCart);
+    setIsBasket(basket)
+  }, []);
 
   useEffect(() => {
     axios
@@ -22,12 +29,16 @@ const Product = ({ Alert }) => {
       .catch();
   }, [id]);
 
-  const Basket = (id) => {
-    localStorage.getItem(`activeItems_${id}`, id);
-    if (localStorage.getItem(`activeItems_${id}`, id)) {
-      setproductId(...productId, id);
-    }
 
+  const Basket = (id) => {
+    let prevID = localStorage.getItem("plus") !== null ? JSON.parse(localStorage.getItem("plus")) : {};
+    let updatedPrevID = { ...prevID, [id]: 1 };
+    localStorage.setItem("plus", JSON.stringify(updatedPrevID));
+    setShopCart((prevShopCart) => {
+      const updatedCart = [...prevShopCart, datas];
+      localStorage.setItem("shopCart", JSON.stringify(updatedCart));
+      return updatedCart;
+    })
     localStorage.setItem(`activeItems_${id}`, id);
     const existingCart = JSON.parse(localStorage.getItem("carts")) || [];
     const updatedCart = [...existingCart, datas];
