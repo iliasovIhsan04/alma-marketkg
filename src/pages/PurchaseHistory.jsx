@@ -27,8 +27,8 @@ const PurchaseHistory = () => {
   };
 
   useEffect(() => {
-    ordering();
-  }, []);
+    ordering(dateFrom, dateTo);
+  }, [dateFrom, dateTo]);
 
   const key = order[0]?.key;
 
@@ -68,14 +68,14 @@ const PurchaseHistory = () => {
                   />
                 </div>
                 {order &&
-                  order
-                    ?.filter((obj) => {
-                      return obj.date >= dateFrom && obj.date <= dateTo;
-                    })
-                    .map((elem) => (
-                      <>
-                        <p className="date_time">{elem.date}</p>
-                        {elem.data.map((el, id) => (
+                  order?.map((elem) => (
+                    <>
+                      <p className="date_time">{elem.date}</p>
+                      {elem.data
+                        ?.filter((obj) => {
+                          return obj.date.includes(dateFrom, dateTo);
+                        })
+                        .map((el, id) => (
                           <div
                             className="featured_list_box"
                             key={id}
@@ -92,8 +92,8 @@ const PurchaseHistory = () => {
                             </div>
                           </div>
                         ))}
-                      </>
-                    ))}
+                    </>
+                  ))}
               </div>
             ) : (
               <div className="featured_products_block">
