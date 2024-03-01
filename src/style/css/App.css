@@ -1782,6 +1782,11 @@ select {
   flex-direction: column;
   justify-content: space-between;
 }
+.purchase_id_list {
+  padding: 0px !important;
+  height: 90px !important;
+  margin-bottom: 0px !important;
+}
 .featured_list_box p {
   font-size: 14px;
   font-weight: 400;
@@ -1831,9 +1836,77 @@ select {
 }
 .check_information_block {
   width: 100%;
-  min-height: 500px;
+  min-height: 0px;
   background: #f5f7fa;
   border-radius: 14px;
+  padding: 16px;
+}
+.line_list_box {
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+.line_list_box img {
+  width: 100%;
+}
+.count_order_box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.count_order_box p {
+  max-width: 270px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #191919;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+}
+.cost_count {
+  display: flex;
+  flex-direction: column;
+}
+.cost_count p {
+  margin-left: auto;
+}
+.cost_count span {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: #aaaaaa;
+}
+.bonus_block_minus {
+  margin-bottom: 12px;
+}
+.bonus_block_minus,
+.bonus_block_plus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bonus_block_minus p,
+.bonus_block_plus p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #191919;
+  margin-left: 10px;
+}
+.bonus_block_minus span,
+.bonus_block_plus span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fe211f;
+}
+.bonus_block_plus span {
+  color: #68b936 !important;
+}
+.minus_box {
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 730px) {
   .shops_block_all {
