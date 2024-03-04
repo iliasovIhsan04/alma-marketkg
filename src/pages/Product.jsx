@@ -110,12 +110,7 @@ const Product = ({ Alert }) => {
             </div>
           )}
           <h1 className="description">Описание:</h1>
-          <p className="description_text">
-            Всего один ломтик этого нежного продукта с лёгкими пикантными
-            нотками поднимет ваше настроение и зарядит бодростью на весь
-            день. Всё потому, что колбасный сыр "БЕЛАЯ РЕКА" натуральный и богат
-            витаминами и микроэлементами, необходимыми для вашего здоровья.
-          </p>
+          <p className="description_text">{datas.description}</p>
           {localStorage.getItem(`activeItems_${datas.id}`) ? (
             <NavLink to="/basket-product">
               <button className="description_btn">В корзине</button>

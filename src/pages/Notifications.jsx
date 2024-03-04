@@ -41,16 +41,12 @@ const Notifications = () => {
         <div className="notificatios_block">
           <div className="container">
             {notify.map((el) => (
-              <div
-                className="notifications_box"
-                key={el.id}
-                onClick={() => navigate(`/notifications-details/${el.id}`)}
-              >
+              <div className="notifications_box" key={el.id}>
                 <div className="noti_title_block">
                   <h2>{el.title} </h2>
                   <div className="noti_active"></div>
                 </div>
-                <p>{el.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: el.description }}></p>
                 <span>{el.date}</span>
               </div>
             ))}

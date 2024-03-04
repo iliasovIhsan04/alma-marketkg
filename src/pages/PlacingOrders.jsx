@@ -148,7 +148,7 @@ const PlacingOrders = ({ Alert }) => {
               <label>Время получения</label>
               <input
                 style={{ padding: "0 0 0 50px " }}
-                className="input_form new_add_input"
+                className="input_form time_add_input"
                 type="date"
                 value={address.get_date}
                 placeholder="Как можно быстрее"
@@ -173,7 +173,6 @@ const PlacingOrders = ({ Alert }) => {
               ></textarea>
             </div>
           </form>
-
           <div className="input_box ">
             <label>Способ оплаты</label>
             <div className="placing_box">

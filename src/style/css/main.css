@@ -1336,20 +1336,24 @@ input#file-upload-button {
 }
 .new_add_input {
   border: none !important;
-  background: #f5f7fa;
+  background: #f5f7fa !important;
 }
-.new_add_input::-webkit-calendar-picker-indicator,
+.time_add_input {
+  border: none !important;
+  background: #f2f2f2;
+}
+.time_add_input::-webkit-calendar-picker-indicator,
 .date_add_input::-webkit-calendar-picker-indicator,
 .date_add_input2::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-.new_add_input::before {
+.time_add_input::before {
   position: absolute;
   content: url("../../img/green_icons.svg");
   top: 39px;
   right: 10px;
 }
-.new_add_input::after {
+.time_add_input::after {
   position: absolute;
   content: url("../../img/date.svg");
   top: 39px;
