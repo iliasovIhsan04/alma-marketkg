@@ -1472,23 +1472,19 @@ input#file-upload-button {
   height: 100%;
   background: #fff;
 }
-
 .toogle_block_inform {
-  background: #e9ecef !important;
+  background: #f5f7fa !important;
 }
-
 .infor_block {
   margin-top: 0px !important;
   background: #e9ecef !important;
 }
-
 .ionic_box1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 80px;
 }
-
 .ionic_button {
   border: none;
   background: var(--orange);
@@ -2002,6 +1998,11 @@ input#file-upload-button {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
 }
 .map_head {
   width: 100%;
@@ -2043,7 +2044,7 @@ input#file-upload-button {
 }
 .list_block {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 75px;
 }
 .list_box {
   width: 100%;
@@ -2133,6 +2134,22 @@ input#file-upload-button {
 .harry_buy_id_block {
   width: 100%;
   padding-top: 65px;
+}
+.iframe_block {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 70px;
+}
+.map_address_list {
+  width: 100%;
+  position: absolute;
+  top: 50px;
+}
+.map_address_list > a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #196dff !important;
+  position: fixed;
 }
 @media (max-width: 420px) {
   .harry_sp_box {

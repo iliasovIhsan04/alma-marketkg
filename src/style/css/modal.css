@@ -223,6 +223,16 @@ input:checked + .slider_toggle:before {
   position: absolute;
   bottom: 0;
 }
+.border_red {
+  width: 10px;
+  height: 10px;
+  background: red;
+  position: absolute;
+  top: 16px;
+  bottom: 0;
+  right: 16px;
+  border-radius: 50%;
+}
 
 @keyframes slideIn {
   0% {
@@ -232,4 +242,3 @@ input:checked + .slider_toggle:before {
     transform: translateY(0);
   }
 }
-

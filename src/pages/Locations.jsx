@@ -20,8 +20,6 @@ const Locations = () => {
       });
   }, []);
 
-  const [key, setKey] = useState(0);
-
   return (
     <div className="locations">
       <div>
@@ -38,19 +36,31 @@ const Locations = () => {
               className={tabs === true ? "tabs_active" : "a_active"}
             >
               Список
-
             </h1>
           </div>
         </div>
         <div>
           {tab === true ? (
-            <div style={{ width: "100%", height: "100vh" }}>
-              <iframe
-                src="https://yandex.ru/map-widget/v1/-/CDFNM2J7"
-                width="100%"
-                height="100%"
-              ></iframe>
-            </div>
+            <>
+              <div className="map_address_list">
+                <a>Гум Чынар</a> <br />
+                <a>Калык Акиева</a>
+              </div>
+              {/* <div className="iframe_block">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/-/CDFNM2J7"
+                  width="100%"
+                  height="100%"
+                ></iframe>
+              </div> */}
+              <div className="iframe_block">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/-/CDFmYIpL"
+                  width="100%"
+                  height="100%"
+                ></iframe>
+              </div>
+            </>
           ) : (
             ""
           )}

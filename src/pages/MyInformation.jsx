@@ -182,7 +182,6 @@ const MyInformation = ({ Alert }) => {
     e.preventDefault();
     if (local) {
       setLoading(true);
-
       const post = {
         phone: info.phone,
         first_name: info.first_name,
@@ -302,7 +301,7 @@ const MyInformation = ({ Alert }) => {
                       <label>Номер телефона</label>
                       <input
                         disabled={true}
-                        id="phone"
+                        id="phone-1"
                         className="input_form new_add_input"
                         placeholder="996"
                         value={info.phone}

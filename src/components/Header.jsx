@@ -5,11 +5,12 @@ import cart from "../img/cart-icons.svg";
 import "../style/css/App.css";
 import "../style/css/media.css";
 import "../style/css/main.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-
+  const cartId = JSON.parse(localStorage.getItem("carts")) || [];
+  const cartsID = cartId.map((el) => el.id);
   return (
     <div className="nav relative">
       <div className="container nav_content">
@@ -26,6 +27,7 @@ const Header = () => {
           alt=""
         />
       </div>
+      {localStorage.getItem(`carts`) ? <div className="border_red"></div> : ""}
     </div>
   );
 };
