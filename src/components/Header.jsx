@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiBell } from "react-icons/bi";
 import logoalma from "../img/logo-alma.svg";
 import cart from "../img/cart-icons.svg";
 import "../style/css/App.css";
 import "../style/css/media.css";
 import "../style/css/main.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-  const cartId = JSON.parse(localStorage.getItem("carts")) || [];
-  const cartsID = cartId.map((el) => el.id);
+  const [cartFalse, setCartFalse] = useState(false);
+  const plusItems = JSON.parse(localStorage.getItem("plusOne"));
+  let totalQuantity = 0;
+
+  if (plusItems) {
+    totalQuantity = Object.values(plusItems).reduce(
+      (acc, curr) => acc + parseInt(curr),
+      0
+    );
+  }
+
   return (
     <div className="nav relative">
       <div className="container nav_content">
@@ -27,7 +36,13 @@ const Header = () => {
           alt=""
         />
       </div>
-      {localStorage.getItem(`carts`) ? <div className="border_red"></div> : ""}
+      {JSON.parse(localStorage.getItem("false")) === cartFalse ? (
+        <div className="border_red" onClick={() => navigate("/basket-product")}>
+          <p> {totalQuantity}</p>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

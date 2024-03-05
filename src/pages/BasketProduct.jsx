@@ -136,7 +136,11 @@ const BasketProduct = () => {
           <div className="container d-flex justify-content-between align-items-center ">
             <img
               className="more_img"
-              onClick={() => navigate("/")}
+              onClick={() =>
+                navigate("/") ||
+                localStorage.removeItem("false") ||
+                localStorage.removeItem("plusOne")
+              }
               src={more}
               alt=""
             />
@@ -158,15 +162,6 @@ const BasketProduct = () => {
                     <div className="carts_title_bl">
                       <div className="close_carts">
                         <h2>{el.title}</h2>
-                        {/* <img
-                          src={close}
-                          onClick={() => {
-                            localStorage.removeItem(`activeItems_${el.id}`);
-                            handleRemoveItem(el.id);
-                            rowElement.remove();
-                          }}
-                          alt=""
-                        /> */}
                       </div>
                       <div className="price_add">
                         <h3>{el.price} сом</h3>

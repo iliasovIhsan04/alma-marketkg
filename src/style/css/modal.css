@@ -224,16 +224,23 @@ input:checked + .slider_toggle:before {
   bottom: 0;
 }
 .border_red {
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   background: red;
   position: absolute;
-  top: 16px;
+  top: 10px;
   bottom: 0;
-  right: 16px;
+  right: 13px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.border_red p {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 400;
+}
 @keyframes slideIn {
   0% {
     transform: translateY(100%);

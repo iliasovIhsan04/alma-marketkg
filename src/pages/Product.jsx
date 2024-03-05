@@ -11,6 +11,7 @@ import Slider from "react-slick";
 const Product = ({ Alert }) => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
+  const [modal, setModal] = useState(false);
   const [basket, setIsBasket] = useState([]);
   const navigate = useNavigate();
   const [shopCart, setShopCart] = useState([]);
@@ -28,7 +29,6 @@ const Product = ({ Alert }) => {
       .then((response) => setDatas(response.data))
       .catch();
   }, [id]);
-
   const Basket = (id) => {
     let prevID =
       localStorage.getItem("plus") !== null
@@ -36,9 +36,11 @@ const Product = ({ Alert }) => {
         : {};
     let updatedPrevID = { ...prevID, [id]: 1 };
     localStorage.setItem("plus", JSON.stringify(updatedPrevID));
+    localStorage.setItem("plusOne", JSON.stringify(updatedPrevID));
     setShopCart((prevShopCart) => {
       const updatedCart = [...prevShopCart, datas];
       localStorage.setItem("shopCart", JSON.stringify(updatedCart));
+      localStorage.setItem("false", modal);
       return updatedCart;
     });
     localStorage.setItem(`activeItems_${id}`, id);

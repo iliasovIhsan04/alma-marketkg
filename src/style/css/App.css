@@ -122,6 +122,14 @@ a {
   font-size: 18px;
   font-weight: 500 !important;
   color: rgb(25, 25, 25);
+  margin-bottom: 0px !important;
+}
+.m-lg-3 {
+  font-size: 16px;
+  font-weight: 400 !important;
+  color: rgb(25, 25, 25);
+  margin-bottom: 0px !important;
+  margin-left: 10px;
 }
 .title_h5 {
   font-size: 16px;
@@ -795,7 +803,7 @@ button {
   justify-content: space-between;
   padding: 10px;
   border: none;
-  background: #f2f2f2;
+  background: #f5f7fa;
   border-radius: 10px;
 }
 
@@ -1351,6 +1359,18 @@ select {
   font-size: 18px;
   margin-bottom: 14px;
 }
+.sort_wrap_date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 14px;
+  width: 100%;
+  height: 45px;
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 10px;
+}
 .sort-wrap input {
   cursor: pointer;
 }
@@ -1620,7 +1640,7 @@ select {
   padding: 10px;
   border-radius: 10px;
   gap: 10px;
-  background: #f2f2f2;
+  background: #f5f7fa;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.1;
@@ -1628,7 +1648,7 @@ select {
 .placing_box {
   width: 100%;
   height: 45px;
-  background: #f2f2f2;
+  background: #f5f7fa;
   border-radius: 10px;
   padding: 10px;
   display: flex;

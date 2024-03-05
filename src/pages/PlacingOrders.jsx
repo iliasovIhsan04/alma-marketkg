@@ -41,6 +41,26 @@ const PlacingOrders = ({ Alert }) => {
   } else {
   }
 
+  const [checkmark, setCheckmark] = useState({
+    one: true,
+    two: false,
+  });
+
+  const handleASFast = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: true,
+      two: false,
+    });
+  };
+  const handleDataType = async () => {
+    setCheckmark({
+      ...checkmark,
+      one: false,
+      two: true,
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -75,6 +95,7 @@ const PlacingOrders = ({ Alert }) => {
         setIsLoading(false);
         shopCart.map((el) => localStorage.removeItem(`activePlus_${el.id}`));
         shopCart.map((el) => localStorage.removeItem(`activeItems_${el.id}`));
+        shopCart.map((el) => localStorage.removeItem(`activeItem_${el.id}`));
         localStorage.removeItem("myData");
         localStorage.removeItem("cart");
         localStorage.removeItem("carts");
@@ -83,6 +104,7 @@ const PlacingOrders = ({ Alert }) => {
         localStorage.removeItem("addres");
         localStorage.removeItem("plus");
         localStorage.removeItem("shopCart");
+        localStorage.removeItem("plusOne");
         navigate("/success-product");
       }
     } catch (error) {
@@ -114,7 +136,7 @@ const PlacingOrders = ({ Alert }) => {
           <div className="container d-flex justify-content-between align-items-center ">
             <img
               className="more_img"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate(-1)}
               src={more}
               alt=""
             />
@@ -146,16 +168,42 @@ const PlacingOrders = ({ Alert }) => {
           <form action="">
             <div className="input_box">
               <label>Время получения</label>
-              <input
-                style={{ padding: "0 0 0 50px " }}
-                className="input_form time_add_input"
-                type="date"
-                value={address.get_date}
-                placeholder="Как можно быстрее"
-                onChange={(e) =>
-                  setAddress({ ...address, get_date: e.target.value })
-                }
-              />
+              <div className="sort_wrap_date" onClick={handleASFast}>
+                <label className="custom_radio_btn_date">
+                  {checkmark.one && <span className="checmark"></span>}
+                </label>
+                <label className="m-lg-3">Как можно быстрее</label>
+              </div>
+              <div className="sort_wrap_date" onClick={handleDataType}>
+                <div className="custom_radio_btn_date_block">
+                  <label className="custom_radio_btn_date">
+                    {checkmark.two && <span className="checmark"></span>}
+                  </label>
+                </div>
+                <form>
+                  <input
+                    id="dateInput"
+                    className="time_add_input"
+                    type="date"
+                    value={address.get_date}
+                    placeholder="Как можно быстрее"
+                    onChange={(e) =>
+                      setAddress({ ...address, get_date: e.target.value })
+                    }
+                    style={{ display: "none" }}
+                    ref={(input) => {
+                      if (input) input.focus();
+                    }}
+                  />
+                  <label
+                    htmlFor="dateInputBeкa"
+                    className="m-lg-3"
+                    onClick={() => document.getElementById("dateInput").click()}
+                  >
+                    Выбрать дату и время
+                  </label>
+                </form>
+              </div>
             </div>
             <div className="input_box">
               <label>Комментарий к заказу( 0-2000)</label>

@@ -8,6 +8,8 @@ const Locations = () => {
   const [tab, setTab] = useState(true);
   const [tabs, setTabs] = useState(false);
   const [locations, setLocations] = useState([]);
+  const [locationList, setLocationList] = useState(true);
+  const [locationList2, setLocationList2] = useState(false);
 
   useEffect(() => {
     axios
@@ -43,23 +45,40 @@ const Locations = () => {
           {tab === true ? (
             <>
               <div className="map_address_list">
-                <a>Гум Чынар</a> <br />
-                <a>Калык Акиева</a>
+                <a
+                  onClick={() =>
+                    setLocationList(true || setLocationList2(false))
+                  }
+                >
+                  Гум Чынар
+                </a>
+                <br />
+                <a
+                  onClick={() =>
+                    setLocationList2(true) || setLocationList(false)
+                  }
+                >
+                  улица Калыка Акиева, 66
+                </a>
               </div>
-              {/* <div className="iframe_block">
-                <iframe
-                  src="https://yandex.ru/map-widget/v1/-/CDFNM2J7"
-                  width="100%"
-                  height="100%"
-                ></iframe>
-              </div> */}
-              <div className="iframe_block">
-                <iframe
-                  src="https://yandex.ru/map-widget/v1/-/CDFmYIpL"
-                  width="100%"
-                  height="100%"
-                ></iframe>
-              </div>
+              {locationList && (
+                <div className="iframe_block">
+                  <iframe
+                    src="https://yandex.ru/map-widget/v1/-/CDFmYIpL"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
+              )}
+              {locationList2 && (
+                <div className="iframe_block">
+                  <iframe
+                    src="https://yandex.ru/map-widget/v1/-/CDFNM2J7"
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                </div>
+              )}
             </>
           ) : (
             ""
