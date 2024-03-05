@@ -190,10 +190,6 @@ const PlacingOrders = ({ Alert }) => {
                     onChange={(e) =>
                       setAddress({ ...address, get_date: e.target.value })
                     }
-                    style={{ display: "none" }}
-                    ref={(input) => {
-                      if (input) input.focus();
-                    }}
                   />
                   <label
                     htmlFor="dateInputBeкa"
