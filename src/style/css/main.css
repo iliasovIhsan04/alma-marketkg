@@ -820,7 +820,7 @@ p {
 .prom_line,
 .prom_line_harry {
   width: 30px;
-  height: 0.8px;
+  height: 1.2px;
   border-radius: 5px;
   background: #ffffff;
   position: absolute;
@@ -1343,25 +1343,28 @@ input#file-upload-button {
   background: #f2f2f2;
   width: 100%;
   height: 45px;
-  background: none;
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
 }
 .time_add_input::-webkit-calendar-picker-indicator,
 .date_add_input::-webkit-calendar-picker-indicator,
 .date_add_input2::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-/* .time_add_input::before {
+.time_add_input::before {
   position: absolute;
   content: url("../../img/green_icons.svg");
-  top: 39px;
+  top: 10px;
   right: 10px;
 }
 .time_add_input::after {
   position: absolute;
   content: url("../../img/date.svg");
-  top: 39px;
+  top: 10px;
   left: 15px;
-} */
+}
 
 .date_add_input,
 .date_add_input2 {
@@ -2038,10 +2041,10 @@ input#file-upload-button {
   position: absolute;
   content: "";
   bottom: 0;
-  left: 0;
+  left: 10px;
   right: 0;
   background: var(--red);
-  width: 100%;
+  width: 90%;
   height: 3px;
   text-align: center;
 }
@@ -2148,17 +2151,33 @@ input#file-upload-button {
   position: fixed;
   top: 70px;
   right: 0;
-  background: #f5f7fa;
-  height: 50px;
-  padding: 0 10px 0 20px;
+  background: #fff;
+  height: 60px;
+  padding: 5px 10px 0 20px;
 }
-.map_address_list > a {
+.map_address_list .list_key_active {
   font-size: 16px;
   font-weight: 400;
-  color: #1a0dab !important;
+  color: black !important;
   position: absolute;
-  padding-bottom: 3px solid blue;
 }
+.map_address_list .list_active {
+  color: blue !important;
+  position: absolute;
+  font-size: 16px;
+  font-weight: 400;
+}
+.map_address_list .list_active::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: blue;
+  width: 100%;
+  height: 1px;
+}
+
 @media (max-width: 420px) {
   .harry_sp_box {
     max-width: 100%;

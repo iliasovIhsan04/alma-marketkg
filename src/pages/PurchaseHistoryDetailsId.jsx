@@ -49,9 +49,7 @@ const PurchaseHistoryDetailsId = () => {
                 <h1>Покупка на сумму</h1>
                 <h2>{order.sum}</h2>
               </div>
-              <p>
-                {order.address_from} daslkfnseknl wadfghytdrgb wtgh trh trer{" "}
-              </p>
+              <p>{order.address_from}</p>
               <div className="time_bonus_block">
                 <span>{order.date}</span>
                 <h3>+13 баллов</h3>

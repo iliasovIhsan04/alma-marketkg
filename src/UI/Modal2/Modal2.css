@@ -13,7 +13,7 @@
 
 @keyframes modal_bek {
   0% {
-    top: 200px;
+    bottom: 200px;
   }
 
   100% {

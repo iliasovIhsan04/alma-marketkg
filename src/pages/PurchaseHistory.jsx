@@ -74,7 +74,7 @@ const PurchaseHistory = () => {
                             <h1>Покупка на сумму</h1>
                             <h2>{el.sum}</h2>
                           </div>
-                          <p>{el.address} s;dkajflb;vkbdasvo feab eoia;fb </p>
+                          <p>{el.address} </p>
                           <div className="time_bonus_block">
                             <span>
                               {el.date} {el.time}

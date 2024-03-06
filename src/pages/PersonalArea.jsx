@@ -129,7 +129,7 @@ const PersonalArea = () => {
           </div>
           <div className="area_all_block">
             <div
-              onClick={() => navigate(`/placing-orders`)}
+              onClick={() => navigate(`/to-help-page`)}
               className="area_all"
             >
               <div className="bell">

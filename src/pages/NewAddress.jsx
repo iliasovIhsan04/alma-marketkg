@@ -114,7 +114,12 @@ const NewAddress = () => {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit" className="btn_butto">
+            <button
+              type="submit"
+              className={`${
+                address.street && address.number ? "btn_butto_red" : "btn_butto"
+              }`}
+            >
               {isLoading ? <Loading /> : "Сохранить"}
             </button>
           </form>

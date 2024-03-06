@@ -8,21 +8,24 @@ import { HiOutlineMinusSmall } from "react-icons/hi2";
 
 const BasketProduct = () => {
   const navigate = useNavigate();
-  const basket = JSON.parse(localStorage.getItem("carts"));
   const [cart, setCart] = useState([]);
   const [plus, setPlus] = useState({});
   const [shopCart, setShopCart] = useState([]);
   const [plusFrom, setPlusFrom] = useState([]);
   const [count, setCount] = useState(0);
+  const [basket, setBasket] = useState([]);
 
   useEffect(() => {
+    const basket = JSON.parse(localStorage.getItem("carts"));
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     const storedShopCart = JSON.parse(localStorage.getItem("shopCart")) || [];
     const storedPlus = JSON.parse(localStorage.getItem("plus")) || {};
     setCart(storedCart);
+    setBasket(basket);
     setShopCart(storedShopCart);
     setPlus(storedPlus);
   }, []);
+
   const handlePlus = (id) => {
     const itemTo = basket.find((el) => el.id === id);
     const itemToLocal = shopCart.find((el) => el.id === id);
@@ -38,6 +41,7 @@ const BasketProduct = () => {
         localStorage.setItem("plus", JSON.stringify(newPlus));
         return newPlus;
       });
+      PriceCalculation();
     } else if (itemToLocal) {
       setShopCart((prevShopCart) => {
         const updatedCart = [...prevShopCart, itemToLocal];
@@ -48,7 +52,7 @@ const BasketProduct = () => {
         );
         return updatedCart;
       });
-
+      PriceCalculation();
       setPlus((prevPlus) => {
         const newPlus = { ...prevPlus, [id]: (prevPlus[id] || 0) + 1 };
         localStorage.setItem("plus", JSON.stringify(newPlus));
@@ -64,6 +68,7 @@ const BasketProduct = () => {
         const updatedCart = [...prevShopCart];
         updatedCart.splice(itemIndex, 1);
         localStorage.setItem("shopCart", JSON.stringify(updatedCart));
+        PriceCalculation();
         const isItemStillInCart = updatedCart.some((item) => item.id === id);
         if (!isItemStillInCart) {
           localStorage.removeItem(`activePlus_${id}`);
@@ -78,11 +83,19 @@ const BasketProduct = () => {
       });
     }
   };
+
   const handleRemoveItem = (id) => {
     const currentCart = JSON.parse(localStorage.getItem("carts"));
     const updatedCart = currentCart.filter((item) => item.id !== id);
     localStorage.setItem("carts", JSON.stringify(updatedCart));
+
+    // Remove the row element from DOM
+    const rowElement = document.getElementById("row-" + id);
+    if (rowElement) {
+      rowElement.remove();
+    }
   };
+
   useEffect(() => {
     const plusCartFromLocalStorage = JSON.parse(
       localStorage.getItem("shopCart")
@@ -93,17 +106,6 @@ const BasketProduct = () => {
       setPlusFrom([]);
     }
   }, []);
-
-  const uniqueIds = new Set();
-  const idCounts = {};
-
-  plusFrom.forEach((el) => {
-    if (!idCounts[el.id]) {
-      idCounts[el.id] = 1;
-    } else {
-      idCounts[el.id]++;
-    }
-  });
 
   const PriceCalculation = () => {
     const shopCart = JSON.parse(localStorage.getItem("shopCart"));
@@ -120,7 +122,7 @@ const BasketProduct = () => {
 
   useEffect(() => {
     PriceCalculation();
-  }, [count]);
+  }, [count, shopCart]);
 
   useEffect(() => {
     const carts = JSON.parse(localStorage.getItem("carts"));
@@ -151,11 +153,10 @@ const BasketProduct = () => {
         {localStorage.getItem("carts") ? (
           <div className="container">
             {basket.map((el) => {
-              let rowElement;
-              rowElement = document.getElementById("row-" + el.id);
+              const rowId = "row-" + el.id;
               return (
                 <div key={el.id}>
-                  <div className="carts_block" id={"row-" + el.id}>
+                  <div className="carts_block" id={rowId}>
                     <div className="carts_block_img">
                       <img src={el.preview_img} alt="" />
                     </div>
@@ -170,27 +171,23 @@ const BasketProduct = () => {
                             className="plus_carts_rr"
                             onClick={() => {
                               handleMinus(el.id);
-                              PriceCalculation();
                             }}
                           >
                             <HiOutlineMinusSmall color="#000" size={20} />
                           </div>
-                          <span key={el.id}>
-                            {localStorage.getItem(`plus`) &&
-                              JSON.parse(localStorage.getItem(`plus`))[el.id]}
-                          </span>
-                          {JSON.parse(localStorage.getItem(`plus`))[el.id] === 0
-                            ? (localStorage.removeItem(`activeItems_${el.id}`),
-                              handleRemoveItem(el.id),
-                              rowElement.remove())
-                            : null}
+                          <span key={el.id}>{plus[el.id] || 0}</span>
+                          {plus[el.id] === 0 && (
+                            <>
+                              {localStorage.removeItem(`activeItems_${el.id}`)}
+                              {handleRemoveItem(el.id)}
+                            </>
+                          )}
                           <div className="plus_carts_rr">
                             <GoPlus
                               color="#000"
                               size={20}
                               onClick={() => {
                                 handlePlus(el.id);
-                                PriceCalculation();
                               }}
                             />
                           </div>

@@ -204,14 +204,17 @@ input:checked + .slider_toggle:before {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #5b5b5b;
-  opacity: 0.4;
   z-index: 999999;
+  opacity: 0.96;
   padding-bottom: 40px;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  flex-shrink: 0;
+  background: rgba(124, 122, 122, 0.2);
+  backdrop-filter: blur(5px);
+  animation: focus 1s ease;
 }
 .order {
   width: 100%;

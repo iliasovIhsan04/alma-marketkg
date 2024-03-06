@@ -231,8 +231,7 @@ a:focus {
   background: #fff;
 }
 .custom_radio_btn_date_block {
-  width: 25px;
-  height: 100%;
+  width: 20px;
 }
 .custom_radio_btn .checmark {
   width: calc(100% - 5px);

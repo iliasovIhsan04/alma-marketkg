@@ -109,7 +109,7 @@ a {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .orders {
@@ -128,8 +128,8 @@ a {
   font-size: 16px;
   font-weight: 400 !important;
   color: rgb(25, 25, 25);
-  margin-bottom: 0px !important;
   margin-left: 10px;
+  margin-bottom: 0px !important;
 }
 .title_h5 {
   font-size: 16px;
@@ -1003,7 +1003,8 @@ button {
   font-size: 16px;
   font-weight: 300;
 }
-.btn_butto {
+.btn_butto,
+.btn_butto_red {
   background: #6b6b6b;
   border: none;
   color: #ffffff;
@@ -1016,6 +1017,9 @@ button {
   width: 90% !important;
   margin: 0 auto;
   z-index: 995;
+}
+.btn_butto_red {
+  background: var(--red) !important ;
 }
 .line {
   width: 100%;
@@ -1498,7 +1502,7 @@ select {
   height: 45px;
   border: none;
   border-radius: 10px;
-  background: #f2f2f2;
+  background: #f5f7fa;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -1673,6 +1677,10 @@ select {
 }
 .basket_btn {
   background: var(--red) !important;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  border: none;
 }
 .placing_price_box {
   display: flex;
@@ -1698,12 +1706,12 @@ select {
   color: #191919;
   margin-bottom: 0px !important;
 }
-.placing_price_block button {
+.sumbit_button {
   border: none;
   font-size: 16px;
   font-weight: 500;
   color: #fff;
-  background: #6b6b6b;
+  background: var(--red);
   margin-top: 10px;
 }
 .placing_bottom {

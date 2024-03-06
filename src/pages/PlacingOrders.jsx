@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import more from "../img/more.svg";
 import { useNavigate } from "react-router";
 import location_img from "../img/address-2.svg";
@@ -7,10 +7,11 @@ import wallet from "../img/wallet.svg";
 import { url } from "../Api";
 import axios from "axios";
 import Loading from "../UI/Loading/Loading";
+import { IoIosArrowDown } from "react-icons/io";
 
 const PlacingOrders = ({ Alert }) => {
   const navigate = useNavigate();
-  const [error, setError] = useState([]);
+  const [receiveInput, setReceiveInput] = useState(false);
   const getData = JSON.parse(localStorage.getItem(`address`));
   const [address, setAddress] = useState({
     address_to: "",
@@ -42,17 +43,26 @@ const PlacingOrders = ({ Alert }) => {
   }
 
   const [checkmark, setCheckmark] = useState({
-    one: true,
+    one: false,
     two: false,
   });
 
   const handleASFast = async () => {
+    let updatedDate = address.get_date;
+    if (updatedDate === "Как можно быстрее") {
+      updatedDate = null;
+    }
+    setAddress({
+      ...address,
+      get_date: updatedDate,
+    });
     setCheckmark({
       ...checkmark,
       one: true,
       two: false,
     });
   };
+
   const handleDataType = async () => {
     setCheckmark({
       ...checkmark,
@@ -105,11 +115,14 @@ const PlacingOrders = ({ Alert }) => {
         localStorage.removeItem("plus");
         localStorage.removeItem("shopCart");
         localStorage.removeItem("plusOne");
+        localStorage.removeItem("false");
         navigate("/success-product");
       }
     } catch (error) {
       if (!localStorage.getItem("address")) {
         Alert("Добавьте адрес прежде чем заказать!", "error");
+      } else if (address.get_date) {
+        Alert("Заполните поле времени", "error");
       }
       setIsLoading(false);
     }
@@ -126,6 +139,14 @@ const PlacingOrders = ({ Alert }) => {
     } else {
       count = 0;
     }
+  };
+
+  const opendate = () => {
+    setReceiveInput(true);
+  };
+
+  const closeDate = () => {
+    setReceiveInput(false);
   };
 
   Cout();
@@ -168,39 +189,55 @@ const PlacingOrders = ({ Alert }) => {
           <form action="">
             <div className="input_box">
               <label>Время получения</label>
-              <div className="sort_wrap_date" onClick={handleASFast}>
+              <div
+                className="sort_wrap_date"
+                onClick={() => {
+                  handleASFast();
+                  closeDate();
+                }}
+              >
                 <label className="custom_radio_btn_date">
                   {checkmark.one && <span className="checmark"></span>}
                 </label>
                 <label className="m-lg-3">Как можно быстрее</label>
               </div>
-              <div className="sort_wrap_date" onClick={handleDataType}>
+              <div
+                className="sort_wrap_date"
+                onClick={() => {
+                  handleDataType();
+                  opendate();
+                }}
+              >
                 <div className="custom_radio_btn_date_block">
                   <label className="custom_radio_btn_date">
                     {checkmark.two && <span className="checmark"></span>}
                   </label>
                 </div>
-                <form>
-                  <input
-                    id="dateInput"
-                    className="time_add_input"
-                    type="date"
-                    value={address.get_date}
-                    placeholder="Как можно быстрее"
-                    onChange={(e) =>
-                      setAddress({ ...address, get_date: e.target.value })
-                    }
-                  />
-                  <label
-                    htmlFor="dateInputBeкa"
-                    className="m-lg-3"
-                    onClick={() => document.getElementById("dateInput").click()}
-                  >
-                    Выбрать дату и время
-                  </label>
-                </form>
+                <label htmlFor="dateInput" className="m-lg-3">
+                  Выбрать дату и время
+                </label>
+                <IoIosArrowDown
+                  size={20}
+                  style={{
+                    marginLeft: "auto",
+                    color: "#6B6B6B",
+                  }}
+                />
               </div>
             </div>
+            {receiveInput && (
+              <input
+                style={{ padding: "0 0 0 50px" }}
+                id="dateInput"
+                className="time_add_input"
+                type="date"
+                value={address.get_date}
+                placeholder="Как можно быстрее"
+                onChange={(e) =>
+                  setAddress({ ...address, get_date: e.target.value })
+                }
+              />
+            )}
             <div className="input_box">
               <label>Комментарий к заказу( 0-2000)</label>
               <textarea
@@ -238,7 +275,7 @@ const PlacingOrders = ({ Alert }) => {
             <span>Итого:</span>
             <h1 className="placing_color">{count + 150} сом</h1>
           </div>
-          <button onClick={handleSubmit}>
+          <button onClick={handleSubmit} className="sumbit_button">
             {isLoading ? <Loading /> : "Оформить заказ"}
           </button>
         </div>

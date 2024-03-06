@@ -46,22 +46,30 @@ const Locations = () => {
             <>
               <div className="map_address_list">
                 <a
-                  onClick={() =>
-                    setLocationList(true || setLocationList2(false))
+                  onClick={() => {
+                    setLocationList(true);
+                    setLocationList2(false);
+                  }}
+                  className={
+                    locationList === true ? "list_active" : "list_key_active"
                   }
                 >
-                  Гум Чынар
+                  пр. Чуй 92, ТЦ Гум Чынар
                 </a>
                 <br />
                 <a
-                  onClick={() =>
-                    setLocationList2(true) || setLocationList(false)
+                  onClick={() => {
+                    setLocationList(false);
+                    setLocationList2(true);
+                  }}
+                  className={
+                    locationList2 === true ? "list_active" : "list_key_active"
                   }
                 >
                   улица Калыка Акиева, 66
                 </a>
               </div>
-              {locationList && (
+              {locationList === true ? (
                 <div className="iframe_block">
                   <iframe
                     src="https://yandex.ru/map-widget/v1/-/CDFmYIpL"
@@ -69,8 +77,10 @@ const Locations = () => {
                     height="100%"
                   ></iframe>
                 </div>
+              ) : (
+                ""
               )}
-              {locationList2 && (
+              {locationList2 === true ? (
                 <div className="iframe_block">
                   <iframe
                     src="https://yandex.ru/map-widget/v1/-/CDFNM2J7"
@@ -78,6 +88,8 @@ const Locations = () => {
                     height="100%"
                   ></iframe>
                 </div>
+              ) : (
+                ""
               )}
             </>
           ) : (
