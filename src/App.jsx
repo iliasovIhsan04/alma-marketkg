@@ -36,6 +36,7 @@ import SuccessProduct from "./pages/SuccessProduct";
 import PurchaseHistoryDetailsId from "./pages/PurchaseHistoryDetailsId";
 import MapList from "./pages/MapList";
 import MapPage from "./pages/MapPage";
+import BarrCodeDetails from "./pages/BarrCodeDetails";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -54,7 +55,6 @@ const App = () => {
   const [success, setSuccess] = useState(false);
   const [locationLocal, setLocationLocal] = useState(1);
   const [success2, setSuccess2] = useState(false);
-  console.log(locationLocal);
   const headers = {
     Authorization: `Token ${local}`,
   };
@@ -205,7 +205,10 @@ const App = () => {
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/qr-code" element={<QrCode />} />
               <Route path="/locations" element={<Locations />} />
-              <Route path="/price-address" element={<PriceAddress />} />
+              <Route
+                path="/price-address"
+                element={<PriceAddress Alert={FuncAlert} />}
+              />
               <Route path="/purchase-history" element={<PurchaseHistory />} />
               <Route path="/basket-product" element={<BasketProduct />} />
               <Route path="/delivery-address" element={<DeliveryAddress />} />
@@ -222,6 +225,10 @@ const App = () => {
               <Route
                 path="/map-page/:id"
                 element={<MapPage locationLocal={locationLocal} />}
+              />
+              <Route
+                path="/barr-code-details/:id"
+                element={<BarrCodeDetails />}
               />
             </Routes>
             <Footer />

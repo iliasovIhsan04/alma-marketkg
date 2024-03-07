@@ -7,7 +7,6 @@ import wallet from "../img/wallet.svg";
 import { url } from "../Api";
 import axios from "axios";
 import Loading from "../UI/Loading/Loading";
-import { IoIosArrowDown } from "react-icons/io";
 
 const PlacingOrders = ({ Alert }) => {
   const navigate = useNavigate();
@@ -103,8 +102,11 @@ const PlacingOrders = ({ Alert }) => {
 
       if (response.data.response === true) {
         setIsLoading(false);
-        shopCart.map((el) => localStorage.removeItem(`activePlus_${el.id}`));
-        shopCart.map((el) => localStorage.removeItem(`activeItems_${el.id}`));
+        shopCart.map(
+          (el) =>
+            localStorage.removeItem(`activePlus_${el.id}`) ||
+            localStorage.removeItem(`activeItems_${el.id}`)
+        );
         shopCart.map((el) => localStorage.removeItem(`activeItem_${el.id}`));
         localStorage.removeItem("myData");
         localStorage.removeItem("cart");
@@ -116,13 +118,15 @@ const PlacingOrders = ({ Alert }) => {
         localStorage.removeItem("shopCart");
         localStorage.removeItem("plusOne");
         localStorage.removeItem("false");
+        localStorage.removeItem("loation");
+        localStorage.removeItem("address_map");
         navigate("/success-product");
       }
     } catch (error) {
       if (!localStorage.getItem("address")) {
         Alert("Добавьте адрес прежде чем заказать!", "error");
       } else if (address.get_date) {
-        Alert("Заполните поле времени", "error");
+        Alert("Выберите время получения", "error");
       }
       setIsLoading(false);
     }
@@ -196,9 +200,11 @@ const PlacingOrders = ({ Alert }) => {
                   closeDate();
                 }}
               >
-                <label className="custom_radio_btn_date">
-                  {checkmark.one && <span className="checmark"></span>}
-                </label>
+                <div className="custom_radio_btn_date_block">
+                  <label className="custom_radio_btn_date">
+                    {checkmark.one && <span className="checmark"></span>}
+                  </label>
+                </div>
                 <label className="m-lg-3">Как можно быстрее</label>
               </div>
               <div
@@ -216,13 +222,6 @@ const PlacingOrders = ({ Alert }) => {
                 <label htmlFor="dateInput" className="m-lg-3">
                   Выбрать дату и время
                 </label>
-                <IoIosArrowDown
-                  size={20}
-                  style={{
-                    marginLeft: "auto",
-                    color: "#6B6B6B",
-                  }}
-                />
               </div>
             </div>
             {receiveInput && (

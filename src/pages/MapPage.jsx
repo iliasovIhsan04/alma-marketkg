@@ -27,7 +27,7 @@ const MapPage = ({ locationLocal }) => {
             src={more}
             alt=""
           />
-          <h2>{localStorage.getItem("address")}</h2>
+          <h2>{localStorage.getItem("address_map")}</h2>
         </div>
       </div>
       {JSON.parse(localStorage.getItem("loation")) === locationLocal ? (

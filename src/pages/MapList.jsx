@@ -37,7 +37,7 @@ const MapList = () => {
               onClick={() =>
                 navigate(`/map-page/${el.id}`) ||
                 localStorage.setItem("loation", el.id, el.address) ||
-                localStorage.setItem("address", el.address)
+                localStorage.setItem("address_map", el.address)
               }
             >
               <div className="list_address">

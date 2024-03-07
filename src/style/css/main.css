@@ -2047,9 +2047,10 @@ input#file-upload-button {
   height: 3px;
   text-align: center;
 }
-.list_block {
+.price_address_block,
+.map_list {
   width: 100%;
-  margin-top: 65px;
+  padding-top: 65px;
 }
 .list_box {
   width: 100%;
@@ -2078,7 +2079,7 @@ input#file-upload-button {
   font-size: 16px;
   font-weight: 700;
   color: #191919;
-  width: 85%;
+  width: 87%;
   margin: 0 !important;
 }
 .list_address {
@@ -2195,7 +2196,20 @@ input#file-upload-button {
   width: 100%;
   height: 1px;
 }
-
+.barrcode_btn_red {
+  border: none;
+  background: var(--red);
+  color: #fff;
+  font-size: 16px;
+  margin-top: 15px;
+}
+.status_false {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (max-width: 420px) {
   .harry_sp_box {
     max-width: 100%;
