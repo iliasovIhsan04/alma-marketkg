@@ -34,6 +34,8 @@ import NewAddress from "./pages/NewAddress";
 import PlacingOrders from "./pages/PlacingOrders";
 import SuccessProduct from "./pages/SuccessProduct";
 import PurchaseHistoryDetailsId from "./pages/PurchaseHistoryDetailsId";
+import MapList from "./pages/MapList";
+import MapPage from "./pages/MapPage";
 
 const App = () => {
   const [openAlert, setOpenAlert] = useState({
@@ -50,9 +52,9 @@ const App = () => {
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
   const [modal, setModal] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [modal2, setModal2] = useState(false);
+  const [locationLocal, setLocationLocal] = useState(1);
   const [success2, setSuccess2] = useState(false);
-
+  console.log(locationLocal);
   const headers = {
     Authorization: `Token ${local}`,
   };
@@ -215,6 +217,11 @@ const App = () => {
               <Route
                 path="/purchase-id/:id"
                 element={<PurchaseHistoryDetailsId />}
+              />
+              <Route path="/map-list" element={<MapList />} />
+              <Route
+                path="/map-page/:id"
+                element={<MapPage locationLocal={locationLocal} />}
               />
             </Routes>
             <Footer />

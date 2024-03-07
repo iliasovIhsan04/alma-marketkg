@@ -34,7 +34,7 @@ const Footer = () => {
       setMapAlma(false);
       setHomes(false);
       setCatalogs(false);
-    } else if (location.pathname == "/locations") {
+    } else if (location.pathname == "/map-list") {
       setMapAlma(true);
       setHomes(false);
       setCatalogs(false);
@@ -87,7 +87,7 @@ const Footer = () => {
           </div>
           <div className="flex_block">
             <NavLink
-              to="/locations"
+              to="/map-list"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               {mapAlma === true ? (
