@@ -24,7 +24,6 @@ const Settings = ({ Alert }) => {
   useEffect(() => {
     dispatch(auth());
   }, [dispatch]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputInfo, setInputInfo] = useState({
     notification: true,
     auto_brightness: true,
@@ -42,24 +41,6 @@ const Settings = ({ Alert }) => {
       });
     }
   }, [user]);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const [isWishSelected, setIsWishSelected] = useState("");
-  const handleCheckboxChange = (value) => {
-    if (selectedOption === value) {
-      setSelectedOption("");
-    } else {
-      setSelectedOption(value);
-    }
-  };
-  const [selectedOption, setSelectedOption] = useState("");
-  const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
   const data = {
     notification: inputInfo.notification,
     auto_brightness: inputInfo.auto_brightness,
@@ -109,7 +90,7 @@ const Settings = ({ Alert }) => {
             />
             <p className="header_name">Настройки</p>
             <div>
-              {/* {inputChanged ? (
+              {inputChanged ? (
                 <FaCheck
                   size={20}
                   onClick={handleSubmit}
@@ -117,10 +98,10 @@ const Settings = ({ Alert }) => {
                 />
               ) : (
                 <FaCheck size={20} style={{ color: "#aaaaaa" }} />
-              )} */}
+              )}
             </div>
           </div>
-          {/* <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div> */}
+          <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div>
         </div>
         <div className="container">
           <div className="settings_block">
