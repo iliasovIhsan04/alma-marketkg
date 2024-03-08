@@ -24,6 +24,12 @@ const PlacingOrders = ({ Alert }) => {
   };
   const shopCart = JSON.parse(localStorage.getItem("shopCart"));
 
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    setCart(cart);
+  }, [cart]);
+
   if (shopCart) {
     const cartIds = shopCart.map((el) => el.id);
     const idCount = cartIds.reduce((acc, id) => {
@@ -107,7 +113,9 @@ const PlacingOrders = ({ Alert }) => {
             localStorage.removeItem(`activePlus_${el.id}`) ||
             localStorage.removeItem(`activeItems_${el.id}`)
         );
-        shopCart.map((el) => localStorage.removeItem(`activeItem_${el.id}`));
+        cart.map((el) => {
+          localStorage.removeItem(`activeItem_${el.id}`);
+        });
         localStorage.removeItem("myData");
         localStorage.removeItem("cart");
         localStorage.removeItem("carts");

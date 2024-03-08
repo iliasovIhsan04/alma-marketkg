@@ -5,6 +5,7 @@ import ShopDetail from "./ShopDetail";
 import Search from "./Search";
 import Product from "./Product";
 import FeaturedProducts from "./FeaturedProducts";
+import PlacingOrders from "./PlacingOrders";
 
 const Project = ({ Alert }) => {
   const [modals, setModals] = useState(false);
@@ -49,6 +50,7 @@ const Project = ({ Alert }) => {
           path="product/:id"
           element={<Product Alert={Alert} datass={data} />}
         />
+
         <Route
           path="/featured-products"
           element={<FeaturedProducts saveToLocalStorage={saveToLocalStorage} />}

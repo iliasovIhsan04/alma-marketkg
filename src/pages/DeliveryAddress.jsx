@@ -13,8 +13,6 @@ const DeliveryAddress = () => {
   const getData = JSON.parse(localStorage.getItem(`address`));
   const [orderDelete, setOrderDelete] = useState([]);
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
-  const [addressAll, setAddressAll] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const headers = {
     Authorization: `Token ${local}`,

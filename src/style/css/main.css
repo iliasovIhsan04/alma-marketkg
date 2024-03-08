@@ -1816,23 +1816,18 @@ input#file-upload-button {
   color: rgb(107, 107, 107);
   line-height: 1.2;
 }
-.noti_title_block {
-  display: flex;
-  align-items: center;
-  justify-content: space-between !important;
-}
+
 .noti_title_block h2 {
   margin-bottom: 0px !important;
   font-size: 16px;
   font-weight: 600;
   color: rgb(25, 25, 25);
-  width: 330px;
-}
-.noti_active {
-  width: 10px;
-  height: 10px;
-  background: red;
-  border-radius: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
 }
 .notification_index {
   width: 100%;
@@ -1840,7 +1835,6 @@ input#file-upload-button {
   justify-content: center;
   align-items: center;
 }
-
 .notify {
   width: 40px;
   height: 40px;

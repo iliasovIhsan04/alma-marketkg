@@ -33,7 +33,7 @@ const Notifications = () => {
             src={more}
             alt=""
           />
-          <p className="header_name">Уведомление</p>
+          <p className="alma_title_header">Уведомление</p>
           <div />
         </div>
       </div>
@@ -44,7 +44,6 @@ const Notifications = () => {
               <div className="notifications_box" key={el.id}>
                 <div className="noti_title_block">
                   <h2>{el.title} </h2>
-                  <div className="noti_active"></div>
                 </div>
                 <p dangerouslySetInnerHTML={{ __html: el.description }}></p>
                 <span>{el.date}</span>
