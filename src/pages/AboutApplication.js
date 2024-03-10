@@ -27,7 +27,7 @@ const AboutApplication = () => {
               src={more}
               alt=""
             />
-            <p className="header_name">О приложении</p>
+            <p className="alma_title_header">О приложении</p>
             <div />
           </div>
         </div>

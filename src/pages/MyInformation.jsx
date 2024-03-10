@@ -129,10 +129,8 @@ const MyInformation = ({ Alert }) => {
     animal: false,
     car: false,
   });
-  const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [local, setLocal] = useState("");
-  const [list, setList] = useState([]);
   const { user } = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
