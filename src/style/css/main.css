@@ -2205,11 +2205,7 @@ input#file-upload-button {
   justify-content: center;
 }
 
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled),
-button:not(:disabled) {
-  background: #e4e4e4 !important;
+:where(.css-dev-only-do-not-override-1ae8k9u).ant-switch {
   width: 40px;
 }
 :where(.css-dev-only-do-not-override-1ae8k9u).ant-switch

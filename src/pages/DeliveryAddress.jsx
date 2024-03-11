@@ -98,7 +98,7 @@ const DeliveryAddress = () => {
                     </div>
                     <p className="project" style={{ margin: "0 10px" }}>
                       {el.street} {el.number} {el.building} {el.apartment}
-                      {el.floor}
+                            {el.floor}
                     </p>
                   </div>
                   <div className="icons_block">

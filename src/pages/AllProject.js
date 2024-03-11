@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Registration from "./Registration";
-import RegistrationQuestionnaire from "./RegistrationQuestionnaire";
 import Login from "./Login";
 import ResetThePassword from "./ResetThePassword";
 import Activation from "./Activation";
@@ -10,7 +9,6 @@ import NewResetThePassword from "./NewResetThePassword";
 import ToComeIn from "../components/ToComeIn";
 import ToHelpPage from "./ToHelpPage";
 import { AlertData } from "../UI/Alert/Alert";
-import Modal from "../UI/Modal/Modal";
 
 const AllProject = ({ setSuccess }) => {
   const [openAlert, setOpenAlert] = useState({
@@ -64,10 +62,6 @@ const AllProject = ({ setSuccess }) => {
             <Route
               path="/registration"
               element={<Registration Alert={FuncAlert} />}
-            />
-            <Route
-              path="/registration-questionnare"
-              element={<RegistrationQuestionnaire />}
             />
             <Route path="/login" element={<Login Alert={FuncAlert} />} />
             <Route
