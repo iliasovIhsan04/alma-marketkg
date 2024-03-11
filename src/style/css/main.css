@@ -2204,6 +2204,24 @@ input#file-upload-button {
   align-items: center;
   justify-content: center;
 }
+
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  background: #e4e4e4 !important;
+  width: 40px;
+}
+:where(.css-dev-only-do-not-override-1ae8k9u).ant-switch
+  .ant-switch-handle::before:checked {
+  background: red !important;
+}
+:where(.css-dev-only-do-not-override-1ae8k9u).ant-switch.ant-switch-checked:not(
+    .ant-switch-disabled
+  ) {
+  background: red !important;
+}
+
 @media (max-width: 420px) {
   .harry_sp_box {
     max-width: 100%;

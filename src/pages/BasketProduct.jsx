@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import more from "../img/more.svg";
 import { useNavigate } from "react-router";
 import cart_img from "../img/empty_cart.svg";
-import close from "../img/close-basket.svg";
 import { GoPlus } from "react-icons/go";
 import { HiOutlineMinusSmall } from "react-icons/hi2";
 
@@ -89,7 +88,6 @@ const BasketProduct = () => {
     const updatedCart = currentCart.filter((item) => item.id !== id);
     localStorage.setItem("carts", JSON.stringify(updatedCart));
 
-    // Remove the row element from DOM
     const rowElement = document.getElementById("row-" + id);
     if (rowElement) {
       rowElement.remove();

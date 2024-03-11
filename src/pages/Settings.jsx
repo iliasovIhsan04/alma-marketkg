@@ -2,64 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { url } from "../Api";
-import { useDispatch, useSelector } from "react-redux";
-import { auth } from "../Redux/reduser/auth";
-import { FaCheck } from "react-icons/fa6";
 import more from "../img/more.svg";
+import { Switch } from "antd";
 
 const Settings = ({ Alert }) => {
   const [openModalSetting, setOpenModalSetting] = useState(false);
   const isOpenModal1 = () => {
     setOpenModalSetting(true);
   };
-
   const closeOpenModal = () => {
     setOpenModalSetting(false);
   };
-
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.users);
-  const [inputChanged, setInputChanged] = useState(false);
-  useEffect(() => {
-    dispatch(auth());
-  }, [dispatch]);
-  const [inputInfo, setInputInfo] = useState({
-    notification: true,
-    auto_brightness: true,
-  });
   const [local, setLocal] = useState(localStorage.getItem("tokens"));
+  const [toogle, setToogle] = useState(false);
+  const [toogle2, setToogle2] = useState(false);
   const headers = {
     Authorization: `Token ${local}`,
   };
-  useEffect(() => {
-    if (user) {
-      setInputInfo({
-        ...inputInfo,
-        notification: user.notification,
-        auto_brightness: user.auto_brightness,
-      });
-    }
-  }, [user]);
-  const data = {
-    notification: inputInfo.notification,
-    auto_brightness: inputInfo.auto_brightness,
-  };
-
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post(url + "/auth/notification", data, {
-        headers,
-      });
-      if (response.data.response === true) {
-        Alert("Успешно изменен", "success");
-      }
-      setInputChanged(false);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   const deleteAccount = async () => {
     try {
       const response = await axios.get(url + "/auth/delete-account", {
@@ -77,6 +37,13 @@ const Settings = ({ Alert }) => {
     }
   };
 
+  const toogleNotifications = () => {
+    toogle ? setToogle(false) : setToogle(true);
+  };
+  const toogleBrightness = () => {
+    toogle2 ? setToogle2(false) : setToogle2(true);
+  };
+
   return (
     <div id="modal">
       <div className="settings">
@@ -89,38 +56,18 @@ const Settings = ({ Alert }) => {
               alt=""
             />
             <p className="header_name">Настройки</p>
-            <div>
-              {inputChanged ? (
-                <FaCheck
-                  size={20}
-                  onClick={handleSubmit}
-                  style={{ color: "#DC0200" }}
-                />
-              ) : (
-                <FaCheck size={20} style={{ color: "#aaaaaa" }} />
-              )}
-            </div>
+            <div></div>
           </div>
-          <div className={`hover_btn ${inputChanged ? "active" : ""}`}></div>
         </div>
         <div className="container">
           <div className="settings_block">
             <div className="toggle_block_alma">
               <div className="block_yr">
                 <p className="settings_title">Уведомления</p>
-                <label className="switch">
-                  <input
-                    onClick={() =>
-                      setInputInfo({
-                        ...inputInfo,
-                        notification: !inputInfo.notification,
-                      }) || setInputChanged(true)
-                    }
-                    type="checkbox"
-                    checked={inputInfo.notification}
-                  />
-                  <span className="slider_toggle round"></span>
-                </label>
+                <Switch onClick={toogleNotifications} />
+                {toogle
+                  ? localStorage.setItem("notifications", "toogleValue")
+                  : localStorage.removeItem("notifications")}
               </div>
               <p className="settings_kart">
                 Получайте уведомления об акциях и социальных предложениях
@@ -129,19 +76,10 @@ const Settings = ({ Alert }) => {
             <div className="toggle_block_alma">
               <div className="block_yr">
                 <p className="settings_title">Автояркость</p>
-                <label className="switch">
-                  <input
-                    onClick={() =>
-                      setInputInfo({
-                        ...inputInfo,
-                        auto_brightness: !inputInfo.auto_brightness,
-                      }) || setInputChanged(true)
-                    }
-                    type="checkbox"
-                    checked={inputInfo.auto_brightness}
-                  />
-                  <span className="slider_toggle round"></span>
-                </label>
+                <Switch onClick={toogleBrightness} />
+                {toogle2
+                  ? localStorage.setItem("brightness", "toogleValue2")
+                  : localStorage.removeItem("brightness")}
               </div>
               <p className="settings_kart">
                 Получайте уведомления об акциях и социальных предложениях

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Shop from "./Shop";
 import ShopDetail from "./ShopDetail";
 import Search from "./Search";
 import Product from "./Product";
 import FeaturedProducts from "./FeaturedProducts";
-import PlacingOrders from "./PlacingOrders";
 
 const Project = ({ Alert }) => {
   const [modals, setModals] = useState(false);

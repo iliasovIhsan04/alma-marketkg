@@ -1,21 +1,10 @@
 import React from "react";
-import { LuScrollText } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import more from "../img/more.svg";
-import alma_logot from "../../src/img/logo-alma.svg";
 import more_left from "../img/more-gray.svg";
-import profile from "../img/profile-color.svg";
-import setting from "../img/setting-two.svg";
-import help from "../img/help-color.svg";
-import info from "../img/info-color.svg";
-import logout from "../img/logout.svg";
 import line from "../img/Line 8.svg";
-
 const AboutApplication = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const data = useSelector((state) => state.users);
   return (
     <>
       <div id="modal">
