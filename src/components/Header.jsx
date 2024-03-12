@@ -6,6 +6,7 @@ import "../style/css/App.css";
 import "../style/css/media.css";
 import "../style/css/main.css";
 import { useNavigate } from "react-router-dom";
+import notification_iconc from "../img/notification-bing.svg";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,9 +24,10 @@ const Header = () => {
   return (
     <div className="nav relative">
       <div className="container nav_content">
-        <BiBell
-          className="fi"
-          color="#191919"
+        <img
+          className="more_img"
+          src={notification_iconc}
+          alt=""
           onClick={() => navigate("/notifications")}
         />
         <img className="alma_header_img" src={logoalma} alt="" />
