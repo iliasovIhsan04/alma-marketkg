@@ -10,7 +10,6 @@
   animation: modal_bek 0.5s ease;
   z-index: 99999999;
 }
-
 @keyframes modal_bek {
   0% {
     bottom: 200px;
@@ -20,7 +19,6 @@
     top: 0;
   }
 }
-
 .modal_bek_two .modal_bek_not {
   position: absolute;
   top: 0;

@@ -65,7 +65,9 @@ const PurchaseHistoryDetailsId = () => {
                     <p>{el.title}</p>
                     <div className="cost_count">
                       <p> {el.cost}</p>
-                      <span>{el.count}</span>
+                      <span>
+                        {el.count} <span>{el.price_for}</span>
+                      </span>
                     </div>
                   </div>
                 </div>

@@ -2266,3 +2266,51 @@ input#file-upload-button {
     width: 100%;
   }
 }
+@media (max-width: 400px) {
+  .harry_sp_box {
+    max-width: 100%;
+    height: 368px;
+  }
+  .harry_buy_title_block h1 {
+    font-size: 14px !important;
+  }
+  .harry_buy_title_block p {
+    font-size: 14px !important;
+  }
+  .harry_price_box {
+    width: 85px;
+    height: 85px;
+  }
+  .harry_price_box h1 {
+    margin-top: 25px;
+    font-size: 22px;
+  }
+  .prom_line_harry {
+    width: 42px !important;
+    height: 1.1px !important;
+    top: 63px;
+    bottom: 0;
+    left: 25px;
+    right: 0;
+    transform: rotate(165deg);
+  }
+  .harry_buy_img_block {
+    width: 205px !important;
+    height: 170px !important;
+  }
+  .harry_buy_date_block {
+    width: 140px !important;
+    height: 22px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+  }
+  .harry_list_prom {
+    position: absolute;
+    top: -9px;
+    right: 0;
+    bottom: 0;
+    left: 33px;
+    z-index: 996;
+    width: 100%;
+  }
+}

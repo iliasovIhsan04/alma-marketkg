@@ -23,7 +23,7 @@ const ToHelpPage = () => {
               src={more}
               alt=""
             />
-            <p className="header_name">Помощь</p>
+            <p className="alma_title_header">Помощь</p>
             <div></div>
           </div>
         </div>
@@ -38,19 +38,19 @@ const ToHelpPage = () => {
                 Наша поддержка проконсультирует Вас по любым возникшим вопросам
               </p>
               <div className="to_contact">
-                <a href="tel:+996705000003">
+                <a href="tel:+996508882056">
                   <div className="contact_box">
                     <img src={phone} alt="" />
                   </div>
                   <div></div>
                 </a>
-                <a href="https://t.me/+996705000003" target="_blank">
+                <a href="https://t.me/+996704616802" target="_blank">
                   <div className="contact_box">
                     <img src={whatsap} alt="" />
                   </div>
                   <div></div>
                 </a>
-                <a href="https://wa.me/+996705000003" target="_blank">
+                <a href="https://wa.me/+996704616802" target="_blank">
                   <div className="contact_box">
                     <img src={telegram} alt="" />
                   </div>
@@ -65,19 +65,19 @@ const ToHelpPage = () => {
                 новостей
               </p>
               <div className="to_contact">
-                <a href="tel:+996705000003">
+                <a href="https://www.instagram.com/almamarket.kg/">
                   <div className="contact_box">
                     <img src={instagram} alt="" />
                   </div>
                   <div></div>
                 </a>
-                <a href="https://t.me/+996705000003" target="_blank">
+                <a href="https://t.me/+996704616802" target="_blank">
                   <div className="contact_box">
                     <img src={tikTok} alt="" />
                   </div>
                   <div></div>
                 </a>
-                <a href="https://wa.me/+996705000003" target="_blank">
+                <a href="https://wa.me/+996704616802" target="_blank">
                   <div className="contact_box">
                     <img src={youtube} alt="" />
                   </div>
