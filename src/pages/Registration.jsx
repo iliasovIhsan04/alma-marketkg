@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
-import { LiaQuestionCircleSolid } from "react-icons/lia";
-import bekbekei from "../../src/img/bekbekei-h-logo.svg";
-import { HiArrowLongLeft } from "react-icons/hi2";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
