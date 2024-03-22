@@ -186,6 +186,7 @@ const PersonalArea = () => {
                       className="btn_come_in"
                       onClick={() =>
                         localStorage.removeItem("token") ||
+                        localStorage.removeItem("tokens") ||
                         navigate("/to-come-in")
                       }
                     >
