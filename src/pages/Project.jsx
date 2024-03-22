@@ -10,6 +10,11 @@ const Project = ({ Alert }) => {
   const [modals, setModals] = useState(false);
   const [data, setData] = useState([]);
   const [cart, setCart] = useState([]);
+  const [modalFilter, setModalFilter] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [sortingFilter, setSortingFilter] = useState(false);
+  const [sortingSuccessModal, setSortingSuccessModal] = useState(false);
 
   const saveToLocalStorage = (id) => {
     const itemToAdd = data.find((item) => item.id === id);
@@ -35,6 +40,12 @@ const Project = ({ Alert }) => {
           path="shop/:cat"
           element={
             <ShopDetail
+              modalFilter={successModal}
+              setModalFilter={setSuccessModal}
+              sortingFilter={sortingSuccessModal}
+              setSortingFilter={setSortingSuccessModal}
+              modal={modal}
+              setModal={setModal}
               data={data}
               setData={setData}
               saveToLocalStorage={saveToLocalStorage}

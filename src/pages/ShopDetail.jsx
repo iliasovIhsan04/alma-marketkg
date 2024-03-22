@@ -13,18 +13,24 @@ import { RiCloseLine } from "react-icons/ri";
 import search1 from "../img/search-icon-rel.svg";
 import shape_heart from "../img/Shape-heart.svg";
 import heart from "../img/heard.svg";
+import ModalFilter from "../UI/ModalFilter/ModalFilter";
 const MIN = 40;
 const MAX = 500;
-const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
+const ShopDetail = ({
+  data,
+  setData,
+  saveToLocalStorage,
+  modalFilter,
+  setModalFilter,
+  sortingFilter,
+  setSortingFilter,
+}) => {
   const [tabs, setTabs] = useState([]);
   const { cat, name } = useParams();
-  const [query, setQuery] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lastClicked, setLastClicked] = useState("dataClicks");
   const navigate = useNavigate();
   const [sub_cat, setSubCat] = useState(0);
-  const [filter, setFilter] = useState(false);
-  const [filters, setFilters] = useState(false);
   const [loading, setLoading] = useState(true);
   const [all, setAll] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,7 +64,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
     } finally {
-      setFilters(false);
+      setSortingFilter(false);
     }
   };
   const fetchData = async (subCatId) => {
@@ -69,7 +75,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
     } finally {
-      setFilters(false);
+      setSortingFilter(false);
       setRequests({
         budget: [MIN, MAX],
       });
@@ -85,7 +91,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
     } finally {
-      setFilters(false);
+      setSortingFilter(false);
     }
   };
   const dataClicks = () => {
@@ -112,7 +118,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
       five: false,
       six: false,
     });
-    setFilter(false);
+    setModalFilter(false);
     setLoading(true);
     axios
       .get(url + `/product/sub-categories/${cat}`)
@@ -141,7 +147,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
       five: false,
       six: true,
     });
-    setFilter(false);
+    setModalFilter(false);
     try {
       const response = await axios.get(`${url}/${api}?ordering=-title`);
       const categoryProducts = response.data;
@@ -161,7 +167,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
       five: true,
       six: false,
     });
-    setFilter(false);
+    setModalFilter(false);
     setLoading(true);
     setData([]);
     try {
@@ -184,7 +190,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
       five: false,
       six: false,
     });
-    setFilter(false);
+    setModalFilter(false);
     setLoading(true);
     setData([]);
     try {
@@ -208,7 +214,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
       five: false,
       six: false,
     });
-    setFilter(false);
+    setModalFilter(false);
     setLoading(true);
     setData([]);
     try {
@@ -231,7 +237,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
       five: false,
       six: false,
     });
-    setFilter(false);
+    setModalFilter(false);
     setLoading(true);
     setData([]);
     try {
@@ -303,15 +309,14 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
             <div className="filter">
               <div
                 className="dnow d-flex align-items-center justify-content-center"
-                onClick={() => setFilters(true)}
+                onClick={() => setSortingFilter(true)}
               >
                 <img className="icons" src={filter_img} alt="" />
                 <h6 className="title_one mt_one">Фильтр</h6>
               </div>
-
               <div
                 className="dnow d-flex align-items-center justify-content-center"
-                onClick={() => setFilter(true)}
+                onClick={() => setModalFilter(true)}
               >
                 <img src={transfer} alt="" />
                 <h6 className="title_one mt_one">Сортировка</h6>
@@ -322,14 +327,14 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
         <div className="shop_details_modal">
           <div>
             <div>
-              {filters === true && (
-                <div className="filters_oll" onClick={() => setFilters(false)}>
+              {sortingFilter && (
+                <ModalFilter setModal={setSortingFilter}>
                   <div className="order" onClick={(e) => e.stopPropagation()}>
                     <img className="line_modal" src={lineModal} alt="" />
                     <RiCloseLine
                       size={25}
                       className="line_x"
-                      onClick={() => setFilters(false)}
+                      onClick={() => setSortingFilter(false)}
                     />
                     <div className="container iner">
                       <h3 className="title_h4 filtr_title">Фильтр</h3>
@@ -366,7 +371,7 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </ModalFilter>
               )}
             </div>
           </div>
@@ -436,15 +441,15 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
         </div>
       </div>
       {data.map((el) => (
-        <div className="">
-          {filter === true && (
-            <div className="filter_oll_1" onClick={() => setFilter(false)}>
-              <div className="order" onClick={(e) => e.stopPropagation()}>
+        <>
+          {modalFilter && (
+            <ModalFilter setModal={setModalFilter}>
+              <div className="order">
                 <img className="line_modal" src={lineModal} alt="" />
                 <RiCloseLine
                   size={25}
                   className="line_x"
-                  onClick={() => setFilter(false)}
+                  onClick={() => setModalFilter(false)}
                 />
                 <div className="container">
                   <div className="d-flex justify-content-between">
@@ -513,9 +518,24 @@ const ShopDetail = ({ data, setData, saveToLocalStorage }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </ModalFilter>
           )}
-        </div>
+
+          {/* <div className="">
+            {filter === true && (
+              <div className="filter_oll_1" onClick={() => setFilter(false)}>
+                <div className="order" onClick={(e) => e.stopPropagation()}>
+                  <img className="line_modal" src={lineModal} alt="" />
+                  <RiCloseLine
+                    size={25}
+                    className="line_x"
+                    onClick={() => setFilter(false)}
+                  />
+                </div>
+              </div>
+            )}
+          </div> */}
+        </>
       ))}
     </>
   );
