@@ -34,8 +34,6 @@
     "react-text-mask": "^5.5.0",
     "react-toastify": "^9.1.3",
     "react-transition-group": "^4.4.5",
-    "react-yandex-map": "^4.6.0",
-    "react-yandex-maps": "^4.6.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
