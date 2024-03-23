@@ -57,7 +57,11 @@ const HarryBuyDeatils = () => {
                     <div className="harry_buy_img_block">
                       <img src={el.img} alt="" />
                     </div>
-                    <div className="harry_buy_date_block">{el.date}</div>
+                    <div className="harry_buy_date_block">
+                      <div className="buy_id_data_white1"></div>
+                      {el.date}
+                      <div className="buy_id_data_white"></div>
+                    </div>
                   </div>
                 </div>
               ))}

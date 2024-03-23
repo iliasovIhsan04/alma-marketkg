@@ -442,8 +442,8 @@ p {
 }
 .sp_box {
   margin: 10px 0 0 0;
-  width: 260px;
-  height: 260px;
+  width: 260px !important;
+  height: 260px !important;
   border: 2px solid var(--red);
   border-radius: 20px;
   padding: 10px;
@@ -487,14 +487,15 @@ p {
   align-items: center;
 }
 .list_prom {
-  background: url("../../img/list.svg") no-repeat;
+  background: url("../../img/list-flove.svg") no-repeat;
   position: absolute;
   top: -5px;
   right: 0;
   bottom: 0;
   left: 25px;
   z-index: 996;
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .harry_list_prom {
   background: url("../../img/list-big.svg") no-repeat;
@@ -512,9 +513,10 @@ p {
   margin: 5px 0 0 12px;
 }
 .list_prom p {
-  font-size: 11px;
+  font-size: 10px;
   color: #fff;
-  margin: 3px 0 0 8px;
+  margin-top: 5px;
+  margin-right: 3px;
 }
 .harry_price_box h1 {
   font-size: 30px;
@@ -529,15 +531,23 @@ p {
   color: #ffffff;
 }
 .alma_price_box h1 {
-  margin-top: 20px;
-  font-size: 22px;
+  margin-top: 21px;
+  font-size: 20px;
   font-weight: 800;
   color: #fff;
   margin-bottom: -2px;
+  display: flex;
+}
+.alma_price_box h1 > p {
+  font-size: 10px;
+  color: #fff;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 4.4px 0 0 1.3px;
 }
 .alma_price_box span {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 500 !important;
   color: #ffffff;
 }
 .special_image {
@@ -561,8 +571,9 @@ p {
 }
 .sp_title_text_block h1,
 .harry_buy_title_block h1 {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1.1;
   color: #191919;
   margin-bottom: 0px !important;
   overflow: hidden;
@@ -620,7 +631,7 @@ p {
 }
 .price_date_block,
 .harry_buy_date_block {
-  width: 100px;
+  width: 105px;
   height: 20px;
   background: #68b936;
   margin: 0 auto;
@@ -647,6 +658,35 @@ p {
   left: -7px;
   bottom: 0;
 }
+.buy_id_data_white1 {
+  width: 21.5px;
+  height: 21.5px !important;
+  height: 100%;
+  background: #fff;
+  margin-left: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 3.7px;
+  left: -11px;
+  bottom: 0;
+}
+.buy_id_data_white {
+  width: 21.5px;
+  height: 21.5px !important;
+  height: 100%;
+  background: #fff;
+  margin-left: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 3.6px;
+  right: 10px;
+  bottom: 0;
+  right: -11px;
+}
 .data_white {
   width: 15px;
   height: 15px !important;
@@ -666,7 +706,7 @@ p {
   width: 150px !important;
   height: 30px !important;
   font-weight: 800 !important;
-  font-size: 18px !important;
+  font-size: 17px !important;
 }
 .get_block_all_block {
   overflow-y: hidden;
@@ -850,16 +890,16 @@ p {
 .prom_line,
 .prom_line_harry {
   width: 30px;
-  height: 1.2px;
+  height: 1.1px;
   border-radius: 5px;
   background: #ffffff;
   position: absolute;
-  top: 53px;
+  top: 52px;
   bottom: 0;
-  left: 21px;
+  left: 20.5px;
   right: 0;
   z-index: 998;
-  transform: rotate(160deg);
+  transform: rotate(165deg);
 }
 .prom_line_harry {
   width: 48px !important;
@@ -2250,17 +2290,24 @@ input#file-upload-button {
 .otp_container {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
-
+.otp_container input {
+  background: #f5f7fa !important;
+  width: 40px !important;
+  height: 40px !important;
+  outline: none;
+  margin: 0 10px 0 0 !important;
+}
 @media (max-width: 420px) {
   .harry_sp_box {
     max-width: 100%;
-    height: 378px;
+    height: 370px;
   }
   .harry_buy_title_block h1 {
     font-size: 16px !important;
   }
+
   .harry_buy_title_block p {
     font-size: 16px !important;
   }
@@ -2286,10 +2333,10 @@ input#file-upload-button {
     height: 180px !important;
   }
   .harry_buy_date_block {
-    width: 140px !important;
-    height: 25px !important;
+    width: 120px !important;
+    height: 20px !important;
     font-weight: 700 !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
   .harry_list_prom {
     position: absolute;
@@ -2299,6 +2346,35 @@ input#file-upload-button {
     left: 33px;
     z-index: 996;
     width: 100%;
+  }
+  .data_white1 {
+    width: 15px;
+    height: 15px !important;
+    height: 100%;
+    background: #fff;
+    margin-left: auto;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2.5px;
+    left: -7px;
+    bottom: 0;
+  }
+  .buy_id_data_white1 {
+    width: 15px;
+    height: 15px !important;
+    top: 2.5px;
+    left: -7px;
+    bottom: 0;
+  }
+  .buy_id_data_white {
+    width: 15px;
+    height: 15px !important;
+    top: 2.5px;
+    right: 10px;
+    bottom: 0;
+    right: -7px;
   }
 }
 @media (max-width: 400px) {
@@ -2334,10 +2410,10 @@ input#file-upload-button {
     height: 170px !important;
   }
   .harry_buy_date_block {
-    width: 140px !important;
-    height: 22px !important;
+    width: 120px !important;
+    height: 20px !important;
     font-weight: 600 !important;
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
   .harry_list_prom {
     position: absolute;
@@ -2347,5 +2423,15 @@ input#file-upload-button {
     left: 33px;
     z-index: 996;
     width: 100%;
+  }
+}
+@media (max-width: 380px) {
+  .harry_sp_box {
+    height: 340px;
+  }
+}
+@media (max-width: 360px) {
+  .harry_sp_box {
+    height: 310px;
   }
 }
