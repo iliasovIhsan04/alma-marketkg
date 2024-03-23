@@ -631,6 +631,36 @@ p {
   justify-content: center;
   color: #fff;
   bottom: 0px !important;
+  position: relative;
+}
+.data_white1 {
+  width: 15px;
+  height: 15px !important;
+  height: 100%;
+  background: #fff;
+  margin-left: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2.5px;
+  left: -7px;
+  bottom: 0;
+}
+.data_white {
+  width: 15px;
+  height: 15px !important;
+  height: 100%;
+  background: #fff;
+  margin-left: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2.5px;
+  right: 10px;
+  bottom: 0;
+  right: -7px;
 }
 .harry_buy_date_block {
   width: 150px !important;
@@ -2216,6 +2246,11 @@ input#file-upload-button {
     .ant-switch-disabled
   ) {
   background: red !important;
+}
+.otp_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 @media (max-width: 420px) {

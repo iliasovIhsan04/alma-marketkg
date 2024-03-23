@@ -10,6 +10,7 @@ import {
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { url } from "../Api";
+import OtpInput from "otp-input-react";
 
 const Activation = ({ Alert, setModal }) => {
   const navigate = useNavigate();
@@ -85,14 +86,15 @@ const Activation = ({ Alert, setModal }) => {
           <p>Мы отправили 6х значный код на ваш номер телефона</p>
           <form onSubmit={handleSubmit}>
             <label className="confirmation_label">Код подверждения</label>
-            <input
-              style={{ textAlign: "center" }}
-              className="input_form confirm_input"
+            <OtpInput
               value={code}
-              type="text"
-              placeholder="Введите код"
-              onChange={(e) => setCode(e.target.value)}
-            />
+              onChange={(value) => setCode(value)}
+              OTPLength={6}
+              OtpType="number"
+              disabled={false}
+              autoFocus
+              className="otp_container"
+            ></OtpInput>
             {error.code && <p className="red">{error.code}</p>}
             <button
               disabled={loading}

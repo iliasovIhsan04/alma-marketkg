@@ -55,7 +55,11 @@ const HarryBuy = ({ token }) => {
                     <div className="price_img_block">
                       <img src={el.img} alt="" />
                     </div>
-                    <div className="price_date_block">{el.date}</div>
+                    <div className="price_date_block">
+                      <div className="data_white1"></div>
+                      {el.date}
+                      <div className="data_white"></div>
+                    </div>
                   </div>
                 </div>
               ))}
