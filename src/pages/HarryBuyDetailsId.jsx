@@ -48,7 +48,9 @@ const HarryBuyDetailsId = () => {
                 <div className="price_title_text_block">
                   <div className="alma_price_block">
                     <div className="harry_price_box">
-                      <h1>{harryBuy.prom_price}</h1>{" "}
+                      <h1>
+                        {harryBuy.prom_price} <p>00</p>
+                      </h1>
                       <span>{harryBuy.price}</span>
                     </div>
                     <div className="harry_list_prom">
@@ -65,7 +67,11 @@ const HarryBuyDetailsId = () => {
                 <div className="harry_buy_img_block">
                   <img src={harryBuy.img} alt="" />
                 </div>
-                <div className="harry_buy_date_block">{harryBuy.date}</div>
+                <div className="harry_buy_date_block">
+                  <div className="buy_id_data_white1"></div>
+                  {harryBuy.date}
+                  <div className="buy_id_data_white"></div>
+                </div>
               </div>
             </div>
           </div>

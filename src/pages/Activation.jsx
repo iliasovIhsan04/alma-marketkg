@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import Loading from "../UI/Loading/Loading";
@@ -61,11 +61,18 @@ const Activation = ({ Alert, setModal }) => {
         }
         setLoading(false);
       } catch (error) {
+        setError(error.response.data);
         dispatch(registerFailure(error.message));
       }
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (error.code) {
+      Alert("Ведите только цифры!", "error");
+    }
+  }, [error.code]);
 
   return (
     <div id="modal">
@@ -95,7 +102,6 @@ const Activation = ({ Alert, setModal }) => {
               autoFocus
               className="otp_container"
             ></OtpInput>
-            {error.code && <p className="red">{error.code}</p>}
             <button
               disabled={loading}
               style={{ marginTop: 20 }}

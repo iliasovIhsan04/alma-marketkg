@@ -41,7 +41,10 @@ const HarryBuyDeatils = () => {
                     <div className="price_title_text_block">
                       <div className="alma_price_block">
                         <div className="harry_price_box">
-                          <h1>{el.prom_price}</h1> <span>{el.price}</span>
+                          <h1>
+                            {el.prom_price} <p>00</p>
+                          </h1>
+                          <span>{el.price}</span>
                         </div>
                         <div className="harry_list_prom">
                           <p className="harry_percentage">{el.percentage}</p>

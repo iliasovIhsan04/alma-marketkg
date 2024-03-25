@@ -508,7 +508,7 @@ p {
   width: 100%;
 }
 .harry_percentage {
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   margin: 5px 0 0 12px;
 }
@@ -524,6 +524,14 @@ p {
   color: #fff;
   font-weight: 800;
   margin-bottom: 0px !important;
+  display: flex;
+}
+.harry_price_box h1 > p {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 4.4px 0 0 1.3px;
 }
 .harry_price_box span {
   font-size: 18px;
@@ -2304,6 +2312,13 @@ input#file-upload-button {
     max-width: 100%;
     height: 370px;
   }
+  .harry_percentage {
+    font-size: 10px;
+    margin: 5px 0 0 8px;
+  }
+  .harry_price_box span {
+    font-size: 16px;
+  }
   .harry_buy_title_block h1 {
     font-size: 16px !important;
   }
@@ -2312,19 +2327,22 @@ input#file-upload-button {
     font-size: 16px !important;
   }
   .harry_price_box {
-    width: 95px;
-    height: 95px;
+    width: 80px;
+    height: 80px;
   }
   .harry_price_box h1 {
-    margin-top: 27px;
-    font-size: 28px;
+    margin-top: 25px;
+    font-size: 24px;
+  }
+  .harry_price_box h1 > p {
+    font-size: 12px;
   }
   .prom_line_harry {
-    width: 45px !important;
-    height: 1.1px !important;
-    top: 73px;
+    width: 38px !important;
+    height: 1.3px !important;
+    top: 65.5px;
     bottom: 0;
-    left: 25px;
+    left: 22px;
     right: 0;
     transform: rotate(165deg);
   }
@@ -2332,20 +2350,14 @@ input#file-upload-button {
     width: 215px !important;
     height: 180px !important;
   }
-  .harry_buy_date_block {
-    width: 120px !important;
-    height: 20px !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-  }
   .harry_list_prom {
     position: absolute;
-    top: -9px;
+    top: -6px;
     right: 0;
     bottom: 0;
     left: 33px;
     z-index: 996;
-    width: 100%;
+    background: url("../../img/list-flove.svg") no-repeat !important;
   }
   .data_white1 {
     width: 15px;
@@ -2361,26 +2373,17 @@ input#file-upload-button {
     left: -7px;
     bottom: 0;
   }
-  .buy_id_data_white1 {
-    width: 15px;
-    height: 15px !important;
-    top: 2.5px;
-    left: -7px;
-    bottom: 0;
-  }
-  .buy_id_data_white {
-    width: 15px;
-    height: 15px !important;
-    top: 2.5px;
-    right: 10px;
-    bottom: 0;
-    right: -7px;
-  }
 }
 @media (max-width: 400px) {
   .harry_sp_box {
     max-width: 100%;
     height: 368px;
+  }
+  .harry_price_box h1 > p {
+    font-size: 10px;
+  }
+  .harry_percentage {
+    margin: 5px 0 0 8px;
   }
   .harry_buy_title_block h1 {
     font-size: 14px !important;
@@ -2388,20 +2391,16 @@ input#file-upload-button {
   .harry_buy_title_block p {
     font-size: 14px !important;
   }
-  .harry_price_box {
-    width: 85px;
-    height: 85px;
-  }
   .harry_price_box h1 {
     margin-top: 25px;
-    font-size: 22px;
+    font-size: 20px;
   }
   .prom_line_harry {
-    width: 42px !important;
-    height: 1.5px !important;
-    top: 64px;
+    width: 38px !important;
+    height: 1.3px !important;
+    top: 60.5px;
     bottom: 0;
-    left: 25px;
+    left: 22px;
     right: 0;
     transform: rotate(165deg);
   }
@@ -2409,29 +2408,48 @@ input#file-upload-button {
     width: 205px !important;
     height: 170px !important;
   }
-  .harry_buy_date_block {
-    width: 120px !important;
-    height: 20px !important;
-    font-weight: 600 !important;
-    font-size: 12px !important;
-  }
   .harry_list_prom {
     position: absolute;
-    top: -9px;
+    top: -6px;
     right: 0;
     bottom: 0;
-    left: 33px;
+    left: 30px;
     z-index: 996;
     width: 100%;
+  }
+  .harry_price_box {
+    width: 75px;
+    height: 75px;
+  }
+  .harry_buy_img_block {
+    width: 210px !important;
+    height: 180px !important;
   }
 }
 @media (max-width: 380px) {
   .harry_sp_box {
     height: 340px;
   }
+  .harry_buy_img_block {
+    width: 200px !important;
+    height: 160px !important;
+  }
 }
 @media (max-width: 360px) {
   .harry_sp_box {
     height: 310px;
+  }
+  .harry_buy_img_block {
+    width: 180px !important;
+    height: 150px !important;
+  }
+}
+@media (max-width: 340px) {
+  .harry_sp_box {
+    height: 300px;
+  }
+  .harry_buy_img_block {
+    width: 170px !important;
+    height: 130px !important;
   }
 }
