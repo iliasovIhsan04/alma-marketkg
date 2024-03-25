@@ -102,7 +102,9 @@ textarea {
   -ms-user-select: auto !important;
   user-select: auto !important;
 }
-
+input:focus {
+  border: 1px solid #191919 !important;
+}
 ::-webkit-scrollbar {
   display: none !important;
   width: 0px;
