@@ -9,6 +9,7 @@ import NewResetThePassword from "./NewResetThePassword";
 import ToComeIn from "../components/ToComeIn";
 import ToHelpPage from "./ToHelpPage";
 import { AlertData } from "../UI/Alert/Alert";
+import ToCome from "../components/ToCome";
 
 const AllProject = ({ setSuccess }) => {
   const [openAlert, setOpenAlert] = useState({
@@ -54,7 +55,8 @@ const AllProject = ({ setSuccess }) => {
         )}
         <div>
           <Routes>
-            <Route path="to-come-in" element={<ToComeIn />} />
+            {/* <Route path="to-come-in" element={<ToComeIn />} /> */}
+            <Route path="/to-come-in" element={<ToCome />} />
             <Route
               path="/activation"
               element={<Activation setModal={setSuccess} Alert={FuncAlert} />}
